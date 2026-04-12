@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
+=======
+    <Compile Include="botonRedondeado.cs">
+      <SubType>Component</SubType>
+    </Compile>
+>>>>>>> dbe4ef3 (Agregué textbox y botones a la festión del inventario, cree nuevos botones, labels, textbox y paneles redondeados por mamona.)
     <Compile Include="Editar_InfPaciente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,8 +70,20 @@
     <Compile Include="Ingreso_Paciente.Designer.cs">
       <DependentUpon>Ingreso_Paciente.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
+=======
+    <Compile Include="labelRedondeado.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="panelRedondeado.cs">
+      <SubType>Component</SubType>
+    </Compile>
+>>>>>>> dbe4ef3 (Agregué textbox y botones a la festión del inventario, cree nuevos botones, labels, textbox y paneles redondeados por mamona.)
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="textboxRedondeado.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <EmbeddedResource Include="Editar_InfPaciente.resx">
       <DependentUpon>Editar_InfPaciente.cs</DependentUpon>
     </EmbeddedResource>

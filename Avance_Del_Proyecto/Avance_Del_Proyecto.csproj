@@ -46,7 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BotonRedondeado.cs">
+    <Compile Include="botonRedondeado.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Editar_InfPaciente.cs">
@@ -76,8 +76,14 @@
     <Compile Include="labelRedondeado.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="panelRedondeado.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="textboxRedondeado.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <EmbeddedResource Include="Editar_InfPaciente.resx">
       <DependentUpon>Editar_InfPaciente.cs</DependentUpon>
     </EmbeddedResource>

@@ -11,13 +11,13 @@ using System.ComponentModel;
 namespace Avance_Del_Proyecto
 {
     [ToolboxItem(true)]
-    public class botonRedondeado : Button
+    public class panelRedondeado : Panel
     {
         private int borderRadius = 20;
         public int BorderRadius
         {
             get => borderRadius;
-            set {  borderRadius = value; this.Invalidate(); }
+            set { borderRadius = value; this.Invalidate(); }
         }
         protected override void OnPaint(PaintEventArgs pevent)
         {
@@ -33,6 +33,9 @@ namespace Avance_Del_Proyecto
             path.CloseFigure();
 
             this.Region = new Region(path);
+
+            using (SolidBrush brush = new SolidBrush(this.BackColor))
+            { pevent.Graphics.FillPath(brush, path); }
 
             using (Pen pen = new Pen(this.Parent.BackColor, 2))
             {

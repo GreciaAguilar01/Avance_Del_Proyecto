@@ -11,14 +11,29 @@ using System.ComponentModel;
 namespace Avance_Del_Proyecto
 {
     [ToolboxItem(true)]
-    public class botonRedondeado : Button
+    public class textboxRedondeado : UserControl
     {
+        private TextBox textBox1;
         private int borderRadius = 20;
-        public int BorderRadius
+        private Color borderColor = Color.Gray;
+
+        public textboxRedondeado()
         {
-            get => borderRadius;
-            set {  borderRadius = value; this.Invalidate(); }
+            textBox1 = new TextBox();
+            textBox1.BorderStyle = BorderStyle.None;
+            textBox1.Font = new Font("Comic Sans MS", 10);
+            textBox1.BackColor = ColorTranslator.FromHtml("#F2CFB0");
+            textBox1.Location = new Point(10, 7);
+
+            this.Controls.Add(textBox1);
+            this.Padding = new Padding(10, 7, 10, 7);
+            this.Size = new Size(200,30);
+            this.BackColor = ColorTranslator.FromHtml("#F2CFB0");
         }
+        public string TextValue { get => textBox1.Text; set => textBox1.Text = value; }
+
+        public int BorderRadius
+        {get => borderRadius; set { borderRadius = value; this.Invalidate(); }}
         protected override void OnPaint(PaintEventArgs pevent)
         {
             base.OnPaint(pevent);
@@ -35,9 +50,12 @@ namespace Avance_Del_Proyecto
             this.Region = new Region(path);
 
             using (Pen pen = new Pen(this.Parent.BackColor, 2))
-            {
-                pevent.Graphics.DrawPath(pen, path);
-            }
+            {pevent.Graphics.DrawPath(pen, path);}
+        }
+        protected override void OnResize(EventArgs e)
+        {
+            base.OnResize(e);
+            textBox1.Width = this.Width - 20;
         }
     }
 }

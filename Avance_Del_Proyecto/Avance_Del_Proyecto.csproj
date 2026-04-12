@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BotonRedondeado.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Editar_InfPaciente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,11 +61,20 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Inventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario.Designer.cs">
+      <DependentUpon>Inventario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ingreso_Paciente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Ingreso_Paciente.Designer.cs">
       <DependentUpon>Ingreso_Paciente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="labelRedondeado.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,6 +86,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ingreso_Paciente.resx">
       <DependentUpon>Ingreso_Paciente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario.resx">
+      <DependentUpon>Inventario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

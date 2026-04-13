@@ -46,6 +46,7 @@
             this.txtProducto = new Avance_Del_Proyecto.textboxRedondeado();
             this.txtCantidad = new Avance_Del_Proyecto.textboxRedondeado();
             this.lblTitulo = new Avance_Del_Proyecto.labelRedondeado();
+            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelProductos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).BeginInit();
@@ -78,13 +79,14 @@
             this.panelProductos.AutoScroll = true;
             this.panelProductos.BackColor = System.Drawing.Color.White;
             this.panelProductos.BorderRadius = 20;
+            this.panelProductos.Controls.Add(this.label1);
             this.panelProductos.Controls.Add(this.txtBuscar);
             this.panelProductos.Controls.Add(this.dgvInventario);
-            this.panelProductos.Location = new System.Drawing.Point(266, 5);
+            this.panelProductos.Location = new System.Drawing.Point(265, 5);
             this.panelProductos.Margin = new System.Windows.Forms.Padding(5, 5, 0, 5);
             this.panelProductos.Name = "panelProductos";
             this.panelProductos.Padding = new System.Windows.Forms.Padding(10);
-            this.panelProductos.Size = new System.Drawing.Size(508, 341);
+            this.panelProductos.Size = new System.Drawing.Size(509, 341);
             this.panelProductos.TabIndex = 3;
             // 
             // txtBuscar
@@ -98,7 +100,7 @@
             this.txtBuscar.Location = new System.Drawing.Point(345, 4);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtBuscar.Size = new System.Drawing.Size(150, 25);
+            this.txtBuscar.Size = new System.Drawing.Size(151, 25);
             this.txtBuscar.TabIndex = 1;
             this.txtBuscar.TextValue = "";
             // 
@@ -115,7 +117,7 @@
             this.dgvInventario.Location = new System.Drawing.Point(10, 32);
             this.dgvInventario.Margin = new System.Windows.Forms.Padding(10);
             this.dgvInventario.Name = "dgvInventario";
-            this.dgvInventario.Size = new System.Drawing.Size(488, 301);
+            this.dgvInventario.Size = new System.Drawing.Size(489, 301);
             this.dgvInventario.TabIndex = 0;
             this.dgvInventario.Paint += new System.Windows.Forms.PaintEventHandler(this.dgvInventario_Paint);
             // 
@@ -143,7 +145,7 @@
             this.panelBotones.Margin = new System.Windows.Forms.Padding(0, 5, 5, 5);
             this.panelBotones.Name = "panelBotones";
             this.panelBotones.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.panelBotones.Size = new System.Drawing.Size(256, 341);
+            this.panelBotones.Size = new System.Drawing.Size(255, 341);
             this.panelBotones.TabIndex = 2;
             // 
             // btnLimpiar
@@ -159,7 +161,7 @@
             this.btnLimpiar.Location = new System.Drawing.Point(15, 297);
             this.btnLimpiar.Margin = new System.Windows.Forms.Padding(0);
             this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(227, 30);
+            this.btnLimpiar.Size = new System.Drawing.Size(226, 30);
             this.btnLimpiar.TabIndex = 11;
             this.btnLimpiar.Text = "LIMPIAR";
             this.btnLimpiar.UseVisualStyleBackColor = false;
@@ -177,7 +179,7 @@
             this.btnEliminar.Location = new System.Drawing.Point(15, 265);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(0);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(227, 30);
+            this.btnEliminar.Size = new System.Drawing.Size(226, 30);
             this.btnEliminar.TabIndex = 10;
             this.btnEliminar.Text = "ELIMINAR";
             this.btnEliminar.UseVisualStyleBackColor = false;
@@ -195,7 +197,7 @@
             this.btnEditar.Location = new System.Drawing.Point(14, 233);
             this.btnEditar.Margin = new System.Windows.Forms.Padding(0);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(227, 30);
+            this.btnEditar.Size = new System.Drawing.Size(226, 30);
             this.btnEditar.TabIndex = 9;
             this.btnEditar.Text = "EDITAR";
             this.btnEditar.UseVisualStyleBackColor = false;
@@ -213,7 +215,7 @@
             this.btnAgregar.Location = new System.Drawing.Point(15, 201);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(0);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(227, 30);
+            this.btnAgregar.Size = new System.Drawing.Size(226, 30);
             this.btnAgregar.TabIndex = 8;
             this.btnAgregar.Text = "AGREGAR";
             this.btnAgregar.UseVisualStyleBackColor = false;
@@ -249,7 +251,7 @@
             this.txtFecha.Location = new System.Drawing.Point(15, 118);
             this.txtFecha.Name = "txtFecha";
             this.txtFecha.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtFecha.Size = new System.Drawing.Size(227, 25);
+            this.txtFecha.Size = new System.Drawing.Size(226, 25);
             this.txtFecha.TabIndex = 5;
             this.txtFecha.TextValue = "";
             // 
@@ -264,7 +266,7 @@
             this.txtCodigo.Location = new System.Drawing.Point(15, 164);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtCodigo.Size = new System.Drawing.Size(227, 25);
+            this.txtCodigo.Size = new System.Drawing.Size(226, 25);
             this.txtCodigo.TabIndex = 4;
             this.txtCodigo.TextValue = "";
             // 
@@ -299,7 +301,7 @@
             this.txtProducto.Location = new System.Drawing.Point(15, 26);
             this.txtProducto.Name = "txtProducto";
             this.txtProducto.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtProducto.Size = new System.Drawing.Size(227, 25);
+            this.txtProducto.Size = new System.Drawing.Size(226, 25);
             this.txtProducto.TabIndex = 1;
             this.txtProducto.TextValue = "";
             // 
@@ -314,7 +316,7 @@
             this.txtCantidad.Location = new System.Drawing.Point(15, 72);
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtCantidad.Size = new System.Drawing.Size(227, 25);
+            this.txtCantidad.Size = new System.Drawing.Size(226, 25);
             this.txtCantidad.TabIndex = 0;
             this.txtCantidad.TextValue = "";
             // 
@@ -325,6 +327,7 @@
             this.lblTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblTitulo.Font = new System.Drawing.Font("Comic Sans MS", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(207)))), ((int)(((byte)(176)))));
+            this.lblTitulo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblTitulo.Location = new System.Drawing.Point(5, 5);
             this.lblTitulo.Margin = new System.Windows.Forms.Padding(10, 0, 10, 10);
             this.lblTitulo.Name = "lblTitulo";
@@ -332,6 +335,17 @@
             this.lblTitulo.Size = new System.Drawing.Size(774, 50);
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "GESTIÓN DE INVENTARIO";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.label1.Location = new System.Drawing.Point(279, 7);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(62, 19);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "BUSCAR";
             // 
             // Inventario
             // 
@@ -347,6 +361,7 @@
             this.Resize += new System.EventHandler(this.Inventario_Resize);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panelProductos.ResumeLayout(false);
+            this.panelProductos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).EndInit();
             this.panelBotones.ResumeLayout(false);
             this.panelBotones.PerformLayout();
@@ -374,5 +389,6 @@
         private botonRedondeado btnEditar;
         private System.Windows.Forms.DataGridView dgvInventario;
         private textboxRedondeado txtBuscar;
+        private System.Windows.Forms.Label label1;
     }
 }

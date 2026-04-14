@@ -95,6 +95,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="botonAgregar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="botonAgregar.Designer.cs">
+      <DependentUpon>botonAgregar.cs</DependentUpon>
+    </Compile>
     <Compile Include="botonRedondeado.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -133,6 +139,9 @@
     <Compile Include="textboxRedondeado.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <EmbeddedResource Include="botonAgregar.resx">
+      <DependentUpon>botonAgregar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Editar_InfPaciente.resx">
       <DependentUpon>Editar_InfPaciente.cs</DependentUpon>
     </EmbeddedResource>

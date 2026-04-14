@@ -44,5 +44,10 @@ namespace Avance_Del_Proyecto
             using (Pen pen = new Pen(ColorTranslator.FromHtml("#00824A"))) 
             { e.Graphics.DrawPath(pen, path); }
         }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -28,9 +28,21 @@ namespace Avance_Del_Proyecto
             this.Controls.Add(textBox1);
             this.Padding = new Padding(10, 7, 10, 7);
             this.Size = new Size(200,30);
-            this.BackColor = ColorTranslator.FromHtml("#F2CFB0");
+            //this.BackColor = ColorTranslator.FromHtml("#F2CFB0");
         }
         public string TextValue { get => textBox1.Text; set => textBox1.Text = value; }
+        public override Color BackColor
+        {
+            get => base.BackColor;
+            set
+            {base.BackColor = value;
+                if (textBox1 != null)
+                {
+                    textBox1.BackColor = value; // Sincroniza el color del TextBox interno
+                }
+                this.Invalidate(); // Redibuja el control
+            }
+        }
 
         public int BorderRadius
         {get => borderRadius; set { borderRadius = value; this.Invalidate(); }}

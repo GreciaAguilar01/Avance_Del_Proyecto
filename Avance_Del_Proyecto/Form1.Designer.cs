@@ -142,7 +142,7 @@
             this.PanelLogin.Controls.Add(this.BtnIS);
             this.PanelLogin.Controls.Add(this.TbContraseña);
             this.PanelLogin.Controls.Add(this.TbUsuario);
-            this.PanelLogin.Location = new System.Drawing.Point(267, 98);
+            this.PanelLogin.Location = new System.Drawing.Point(267, 131);
             this.PanelLogin.Name = "PanelLogin";
             this.PanelLogin.Size = new System.Drawing.Size(311, 248);
             this.PanelLogin.TabIndex = 7;

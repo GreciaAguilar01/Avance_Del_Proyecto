@@ -40,14 +40,13 @@ namespace Avance_Del_Proyecto
         [System.Runtime.InteropServices.DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
             (
-                int nLeftRect,     // x-coordinate of upper-left corner
-                int nTopRect,     // y-coordinate of upper-left corner
-                int nRightRect,    // x-coordinate of lower-right corner
-                int nBottomRect,   // y-coordinate of lower-right corner
-                int nWidthEllipse, // width of ellipse
-                int nHeightEllipse // height of ellipse
+                int nLeftRect,     
+                int nTopRect,     
+                int nRightRect,    
+                int nBottomRect,   
+                int nWidthEllipse, 
+                int nHeightEllipse 
             );
-
 
         public void ConfigurarBotonModerno(Button btn)
         {
@@ -70,10 +69,10 @@ namespace Avance_Del_Proyecto
                 path.AddArc(rect.X, rect.Bottom - radio, radio, radio, 90, 90);
                 path.CloseFigure();
 
-                btn.Region = new Region(path); // Recorta para que el click respete la forma
+                btn.Region = new Region(path); 
 
-                // Dibujamos un borde sutil para que "disimule" el pixelado
-                using (Pen pen = new Pen(btn.BackColor, 1.5f)) // Un borde del mismo color
+              
+                using (Pen pen = new Pen(btn.BackColor, 1.5f)) 
                 {
                     e.Graphics.DrawPath(pen, path);
                 }
@@ -82,7 +81,25 @@ namespace Avance_Del_Proyecto
 
         private void BtnIS_Click(object sender, EventArgs e)
         {
+            string usuario = TbUsuario.Text;
+            string pass = TbContraseña.Text;
 
+            if (usuario == "Emiliano" && pass == "1234")
+            {
+                MessageBox.Show("Acceso Concedido. Bienvenido");
+
+                Ingreso_Paciente ventanaInventario = new Ingreso_Paciente();
+                ventanaInventario.Show();
+
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Usuario o contraseña incorrectos. Intenta de nuevo, no te alteres.");
+                TbUsuario.Clear();
+                TbContraseña.Clear();
+                TbUsuario.Focus(); 
+            }
         }
     }
 }

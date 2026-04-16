@@ -35,6 +35,22 @@ namespace Avance_Del_Proyecto
             RedonearControl(BtnBorrarFormulario, 15);
             RedonearControl(PanelFormulario, 30);
             RedonearControl(PanelBotones, 30);
+
+            RedonearControl(BtnGuardarPaciente, 15);
+            RedonearControl(BtnBorrarFormulario, 15);
+
+            RedonearControl(PnIP, 15);
+            RedonearControl(PanelFormulario, 30);
+            RedonearControl(PanelBotones, 30);
         }
+
+
+
+
+        private void BtnGuardarPaciente_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

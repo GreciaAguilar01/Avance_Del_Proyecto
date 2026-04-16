@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.vScrollBarInfPaciente = new System.Windows.Forms.VScrollBar();
             this.SuspendLayout();
             // 
             // label1
@@ -43,20 +42,12 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Historial de Productos:";
             // 
-            // vScrollBarInfPaciente
-            // 
-            this.vScrollBarInfPaciente.Location = new System.Drawing.Point(23, 82);
-            this.vScrollBarInfPaciente.Name = "vScrollBarInfPaciente";
-            this.vScrollBarInfPaciente.Size = new System.Drawing.Size(574, 305);
-            this.vScrollBarInfPaciente.TabIndex = 1;
-            // 
             // Editar_InfPaciente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.vScrollBarInfPaciente);
             this.Controls.Add(this.label1);
             this.Name = "Editar_InfPaciente";
             this.Text = "Editar_InfPaciente";
@@ -68,6 +59,5 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.VScrollBar vScrollBarInfPaciente;
     }
 }

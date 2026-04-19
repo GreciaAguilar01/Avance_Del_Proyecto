@@ -35,6 +35,15 @@ namespace Avance_Del_Proyecto
             RedonearControl(BtnBorrarFormulario, 15);
             RedonearControl(PanelFormulario, 30);
             RedonearControl(PanelBotones, 30);
+
+
+            RedonearControl(panelFondoNombres, 10);
+            RedonearControl(panelFondoFecha, 10);
+            RedonearControl(panelFondoCelularPaciente, 10);
+            RedonearControl(panelfondocorreoP, 10);
+            RedonearControl(panelNombreF, 10);
+            RedonearControl(panelFondoCelularF, 10);
+            RedonearControl(panelfondocorreoF,10);
         }
     }
 }

@@ -95,21 +95,23 @@
             // TbUsuario
             // 
             this.TbUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(207)))), ((int)(((byte)(176)))));
+            this.TbUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TbUsuario.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TbUsuario.ForeColor = System.Drawing.Color.White;
+            this.TbUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(31)))), ((int)(((byte)(122)))));
             this.TbUsuario.Location = new System.Drawing.Point(21, 54);
             this.TbUsuario.Name = "TbUsuario";
-            this.TbUsuario.Size = new System.Drawing.Size(269, 30);
+            this.TbUsuario.Size = new System.Drawing.Size(269, 23);
             this.TbUsuario.TabIndex = 4;
             // 
             // TbContraseña
             // 
             this.TbContraseña.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(207)))), ((int)(((byte)(176)))));
+            this.TbContraseña.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TbContraseña.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TbContraseña.ForeColor = System.Drawing.Color.White;
+            this.TbContraseña.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(31)))), ((int)(((byte)(122)))));
             this.TbContraseña.Location = new System.Drawing.Point(27, 130);
             this.TbContraseña.Name = "TbContraseña";
-            this.TbContraseña.Size = new System.Drawing.Size(263, 30);
+            this.TbContraseña.Size = new System.Drawing.Size(263, 23);
             this.TbContraseña.TabIndex = 5;
             // 
             // PanelTitulo

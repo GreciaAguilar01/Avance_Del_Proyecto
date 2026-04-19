@@ -55,6 +55,7 @@
             this.PanelBotones = new System.Windows.Forms.Panel();
             this.PanelTitulo = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
+            this.PnIP = new System.Windows.Forms.FlowLayoutPanel();
             this.PanelFormulario.SuspendLayout();
             this.panelfondocorreoF.SuspendLayout();
             this.panelNombreF.SuspendLayout();
@@ -72,9 +73,10 @@
             this.Label1.AutoSize = true;
             this.Label1.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(223)))), ((int)(((byte)(223)))));
-            this.Label1.Location = new System.Drawing.Point(3, 5);
+            this.Label1.Location = new System.Drawing.Point(4, 6);
+            this.Label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label1.Name = "Label1";
-            this.Label1.Size = new System.Drawing.Size(172, 23);
+            this.Label1.Size = new System.Drawing.Size(219, 28);
             this.Label1.TabIndex = 0;
             this.Label1.Text = "Nombres del Paciente:";
             // 
@@ -103,7 +105,7 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(223)))), ((int)(((byte)(223)))));
             this.label2.Location = new System.Drawing.Point(4, 56);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(257, 23);
+            this.label2.Size = new System.Drawing.Size(327, 28);
             this.label2.TabIndex = 2;
             this.label2.Text = "Fecha de Nacimiento del Paciente:";
             // 
@@ -123,7 +125,7 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(223)))), ((int)(((byte)(223)))));
             this.label3.Location = new System.Drawing.Point(4, 104);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(220, 23);
+            this.label3.Size = new System.Drawing.Size(276, 28);
             this.label3.TabIndex = 4;
             this.label3.Text = "Numero Celular del Paciente:";
             // 
@@ -143,7 +145,7 @@
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(223)))), ((int)(((byte)(223)))));
             this.label4.Location = new System.Drawing.Point(4, 153);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(157, 23);
+            this.label4.Size = new System.Drawing.Size(199, 28);
             this.label4.TabIndex = 6;
             this.label4.Text = "Correo del Paciente:";
             // 
@@ -163,7 +165,7 @@
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(223)))), ((int)(((byte)(223)))));
             this.label5.Location = new System.Drawing.Point(5, 199);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(172, 23);
+            this.label5.Size = new System.Drawing.Size(217, 28);
             this.label5.TabIndex = 8;
             this.label5.Text = "Nombres del Familiar:";
             // 
@@ -183,7 +185,7 @@
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(223)))), ((int)(((byte)(223)))));
             this.label6.Location = new System.Drawing.Point(5, 242);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(237, 24);
+            this.label6.Size = new System.Drawing.Size(290, 29);
             this.label6.TabIndex = 10;
             this.label6.Text = "Numero Celular del Familiar:";
             // 
@@ -201,9 +203,10 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Comic Sans MS", 12.25F);
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(223)))), ((int)(((byte)(223)))));
-            this.label7.Location = new System.Drawing.Point(5, 290);
+            this.label7.Location = new System.Drawing.Point(7, 357);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(168, 24);
+            this.label7.Size = new System.Drawing.Size(206, 29);
             this.label7.TabIndex = 12;
             this.label7.Text = "Correo del Familiar:";
             // 
@@ -218,6 +221,7 @@
             this.BtnGuardarPaciente.TabIndex = 15;
             this.BtnGuardarPaciente.Text = "Guardar";
             this.BtnGuardarPaciente.UseVisualStyleBackColor = false;
+            this.BtnGuardarPaciente.Click += new System.EventHandler(this.BtnGuardarPaciente_Click);
             // 
             // BtnBorrarFormulario
             // 
@@ -248,9 +252,10 @@
             this.PanelFormulario.Controls.Add(this.label4);
             this.PanelFormulario.Controls.Add(this.label6);
             this.PanelFormulario.Controls.Add(this.label5);
-            this.PanelFormulario.Location = new System.Drawing.Point(29, 77);
+            this.PanelFormulario.Location = new System.Drawing.Point(39, 95);
+            this.PanelFormulario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.PanelFormulario.Name = "PanelFormulario";
-            this.PanelFormulario.Size = new System.Drawing.Size(331, 350);
+            this.PanelFormulario.Size = new System.Drawing.Size(441, 431);
             this.PanelFormulario.TabIndex = 17;
             // 
             // panelfondocorreoF
@@ -330,9 +335,10 @@
             // 
             this.PanelTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(31)))), ((int)(((byte)(122)))));
             this.PanelTitulo.Controls.Add(this.label10);
-            this.PanelTitulo.Location = new System.Drawing.Point(12, 10);
+            this.PanelTitulo.Location = new System.Drawing.Point(16, 12);
+            this.PanelTitulo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.PanelTitulo.Name = "PanelTitulo";
-            this.PanelTitulo.Size = new System.Drawing.Size(765, 61);
+            this.PanelTitulo.Size = new System.Drawing.Size(1020, 75);
             this.PanelTitulo.TabIndex = 19;
             // 
             // label10
@@ -341,21 +347,31 @@
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Cooper Black", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(207)))), ((int)(((byte)(176)))));
-            this.label10.Location = new System.Drawing.Point(198, 13);
+            this.label10.Location = new System.Drawing.Point(264, 16);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(370, 27);
+            this.label10.Size = new System.Drawing.Size(462, 35);
             this.label10.TabIndex = 0;
             this.label10.Text = "Ingresar Paciente - Ortopedia";
             // 
+            // PnIP
+            // 
+            this.PnIP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(172)))), ((int)(((byte)(158)))));
+            this.PnIP.Location = new System.Drawing.Point(12, 40);
+            this.PnIP.Name = "PnIP";
+            this.PnIP.Size = new System.Drawing.Size(411, 34);
+            this.PnIP.TabIndex = 14;
+            // 
             // Ingreso_Paciente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(207)))), ((int)(((byte)(176)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.PanelTitulo);
             this.Controls.Add(this.PanelBotones);
             this.Controls.Add(this.PanelFormulario);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Ingreso_Paciente";
             this.Text = "Ingreso_Paciente";
             this.Load += new System.EventHandler(this.Ingreso_Paciente_Load_1);

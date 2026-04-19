@@ -78,7 +78,6 @@ namespace Avance_Del_Proyecto
                 }
             };
         }
-
         private void BtnIS_Click(object sender, EventArgs e)
         {
             string usuario = TbUsuario.Text;

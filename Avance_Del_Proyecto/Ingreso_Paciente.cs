@@ -35,7 +35,61 @@ namespace Avance_Del_Proyecto
             RedonearControl(BtnBorrarFormulario, 15);
             RedonearControl(PanelFormulario, 30);
             RedonearControl(PanelBotones, 30);
+            RedonearControl(BtnEditarPaciente, 15);
         }
 
+        private void BtnGuardarPaciente_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // 1. Recopilamos la info de los TextBox
+                // Asegúrate que estos nombres sean los que pusiste en el diseño
+                string datos = $"Nombre del Paciente: {TBNombrePaciente.Text} | " + $"Fecha de Nacimiento: {TBFechaNacimiento.Text} | " + 
+                $"Numero del Paciente: {TBNumerodelPaciente.Text} | " + $"Correo del Paciente: {TBCorreoPaciente.Text} | " + 
+                $"Nombre del Familiar: {TBNombreFamiliar.Text} | " + $"Telefono del Familiar: {TBNumerodelFamiliar.Text}" + $"Correo del Paciente: {TBCorreoFamiliar.Text} |";
+
+                // 2. Ruta del archivo (se creará en la carpeta del proyecto)
+                string ruta = "PruebaPacientes.txt";
+
+                // 3. Escribimos en el archivo (append: true para que no borre lo anterior)
+                using (System.IO.StreamWriter file = new System.IO.StreamWriter(ruta, true))
+                {
+                    file.WriteLine(datos);
+                }
+
+                // 4. Avisamos que todo salió bien
+                MessageBox.Show("¡Paciente guardado en el TXT con éxito!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information); 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hubo un error al guardar: " + ex.Message);
+            }
+        }
+
+        private void BtnBorrarFormulario_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show("¿Segura que quieres limpiar todo el formulario?",
+                              "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (resultado == DialogResult.Yes)
+            {
+                TBNombrePaciente.Clear();
+                TBFechaNacimiento.Clear();
+                TBNumerodelPaciente.Clear();
+                TBCorreoPaciente.Clear();
+                TBNombreFamiliar.Clear();
+                TBNumerodelFamiliar.Clear();
+                TBCorreoFamiliar.Clear();
+
+                TBNombrePaciente.Focus();
+            }
+        }
+
+        private void BtnEditarPaciente_Click(object sender, EventArgs e)
+        {
+            Editar_InfPaciente VentanaEditarPaciente = new Editar_InfPaciente();
+            VentanaEditarPaciente.Show();
+            this.Hide();
+        }
     }
 }

@@ -31,6 +31,19 @@ namespace Avance_Del_Proyecto
             this.BackColor = ColorTranslator.FromHtml("#F2CFB0");
         }
         public string TextValue { get => textBox1.Text; set => textBox1.Text = value; }
+        public override Color BackColor
+        {
+            get => base.BackColor;
+            set
+            {
+                base.BackColor = value;
+                if (textBox1 != null)
+                {
+                    textBox1.BackColor = value;
+                }
+                this.Invalidate();
+            }
+        }
 
         public int BorderRadius
         {get => borderRadius; set { borderRadius = value; this.Invalidate(); }}

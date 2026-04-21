@@ -47,7 +47,15 @@ namespace Avance_Del_Proyecto
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            using (botonAgregar ventana = new botonAgregar())
+            {
+                if(ventana.ShowDialog() == DialogResult.OK)
+                {
+                    Productos productoNuevo = new Productos();
 
+                }
+            }
+            
         }
     }
 }

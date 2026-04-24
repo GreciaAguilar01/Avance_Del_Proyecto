@@ -17,8 +17,41 @@ namespace Avance_Del_Proyecto
         public Inventario()
         {
             InitializeComponent();
+            actualizaGrid();
         }
 
+        string SQLConection = "Server=localhost; Port=3306; Database=ejemplo_ortopedia; Uid=root; Pwd=4444";
+        public void actualizaGrid()
+        {
+            using (MySqlConnection conectar = new MySqlConnection(SQLConection)) 
+            {
+                conectar.Open();
+                string query = "select ID_prod as \"ID\", nombre, cantidad, codigo_barras as \"Codigo de barras\", fecha_ingreso as \"Fecha de ingreso\" from productos";
+                MySqlDataAdapter adapter = new MySqlDataAdapter(query, conectar);
+                DataTable dt = new DataTable();
+
+                adapter.Fill(dt);
+
+                dgvInventario.DataSource = dt;
+
+            }
+
+        }
+        private void EliminarProducto(int id)
+        {
+            string query = "delete from productos where id_prod = @id";
+            using (MySqlConnection conectar = new MySqlConnection(SQLConection))
+            {
+                using (MySqlCommand cmd = new MySqlCommand(query, conectar)) 
+                {
+                    cmd.Connection = conectar;
+                    conectar.Open();
+                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.ExecuteNonQuery();
+                    conectar.Close();
+                }
+            }
+        }
         private void Inventario_Resize(object sender, EventArgs e)
         {
             this.Invalidate();
@@ -51,11 +84,34 @@ namespace Avance_Del_Proyecto
             {
                 if(ventana.ShowDialog() == DialogResult.OK)
                 {
-                    Productos productoNuevo = new Productos();
-
+                    actualizaGrid();
                 }
             }
             
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (dgvInventario.SelectedRows.Count > 0)
+            {
+                DialogResult resultado = MessageBox.Show("¿Está seguro de eliminar este producto?", "Eliminar produto", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (resultado == DialogResult.Yes) 
+                {
+                    try
+                    {
+                        int idEliminado = Convert.ToInt32(dgvInventario.CurrentRow.Cells["ID"].Value);
+                        EliminarProducto(idEliminado);
+                        actualizaGrid();
+                    }
+                    catch (Exception ex) { MessageBox.Show("Error al intentar borrar el producto" + ex.Message); }
+                }
+
+            }            
+        }
+
+        private void dgvInventario_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dgvInventario.ClearSelection();
         }
     }
 }

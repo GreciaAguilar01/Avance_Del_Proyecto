@@ -8,10 +8,10 @@ namespace Avance_Del_Proyecto
 {
     public class Productos
     {
-        public string IDproducto { get; set; }
+        public int IDproducto { get; set; }
         public string Nombre { get; set; }
         public int Cantidad { get; set; }
-        public string Codigo { get; set; }
+        public int Codigo { get; set; }
         public DateTime FechaIngreso { get; set; }
 
     }

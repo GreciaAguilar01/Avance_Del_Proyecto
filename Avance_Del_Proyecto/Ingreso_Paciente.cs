@@ -7,15 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+// Agrega esta línea para usar System.IO.Ports
+using System.IO.Ports;
 
 namespace Avance_Del_Proyecto
 {
     public partial class Ingreso_Paciente : Form
     {
+        System.IO.Ports.SerialPort Arduino; 
+
         public Ingreso_Paciente()
         {
             InitializeComponent();
             //oal
+
+            Arduino = new System.IO.Ports.SerialPort();
+            Arduino.PortName = "COM3"; // Cambia esto al puerto correcto
+            Arduino.BaudRate = 9600; // Asegúrate de que coincida con la configuración de tu Arduino
+            Arduino.Open();
         }
         private void RedonearControl(Control control, int radio)
         {
@@ -48,14 +57,10 @@ namespace Avance_Del_Proyecto
                 $"Numero del Paciente: {TBNumerodelPaciente.Text} | " + $"Correo del Paciente: {TBCorreoPaciente.Text} | " + 
                 $"Nombre del Familiar: {TBNombreFamiliar.Text} | " + $"Telefono del Familiar: {TBNumerodelFamiliar.Text}" + $"Correo del Paciente: {TBCorreoFamiliar.Text} |";
 
-                // 2. Ruta del archivo (se creará en la carpeta del proyecto)
-                string ruta = "PruebaPacientes.txt";
-
-                // 3. Escribimos en el archivo (append: true para que no borre lo anterior)
-                using (System.IO.StreamWriter file = new System.IO.StreamWriter(ruta, true))
-                {
-                    file.WriteLine(datos);
-                }
+            RedonearControl(PnIP, 15);
+            RedonearControl(PanelFormulario, 30);
+            RedonearControl(PanelBotones, 30);
+        }
 
                 // 4. Avisamos que todo salió bien
                 MessageBox.Show("¡Paciente guardado en el TXT con éxito!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information); 
@@ -85,11 +90,5 @@ namespace Avance_Del_Proyecto
             }
         }
 
-        private void BtnEditarPaciente_Click(object sender, EventArgs e)
-        {
-            Editar_InfPaciente VentanaEditarPaciente = new Editar_InfPaciente();
-            VentanaEditarPaciente.Show();
-            this.Hide();
-        }
     }
 }

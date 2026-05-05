@@ -45,17 +45,10 @@
             this.BtnGuardarPaciente = new System.Windows.Forms.Button();
             this.BtnBorrarFormulario = new System.Windows.Forms.Button();
             this.PanelFormulario = new System.Windows.Forms.Panel();
-            this.panelfondocorreoF = new System.Windows.Forms.Panel();
-            this.panelNombreF = new System.Windows.Forms.Panel();
-            this.panelFondoCelularF = new System.Windows.Forms.Panel();
-            this.panelfondocorreoP = new System.Windows.Forms.Panel();
-            this.panelFondoCelularPaciente = new System.Windows.Forms.Panel();
-            this.panelFondoFecha = new System.Windows.Forms.Panel();
-            this.panelFondoNombres = new System.Windows.Forms.Panel();
             this.PanelBotones = new System.Windows.Forms.Panel();
             this.PanelTitulo = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
-            this.BtnEditarPaciente = new System.Windows.Forms.Button();
+            this.PnIP = new System.Windows.Forms.FlowLayoutPanel();
             this.PanelFormulario.SuspendLayout();
             this.panelfondocorreoF.SuspendLayout();
             this.panelNombreF.SuspendLayout();
@@ -66,6 +59,12 @@
             this.panelFondoNombres.SuspendLayout();
             this.PanelBotones.SuspendLayout();
             this.PanelTitulo.SuspendLayout();
+            this.PnlFNP.SuspendLayout();
+            this.PnlNCP.SuspendLayout();
+            this.PnlCP.SuspendLayout();
+            this.PnlNF.SuspendLayout();
+            this.PnlNCF.SuspendLayout();
+            this.PnlCF.SuspendLayout();
             this.SuspendLayout();
             // 
             // Label1
@@ -82,9 +81,8 @@
             // TBNombrePaciente
             // 
             this.TBNombrePaciente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(207)))), ((int)(((byte)(176)))));
-            this.TBNombrePaciente.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TBNombrePaciente.Location = new System.Drawing.Point(2, 3);
-            this.TBNombrePaciente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TBNombrePaciente.Location = new System.Drawing.Point(16, 46);
+            this.TBNombrePaciente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TBNombrePaciente.Name = "TBNombrePaciente";
             this.TBNombrePaciente.Size = new System.Drawing.Size(229, 13);
             this.TBNombrePaciente.TabIndex = 1;
@@ -92,11 +90,10 @@
             // TBFechaNacimiento
             // 
             this.TBFechaNacimiento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(207)))), ((int)(((byte)(176)))));
-            this.TBFechaNacimiento.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TBFechaNacimiento.Location = new System.Drawing.Point(3, 4);
-            this.TBFechaNacimiento.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TBFechaNacimiento.Location = new System.Drawing.Point(11, 103);
+            this.TBFechaNacimiento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TBFechaNacimiento.Name = "TBFechaNacimiento";
-            this.TBFechaNacimiento.Size = new System.Drawing.Size(95, 13);
+            this.TBFechaNacimiento.Size = new System.Drawing.Size(173, 22);
             this.TBFechaNacimiento.TabIndex = 3;
             // 
             // label2
@@ -114,11 +111,10 @@
             // TBNumerodelPaciente
             // 
             this.TBNumerodelPaciente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(207)))), ((int)(((byte)(176)))));
-            this.TBNumerodelPaciente.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TBNumerodelPaciente.Location = new System.Drawing.Point(3, 4);
-            this.TBNumerodelPaciente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TBNumerodelPaciente.Location = new System.Drawing.Point(12, 162);
+            this.TBNumerodelPaciente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TBNumerodelPaciente.Name = "TBNumerodelPaciente";
-            this.TBNumerodelPaciente.Size = new System.Drawing.Size(95, 13);
+            this.TBNumerodelPaciente.Size = new System.Drawing.Size(173, 22);
             this.TBNumerodelPaciente.TabIndex = 5;
             // 
             // label3
@@ -136,9 +132,8 @@
             // TBCorreoPaciente
             // 
             this.TBCorreoPaciente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(207)))), ((int)(((byte)(176)))));
-            this.TBCorreoPaciente.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TBCorreoPaciente.Location = new System.Drawing.Point(6, 4);
-            this.TBCorreoPaciente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TBCorreoPaciente.Location = new System.Drawing.Point(11, 222);
+            this.TBCorreoPaciente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TBCorreoPaciente.Name = "TBCorreoPaciente";
             this.TBCorreoPaciente.Size = new System.Drawing.Size(211, 13);
             this.TBCorreoPaciente.TabIndex = 7;
@@ -158,9 +153,8 @@
             // TBNombreFamiliar
             // 
             this.TBNombreFamiliar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(207)))), ((int)(((byte)(176)))));
-            this.TBNombreFamiliar.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TBNombreFamiliar.Location = new System.Drawing.Point(6, 4);
-            this.TBNombreFamiliar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TBNombreFamiliar.Location = new System.Drawing.Point(13, 277);
+            this.TBNombreFamiliar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TBNombreFamiliar.Name = "TBNombreFamiliar";
             this.TBNombreFamiliar.Size = new System.Drawing.Size(211, 13);
             this.TBNombreFamiliar.TabIndex = 9;
@@ -180,11 +174,10 @@
             // TBNumerodelFamiliar
             // 
             this.TBNumerodelFamiliar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(207)))), ((int)(((byte)(176)))));
-            this.TBNumerodelFamiliar.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TBNumerodelFamiliar.Location = new System.Drawing.Point(4, 4);
-            this.TBNumerodelFamiliar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TBNumerodelFamiliar.Location = new System.Drawing.Point(13, 332);
+            this.TBNumerodelFamiliar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TBNumerodelFamiliar.Name = "TBNumerodelFamiliar";
-            this.TBNumerodelFamiliar.Size = new System.Drawing.Size(94, 13);
+            this.TBNumerodelFamiliar.Size = new System.Drawing.Size(173, 22);
             this.TBNumerodelFamiliar.TabIndex = 11;
             // 
             // label6
@@ -192,8 +185,8 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Comic Sans MS", 12.25F);
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(223)))), ((int)(((byte)(223)))));
-            this.label6.Location = new System.Drawing.Point(4, 243);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Location = new System.Drawing.Point(7, 303);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(237, 24);
             this.label6.TabIndex = 10;
@@ -202,9 +195,8 @@
             // TBCorreoFamiliar
             // 
             this.TBCorreoFamiliar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(207)))), ((int)(((byte)(176)))));
-            this.TBCorreoFamiliar.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TBCorreoFamiliar.Location = new System.Drawing.Point(3, 3);
-            this.TBCorreoFamiliar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TBCorreoFamiliar.Location = new System.Drawing.Point(13, 388);
+            this.TBCorreoFamiliar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TBCorreoFamiliar.Name = "TBCorreoFamiliar";
             this.TBCorreoFamiliar.Size = new System.Drawing.Size(227, 13);
             this.TBCorreoFamiliar.TabIndex = 13;
@@ -214,7 +206,8 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Comic Sans MS", 12.25F);
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(223)))), ((int)(((byte)(223)))));
-            this.label7.Location = new System.Drawing.Point(5, 290);
+            this.label7.Location = new System.Drawing.Point(7, 357);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(168, 24);
             this.label7.TabIndex = 12;
@@ -225,8 +218,8 @@
             this.BtnGuardarPaciente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(74)))), ((int)(((byte)(86)))));
             this.BtnGuardarPaciente.FlatAppearance.BorderSize = 0;
             this.BtnGuardarPaciente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnGuardarPaciente.Location = new System.Drawing.Point(16, 17);
-            this.BtnGuardarPaciente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BtnGuardarPaciente.Location = new System.Drawing.Point(29, 17);
+            this.BtnGuardarPaciente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnGuardarPaciente.Name = "BtnGuardarPaciente";
             this.BtnGuardarPaciente.Size = new System.Drawing.Size(355, 36);
             this.BtnGuardarPaciente.TabIndex = 15;
@@ -239,8 +232,8 @@
             this.BtnBorrarFormulario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(114)))), ((int)(((byte)(76)))));
             this.BtnBorrarFormulario.FlatAppearance.BorderSize = 0;
             this.BtnBorrarFormulario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnBorrarFormulario.Location = new System.Drawing.Point(16, 58);
-            this.BtnBorrarFormulario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BtnBorrarFormulario.Location = new System.Drawing.Point(29, 63);
+            this.BtnBorrarFormulario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnBorrarFormulario.Name = "BtnBorrarFormulario";
             this.BtnBorrarFormulario.Size = new System.Drawing.Size(355, 32);
             this.BtnBorrarFormulario.TabIndex = 16;
@@ -250,13 +243,8 @@
             // PanelFormulario
             // 
             this.PanelFormulario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(104)))), ((int)(((byte)(95)))));
-            this.PanelFormulario.Controls.Add(this.panelfondocorreoF);
-            this.PanelFormulario.Controls.Add(this.panelNombreF);
-            this.PanelFormulario.Controls.Add(this.panelFondoCelularF);
-            this.PanelFormulario.Controls.Add(this.panelfondocorreoP);
-            this.PanelFormulario.Controls.Add(this.panelFondoCelularPaciente);
-            this.PanelFormulario.Controls.Add(this.panelFondoFecha);
-            this.PanelFormulario.Controls.Add(this.panelFondoNombres);
+            this.PanelFormulario.Controls.Add(this.TBNombrePaciente);
+            this.PanelFormulario.Controls.Add(this.PnIP);
             this.PanelFormulario.Controls.Add(this.Label1);
             this.PanelFormulario.Controls.Add(this.label2);
             this.PanelFormulario.Controls.Add(this.label3);
@@ -264,80 +252,11 @@
             this.PanelFormulario.Controls.Add(this.label4);
             this.PanelFormulario.Controls.Add(this.label6);
             this.PanelFormulario.Controls.Add(this.label5);
-            this.PanelFormulario.Location = new System.Drawing.Point(29, 77);
+            this.PanelFormulario.Location = new System.Drawing.Point(39, 95);
+            this.PanelFormulario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.PanelFormulario.Name = "PanelFormulario";
-            this.PanelFormulario.Size = new System.Drawing.Size(331, 350);
+            this.PanelFormulario.Size = new System.Drawing.Size(441, 431);
             this.PanelFormulario.TabIndex = 17;
-            // 
-            // panelfondocorreoF
-            // 
-            this.panelfondocorreoF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(207)))), ((int)(((byte)(176)))));
-            this.panelfondocorreoF.Controls.Add(this.TBCorreoFamiliar);
-            this.panelfondocorreoF.Location = new System.Drawing.Point(6, 320);
-            this.panelfondocorreoF.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panelfondocorreoF.Name = "panelfondocorreoF";
-            this.panelfondocorreoF.Size = new System.Drawing.Size(234, 18);
-            this.panelfondocorreoF.TabIndex = 21;
-            // 
-            // panelNombreF
-            // 
-            this.panelNombreF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(207)))), ((int)(((byte)(176)))));
-            this.panelNombreF.Controls.Add(this.TBNombreFamiliar);
-            this.panelNombreF.Location = new System.Drawing.Point(7, 220);
-            this.panelNombreF.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panelNombreF.Name = "panelNombreF";
-            this.panelNombreF.Size = new System.Drawing.Size(234, 18);
-            this.panelNombreF.TabIndex = 20;
-            // 
-            // panelFondoCelularF
-            // 
-            this.panelFondoCelularF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(207)))), ((int)(((byte)(176)))));
-            this.panelFondoCelularF.Controls.Add(this.TBNumerodelFamiliar);
-            this.panelFondoCelularF.Location = new System.Drawing.Point(6, 270);
-            this.panelFondoCelularF.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panelFondoCelularF.Name = "panelFondoCelularF";
-            this.panelFondoCelularF.Size = new System.Drawing.Size(101, 18);
-            this.panelFondoCelularF.TabIndex = 21;
-            // 
-            // panelfondocorreoP
-            // 
-            this.panelfondocorreoP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(207)))), ((int)(((byte)(176)))));
-            this.panelfondocorreoP.Controls.Add(this.TBCorreoPaciente);
-            this.panelfondocorreoP.Location = new System.Drawing.Point(6, 168);
-            this.panelfondocorreoP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panelfondocorreoP.Name = "panelfondocorreoP";
-            this.panelfondocorreoP.Size = new System.Drawing.Size(234, 18);
-            this.panelfondocorreoP.TabIndex = 15;
-            // 
-            // panelFondoCelularPaciente
-            // 
-            this.panelFondoCelularPaciente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(207)))), ((int)(((byte)(176)))));
-            this.panelFondoCelularPaciente.Controls.Add(this.TBNumerodelPaciente);
-            this.panelFondoCelularPaciente.Location = new System.Drawing.Point(6, 120);
-            this.panelFondoCelularPaciente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panelFondoCelularPaciente.Name = "panelFondoCelularPaciente";
-            this.panelFondoCelularPaciente.Size = new System.Drawing.Size(100, 18);
-            this.panelFondoCelularPaciente.TabIndex = 16;
-            // 
-            // panelFondoFecha
-            // 
-            this.panelFondoFecha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(207)))), ((int)(((byte)(176)))));
-            this.panelFondoFecha.Controls.Add(this.TBFechaNacimiento);
-            this.panelFondoFecha.Location = new System.Drawing.Point(5, 72);
-            this.panelFondoFecha.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panelFondoFecha.Name = "panelFondoFecha";
-            this.panelFondoFecha.Size = new System.Drawing.Size(100, 18);
-            this.panelFondoFecha.TabIndex = 15;
-            // 
-            // panelFondoNombres
-            // 
-            this.panelFondoNombres.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(207)))), ((int)(((byte)(176)))));
-            this.panelFondoNombres.Controls.Add(this.TBNombrePaciente);
-            this.panelFondoNombres.Location = new System.Drawing.Point(5, 27);
-            this.panelFondoNombres.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panelFondoNombres.Name = "panelFondoNombres";
-            this.panelFondoNombres.Size = new System.Drawing.Size(234, 18);
-            this.panelFondoNombres.TabIndex = 14;
             // 
             // PanelBotones
             // 
@@ -345,8 +264,8 @@
             this.PanelBotones.Controls.Add(this.BtnEditarPaciente);
             this.PanelBotones.Controls.Add(this.BtnGuardarPaciente);
             this.PanelBotones.Controls.Add(this.BtnBorrarFormulario);
-            this.PanelBotones.Location = new System.Drawing.Point(389, 268);
-            this.PanelBotones.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PanelBotones.Location = new System.Drawing.Point(503, 410);
+            this.PanelBotones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.PanelBotones.Name = "PanelBotones";
             this.PanelBotones.Size = new System.Drawing.Size(388, 159);
             this.PanelBotones.TabIndex = 18;
@@ -355,7 +274,8 @@
             // 
             this.PanelTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(31)))), ((int)(((byte)(122)))));
             this.PanelTitulo.Controls.Add(this.label10);
-            this.PanelTitulo.Location = new System.Drawing.Point(12, 10);
+            this.PanelTitulo.Location = new System.Drawing.Point(16, 12);
+            this.PanelTitulo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.PanelTitulo.Name = "PanelTitulo";
             this.PanelTitulo.Size = new System.Drawing.Size(765, 61);
             this.PanelTitulo.TabIndex = 19;
@@ -372,18 +292,13 @@
             this.label10.TabIndex = 0;
             this.label10.Text = "Ingresar Paciente - Ortopedia";
             // 
-            // BtnEditarPaciente
+            // PnIP
             // 
-            this.BtnEditarPaciente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(232)))), ((int)(((byte)(20)))));
-            this.BtnEditarPaciente.FlatAppearance.BorderSize = 0;
-            this.BtnEditarPaciente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnEditarPaciente.Location = new System.Drawing.Point(16, 99);
-            this.BtnEditarPaciente.Margin = new System.Windows.Forms.Padding(2);
-            this.BtnEditarPaciente.Name = "BtnEditarPaciente";
-            this.BtnEditarPaciente.Size = new System.Drawing.Size(355, 36);
-            this.BtnEditarPaciente.TabIndex = 17;
-            this.BtnEditarPaciente.Text = "Editar Paciente";
-            this.BtnEditarPaciente.UseVisualStyleBackColor = false;
+            this.PnIP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(172)))), ((int)(((byte)(158)))));
+            this.PnIP.Location = new System.Drawing.Point(12, 40);
+            this.PnIP.Name = "PnIP";
+            this.PnIP.Size = new System.Drawing.Size(411, 34);
+            this.PnIP.TabIndex = 14;
             // 
             // Ingreso_Paciente
             // 
@@ -394,6 +309,7 @@
             this.Controls.Add(this.PanelTitulo);
             this.Controls.Add(this.PanelBotones);
             this.Controls.Add(this.PanelFormulario);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Ingreso_Paciente";
             this.Text = "Ingreso_Paciente";
             this.Load += new System.EventHandler(this.Ingreso_Paciente_Load_1);
@@ -416,6 +332,18 @@
             this.PanelBotones.ResumeLayout(false);
             this.PanelTitulo.ResumeLayout(false);
             this.PanelTitulo.PerformLayout();
+            this.PnlFNP.ResumeLayout(false);
+            this.PnlFNP.PerformLayout();
+            this.PnlNCP.ResumeLayout(false);
+            this.PnlNCP.PerformLayout();
+            this.PnlCP.ResumeLayout(false);
+            this.PnlCP.PerformLayout();
+            this.PnlNF.ResumeLayout(false);
+            this.PnlNF.PerformLayout();
+            this.PnlNCF.ResumeLayout(false);
+            this.PnlNCF.PerformLayout();
+            this.PnlCF.ResumeLayout(false);
+            this.PnlCF.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -442,13 +370,6 @@
         private System.Windows.Forms.Panel PanelBotones;
         private System.Windows.Forms.Panel PanelTitulo;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Panel panelFondoFecha;
-        private System.Windows.Forms.Panel panelFondoNombres;
-        private System.Windows.Forms.Panel panelFondoCelularPaciente;
-        private System.Windows.Forms.Panel panelfondocorreoP;
-        private System.Windows.Forms.Panel panelNombreF;
-        private System.Windows.Forms.Panel panelfondocorreoF;
-        private System.Windows.Forms.Panel panelFondoCelularF;
-        private System.Windows.Forms.Button BtnEditarPaciente;
+        private System.Windows.Forms.FlowLayoutPanel PnIP;
     }
 }

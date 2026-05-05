@@ -1,6 +1,6 @@
 ﻿namespace Avance_Del_Proyecto
 {
-    partial class botonAgregar
+    partial class frmDetalleProducto
     {
         /// <summary>
         /// Required designer variable.

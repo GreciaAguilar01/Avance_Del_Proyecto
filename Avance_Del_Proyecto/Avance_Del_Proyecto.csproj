@@ -51,8 +51,8 @@
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data, Version=9.6.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Data.9.6.0\lib\net462\MySql.Data.dll</HintPath>
+    <Reference Include="MySql.Data, Version=9.7.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.9.7.0\lib\net462\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -95,11 +95,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="botonAgregar.cs">
+    <Compile Include="frmDetalleProducto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="botonAgregar.Designer.cs">
-      <DependentUpon>botonAgregar.cs</DependentUpon>
+    <Compile Include="frmDetalleProducto.Designer.cs">
+      <DependentUpon>frmDetalleProducto.cs</DependentUpon>
     </Compile>
     <Compile Include="botonRedondeado.cs">
       <SubType>Component</SubType>
@@ -140,8 +140,8 @@
     <Compile Include="textboxRedondeado.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <EmbeddedResource Include="botonAgregar.resx">
-      <DependentUpon>botonAgregar.cs</DependentUpon>
+    <EmbeddedResource Include="frmDetalleProducto.resx">
+      <DependentUpon>frmDetalleProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editar_InfPaciente.resx">
       <DependentUpon>Editar_InfPaciente.cs</DependentUpon>

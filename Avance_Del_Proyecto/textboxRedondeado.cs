@@ -16,6 +16,15 @@ namespace Avance_Del_Proyecto
         private TextBox textBox1;
         private int borderRadius = 20;
         private Color borderColor = Color.Gray;
+        public event EventHandler TextChanged;
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (TextChanged != null)
+            {
+                TextChanged(this, e);
+            }
+        }
 
         public textboxRedondeado()
         {
@@ -28,20 +37,19 @@ namespace Avance_Del_Proyecto
             this.Controls.Add(textBox1);
             this.Padding = new Padding(10, 7, 10, 7);
             this.Size = new Size(200,30);
-            this.BackColor = ColorTranslator.FromHtml("#F2CFB0");
+            //this.BackColor = ColorTranslator.FromHtml("#F2CFB0");
         }
         public string TextValue { get => textBox1.Text; set => textBox1.Text = value; }
         public override Color BackColor
         {
             get => base.BackColor;
             set
-            {
-                base.BackColor = value;
+            {base.BackColor = value;
                 if (textBox1 != null)
                 {
-                    textBox1.BackColor = value;
+                    textBox1.BackColor = value; // Sincroniza el color del TextBox interno
                 }
-                this.Invalidate();
+                this.Invalidate(); // Redibuja el control
             }
         }
 

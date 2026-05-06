@@ -16,7 +16,7 @@ namespace Avance_Del_Proyecto
         private TextBox textBox1;
         private int borderRadius = 20;
         private Color borderColor = Color.Gray;
-        public event EventHandler TextChanged;
+        public new event EventHandler TextChanged;
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {

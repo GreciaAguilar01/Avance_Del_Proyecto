@@ -18,7 +18,9 @@ namespace Avance_Del_Proyecto
         {
             InitializeComponent();
             actualizaGrid();
+            txtBuscar.TextChanged += new EventHandler(txtBuscar_TextChanged);
         }
+        DataTable tablaDatos;
 
         string SQLConection = "Server=localhost; Port=3306; Database=ejemplo_ortopedia; Uid=root; Pwd=4444";
         public void actualizaGrid()
@@ -28,11 +30,10 @@ namespace Avance_Del_Proyecto
                 conectar.Open();
                 string query = "select ID_prod as \"ID\", nombre, cantidad, codigo_barras as \"Codigo de barras\", fecha_ingreso as \"Fecha de ingreso\" from productos";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(query, conectar);
-                DataTable dt = new DataTable();
+                tablaDatos = new DataTable();
+                adapter.Fill(tablaDatos);
 
-                adapter.Fill(dt);
-
-                dgvInventario.DataSource = dt;
+                dgvInventario.DataSource = tablaDatos;
 
             }
 
@@ -132,6 +133,14 @@ namespace Avance_Del_Proyecto
                 ventana.IdProducto = id;
                 ventana.LlenarCampos(nombre, codigo, cantidad, fecha_ingreso, id);
                 if (ventana.ShowDialog() == DialogResult.OK) { actualizaGrid(); }
+            }
+        }
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            if (tablaDatos != null)
+            {
+                DataView dv = tablaDatos.DefaultView;
+                dv.RowFilter = string.Format("nombre LIKE '%{0}%'", txtBuscar.Text);
             }
         }
     }

@@ -36,10 +36,10 @@
             this.btnAgregar = new Avance_Del_Proyecto.botonRedondeado();
             this.panelProductos = new Avance_Del_Proyecto.panelRedondeado();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtBuscar = new Avance_Del_Proyecto.textboxRedondeado();
             this.dgvInventario = new System.Windows.Forms.DataGridView();
             this.btnEliminar = new Avance_Del_Proyecto.botonRedondeado();
             this.lblTitulo = new Avance_Del_Proyecto.labelRedondeado();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelProductos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).BeginInit();
@@ -58,14 +58,14 @@
             this.tableLayoutPanel1.Controls.Add(this.btnAgregar, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.panelProductos, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnEliminar, 1, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(7, 68);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(5, 55);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1032, 432);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(774, 351);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // btnEditar
@@ -77,10 +77,10 @@
             this.btnEditar.FlatAppearance.BorderSize = 0;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditar.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditar.Location = new System.Drawing.Point(7, 384);
+            this.btnEditar.Location = new System.Drawing.Point(5, 311);
             this.btnEditar.Margin = new System.Windows.Forms.Padding(0);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(339, 42);
+            this.btnEditar.Size = new System.Drawing.Size(254, 35);
             this.btnEditar.TabIndex = 13;
             this.btnEditar.Text = "EDITAR";
             this.btnEditar.UseVisualStyleBackColor = false;
@@ -95,10 +95,10 @@
             this.btnAgregar.FlatAppearance.BorderSize = 0;
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.Location = new System.Drawing.Point(685, 384);
+            this.btnAgregar.Location = new System.Drawing.Point(513, 311);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(0);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(340, 42);
+            this.btnAgregar.Size = new System.Drawing.Size(256, 35);
             this.btnAgregar.TabIndex = 12;
             this.btnAgregar.Text = "AGREGAR";
             this.btnAgregar.UseVisualStyleBackColor = false;
@@ -110,15 +110,15 @@
             this.panelProductos.BackColor = System.Drawing.Color.White;
             this.panelProductos.BorderRadius = 20;
             this.tableLayoutPanel1.SetColumnSpan(this.panelProductos, 3);
-            this.panelProductos.Controls.Add(this.label1);
             this.panelProductos.Controls.Add(this.txtBuscar);
+            this.panelProductos.Controls.Add(this.label1);
             this.panelProductos.Controls.Add(this.dgvInventario);
             this.panelProductos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelProductos.Location = new System.Drawing.Point(14, 12);
-            this.panelProductos.Margin = new System.Windows.Forms.Padding(7, 6, 0, 6);
+            this.panelProductos.Location = new System.Drawing.Point(10, 10);
+            this.panelProductos.Margin = new System.Windows.Forms.Padding(5, 5, 0, 5);
             this.panelProductos.Name = "panelProductos";
-            this.panelProductos.Padding = new System.Windows.Forms.Padding(13, 12, 13, 12);
-            this.panelProductos.Size = new System.Drawing.Size(1011, 366);
+            this.panelProductos.Padding = new System.Windows.Forms.Padding(10);
+            this.panelProductos.Size = new System.Drawing.Size(759, 296);
             this.panelProductos.TabIndex = 4;
             // 
             // label1
@@ -126,28 +126,11 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label1.Location = new System.Drawing.Point(372, 9);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(279, 7);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 25);
+            this.label1.Size = new System.Drawing.Size(62, 19);
             this.label1.TabIndex = 2;
             this.label1.Text = "BUSCAR";
-            // 
-            // txtBuscar
-            // 
-            this.txtBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(207)))), ((int)(((byte)(176)))));
-            this.txtBuscar.BorderRadius = 15;
-            this.txtBuscar.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(31)))), ((int)(((byte)(122)))));
-            this.txtBuscar.Location = new System.Drawing.Point(460, 5);
-            this.txtBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
-            this.txtBuscar.Size = new System.Drawing.Size(534, 31);
-            this.txtBuscar.TabIndex = 1;
-            this.txtBuscar.TextValue = "";
             // 
             // dgvInventario
             // 
@@ -189,8 +172,8 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvInventario.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvInventario.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dgvInventario.Location = new System.Drawing.Point(13, 39);
-            this.dgvInventario.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
+            this.dgvInventario.Location = new System.Drawing.Point(10, 32);
+            this.dgvInventario.Margin = new System.Windows.Forms.Padding(10);
             this.dgvInventario.MultiSelect = false;
             this.dgvInventario.Name = "dgvInventario";
             this.dgvInventario.ReadOnly = true;
@@ -199,7 +182,7 @@
             this.dgvInventario.RowTemplate.Height = 30;
             this.dgvInventario.RowTemplate.ReadOnly = true;
             this.dgvInventario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvInventario.Size = new System.Drawing.Size(984, 317);
+            this.dgvInventario.Size = new System.Drawing.Size(739, 257);
             this.dgvInventario.TabIndex = 0;
             this.dgvInventario.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvInventario_DataBindingComplete);
             // 
@@ -212,10 +195,10 @@
             this.btnEliminar.FlatAppearance.BorderSize = 0;
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Location = new System.Drawing.Point(346, 384);
+            this.btnEliminar.Location = new System.Drawing.Point(259, 311);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(0);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(339, 42);
+            this.btnEliminar.Size = new System.Drawing.Size(254, 35);
             this.btnEliminar.TabIndex = 11;
             this.btnEliminar.Text = "ELIMINAR";
             this.btnEliminar.UseVisualStyleBackColor = false;
@@ -229,25 +212,33 @@
             this.lblTitulo.Font = new System.Drawing.Font("Comic Sans MS", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(207)))), ((int)(((byte)(176)))));
             this.lblTitulo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblTitulo.Location = new System.Drawing.Point(7, 6);
-            this.lblTitulo.Margin = new System.Windows.Forms.Padding(13, 0, 13, 12);
+            this.lblTitulo.Location = new System.Drawing.Point(5, 5);
+            this.lblTitulo.Margin = new System.Windows.Forms.Padding(10, 0, 10, 10);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Padding = new System.Windows.Forms.Padding(27, 25, 27, 25);
-            this.lblTitulo.Size = new System.Drawing.Size(1031, 62);
+            this.lblTitulo.Padding = new System.Windows.Forms.Padding(20);
+            this.lblTitulo.Size = new System.Drawing.Size(774, 50);
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "GESTIÓN DE INVENTARIO";
             // 
+            // txtBuscar
+            // 
+            this.txtBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(207)))), ((int)(((byte)(176)))));
+            this.txtBuscar.Location = new System.Drawing.Point(347, 7);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(398, 20);
+            this.txtBuscar.TabIndex = 3;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
+            // 
             // Inventario
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(207)))), ((int)(((byte)(176)))));
-            this.ClientSize = new System.Drawing.Size(1045, 506);
+            this.ClientSize = new System.Drawing.Size(784, 411);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.lblTitulo);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Inventario";
-            this.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Text = "Inventario";
             this.Resize += new System.EventHandler(this.Inventario_Resize);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -264,10 +255,10 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private panelRedondeado panelProductos;
         private System.Windows.Forms.Label label1;
-        private textboxRedondeado txtBuscar;
         private System.Windows.Forms.DataGridView dgvInventario;
         private botonRedondeado btnAgregar;
         private botonRedondeado btnEliminar;
         private botonRedondeado btnEditar;
+        private System.Windows.Forms.TextBox txtBuscar;
     }
 }

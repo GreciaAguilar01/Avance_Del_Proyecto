@@ -104,29 +104,11 @@
     <Compile Include="botonRedondeado.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Editar_InfPaciente.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Editar_InfPaciente.Designer.cs">
-      <DependentUpon>Editar_InfPaciente.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Inventario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Inventario.Designer.cs">
       <DependentUpon>Inventario.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Ingreso_Paciente.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Ingreso_Paciente.Designer.cs">
-      <DependentUpon>Ingreso_Paciente.cs</DependentUpon>
     </Compile>
     <Compile Include="labelRedondeado.cs">
       <SubType>Component</SubType>
@@ -142,15 +124,6 @@
     </Compile>
     <EmbeddedResource Include="frmDetalleProducto.resx">
       <DependentUpon>frmDetalleProducto.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Editar_InfPaciente.resx">
-      <DependentUpon>Editar_InfPaciente.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Ingreso_Paciente.resx">
-      <DependentUpon>Ingreso_Paciente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inventario.resx">
       <DependentUpon>Inventario.cs</DependentUpon>

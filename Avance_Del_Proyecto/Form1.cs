@@ -17,6 +17,20 @@ namespace Avance_Del_Proyecto
             InitializeComponent();
         }
 
-       
+        private void BtnIS_Click(object sender, EventArgs e)
+        {
+            string Usuario = TbUsuario.TextValue;
+            string Contrasena = TbContrasena.TextValue;
+
+            if (Usuario == "Emiliano" && Contrasena == "1234")
+            
+            {
+                MessageBox.Show("¡Bienvenida de nuevo, " + usuario + "!", "Acceso Concedido");
+            }
+            else
+            {
+                MessageBox.Show("Usuario o contraseña incorrectos. Intenta de nuevo.", "Error");
+            }
+        }
     }
 }

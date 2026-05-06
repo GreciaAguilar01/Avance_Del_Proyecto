@@ -16,5 +16,11 @@ namespace Avance_Del_Proyecto
         {
             InitializeComponent();
         }
+
+        private void Produccion_Resize(object sender, EventArgs e)
+        {
+           // this.Invalidate();
+            //this.Refresh();
+        }
     }
 }

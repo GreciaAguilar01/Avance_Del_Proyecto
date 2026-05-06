@@ -3,8 +3,6 @@ using System.Data;
 using System.IO;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-using iTextSharp.text;
-using iTextSharp.text.pdf;
 
 namespace Avance_Del_Proyecto
 {
@@ -12,62 +10,137 @@ namespace Avance_Del_Proyecto
     {
         string SQLconection = "Server=localhost;Port=3306;Database=sigeo_db;Uid=root;Pwd=root;";
 
+        private int idPacienteActual = -1;
+        private string nombrePacienteActual = "";
+        private DataTable tablaOrdenRecibida;   // orden que viene de Pedido_Producto
         private int idPedidoSeleccionado = -1;
         private decimal totalPedido = 0;
         private decimal abonadoPedido = 0;
 
-        public Pagos_Abonos() => InitializeComponent();
+        // Constructor normal (desde menú)
+        public Pagos_Abonos()
+        {
+            InitializeComponent();
+        }
 
-        // ═══════════════════════════════════════════════════════
+        // Constructor desde Pedido_Producto
+        public Pagos_Abonos(int idPaciente, string nombrePaciente, DataTable orden)
+        {
+            InitializeComponent();
+            idPacienteActual = idPaciente;
+            nombrePacienteActual = nombrePaciente;
+            tablaOrdenRecibida = orden;
+        }
+
         //  CARGA INICIAL
-        // ═══════════════════════════════════════════════════════
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            CargarPacientes();
 
-            lboxNombresPacientes.SelectedIndexChanged += LboxNombresPacientes_SelectedIndexChanged;
-            lboxPedidosPacientes.SelectedIndexChanged += LboxPedidosPacientes_SelectedIndexChanged;
+            // Suscribir eventos
+            lboxNombresPacientesPagosAbonos.SelectedIndexChanged += LboxPacientes_SelectedIndexChanged;
+            lboxPedidosPacientes.SelectedIndexChanged += LboxPedidos_SelectedIndexChanged;
             btnRecibirPago.Click += BtnRecibirPago_Click;
             btnRecibirAbono.Click += BtnRecibirAbono_Click;
             btnCancelarOperacion.Click += BtnCancelarOperacion_Click;
+
+            CargarPacientes();
+
+            // Si se abrió desde Pedido_Producto, guardar pedido y preseleccionar paciente
+            if (idPacienteActual >= 0 && tablaOrdenRecibida != null)
+            {
+                GuardarNuevoPedido();
+                PreseleccionarPaciente();
+            }
         }
 
-        // ═══════════════════════════════════════════════════════
-        //  CARGAR PACIENTES
-        // ═══════════════════════════════════════════════════════
+        //  CARGAR LISTA DE PACIENTES
         private void CargarPacientes()
         {
             using (MySqlConnection con = new MySqlConnection(SQLconection))
             {
                 con.Open();
-                string query = "SELECT id_paciente, nombre_completo FROM pacientes ORDER BY nombre_completo";
+                string query = "SELECT id_paciente, nombre FROM pacientes ORDER BY nombre";
+                lboxNombresPacientesPagosAbonos.DisplayMember = "nombre";
                 MySqlDataAdapter da = new MySqlDataAdapter(query, con);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
 
-                lboxNombresPacientes.DataSource = dt;
-                lboxNombresPacientes.DisplayMember = "nombre_completo";
-                lboxNombresPacientes.ValueMember = "id_paciente";
+                lboxNombresPacientesPagosAbonos.DataSource = dt;
+                lboxNombresPacientesPagosAbonos.DisplayMember = "nombre";
+                lboxNombresPacientesPagosAbonos.ValueMember = "id_paciente";
+                lboxNombresPacientesPagosAbonos.SelectedIndex = -1;
             }
         }
 
-        // ═══════════════════════════════════════════════════════
-        //  AL SELECCIONAR PACIENTE
-        // ═══════════════════════════════════════════════════════
-        private void LboxNombresPacientes_SelectedIndexChanged(object sender, EventArgs e)
+        private void PreseleccionarPaciente()
         {
-            if (lboxNombresPacientes.SelectedItem == null) return;
+            for (int i = 0; i < lboxNombresPacientesPagosAbonos.Items.Count; i++)
+            {
+                DataRowView drv = (DataRowView)lboxNombresPacientesPagosAbonos.Items[i];
+                if (Convert.ToInt32(drv["id_paciente"]) == idPacienteActual)
+                {
+                    lboxNombresPacientesPagosAbonos.SelectedIndex = i;
+                    break;
+                }
+            }
+        }
 
-            DataRowView drv = (DataRowView)lboxNombresPacientes.SelectedItem;
-            int idPaciente = Convert.ToInt32(drv["id_paciente"]);
-            lblNombrePaciente.Text = drv["nombre_completo"].ToString();
+        //  GUARDAR NUEVO PEDIDO EN BD (viene de Pedido_Producto)
+        private void GuardarNuevoPedido()
+        {
+            decimal total = 0;
+            foreach (DataRow r in tablaOrdenRecibida.Rows)
+                total += Convert.ToDecimal(r["precio"]);
+
+            using (MySqlConnection con = new MySqlConnection(SQLconection))
+            {
+                con.Open();
+                MySqlTransaction trans = con.BeginTransaction();
+                try
+                {
+                    string sqlPedido = @"INSERT INTO pedidos (id_paciente, fecha_pedido, tipo_pago, total, abonado, estado)
+                                         VALUES (@idp, @fecha_pedido, 'Pendiente', @total, 0, 'pendiente');
+                                         SELECT LAST_INSERT_ID();";
+                    MySqlCommand cmd = new MySqlCommand(sqlPedido, con, trans);
+                    cmd.Parameters.AddWithValue("@idp", idPacienteActual);
+                    cmd.Parameters.AddWithValue("@fecha_pedido", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@total", total);
+                    int idPedido = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    foreach (DataRow r in tablaOrdenRecibida.Rows)
+                    {
+                        string sqlDetalle = "INSERT INTO detalle_pedido (id_pedido, id_producto, precio_unitario) VALUES (@idPed, @idProd, @precio)";
+                        MySqlCommand cmdD = new MySqlCommand(sqlDetalle, con, trans);
+                        cmdD.Parameters.AddWithValue("@idPed", idPedido);
+                        cmdD.Parameters.AddWithValue("@idProd", Convert.ToInt32(r["id_producto"]));
+                        cmdD.Parameters.AddWithValue("@precio", Convert.ToDecimal(r["precio"]));
+                        cmdD.ExecuteNonQuery();
+                    }
+
+                    trans.Commit();
+                }
+                catch (Exception ex)
+                {
+                    trans.Rollback();
+                    MessageBox.Show($"Error al guardar pedido: {ex.Message}", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        //  AL SELECCIONAR PACIENTE → cargar sus pedidos
+        private void LboxPacientes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lboxNombresPacientesPagosAbonos.SelectedItem == null) return;
+
+            DataRowView drv = (DataRowView)lboxNombresPacientesPagosAbonos.SelectedItem;
+            idPacienteActual = Convert.ToInt32(drv["id_paciente"]);
+            nombrePacienteActual = drv["nombre"].ToString();
+            lblNombrePaciente.Text = nombrePacienteActual;
 
             idPedidoSeleccionado = -1;
-            totalPedido = 0;
-            abonadoPedido = 0;
-
-            CargarPedidosPaciente(idPaciente);
+            CargarPedidosPaciente(idPacienteActual);
         }
 
         private void CargarPedidosPaciente(int idPaciente)
@@ -75,12 +148,11 @@ namespace Avance_Del_Proyecto
             using (MySqlConnection con = new MySqlConnection(SQLconection))
             {
                 con.Open();
-                string query = @"
-                    SELECT id_pedido, fecha, total, abonado, estado,
-                           (total - abonado) AS saldo
-                    FROM pedidos
-                    WHERE id_paciente = @idp
-                    ORDER BY fecha DESC";
+                string query = @"SELECT id_pedido, fecha_pedido, total, abonado, estado,
+                                        (total - abonado) AS saldo
+                                 FROM pedidos
+                                 WHERE id_paciente = @idp
+                                 ORDER BY fecha_pedido DESC";
 
                 MySqlDataAdapter da = new MySqlDataAdapter(query, con);
                 da.SelectCommand.Parameters.AddWithValue("@idp", idPaciente);
@@ -92,7 +164,7 @@ namespace Avance_Del_Proyecto
 
                 foreach (DataRow r in dt.Rows)
                 {
-                    string fecha = Convert.ToDateTime(r["fecha"]).ToString("dd/MM/yyyy");
+                    string fecha = Convert.ToDateTime(r["fecha_pedido"]).ToString("dd/MM/yyyy");
                     string estado = r["estado"].ToString() == "pagado" ? "✅ Pagado" : "⏳ Pendiente";
                     decimal saldo = Convert.ToDecimal(r["saldo"]);
 
@@ -109,10 +181,8 @@ namespace Avance_Del_Proyecto
             }
         }
 
-        // ═══════════════════════════════════════════════════════
         //  AL SELECCIONAR UN PEDIDO
-        // ═══════════════════════════════════════════════════════
-        private void LboxPedidosPacientes_SelectedIndexChanged(object sender, EventArgs e)
+        private void LboxPedidos_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lboxPedidosPacientes.SelectedItem is PedidoItem item)
             {
@@ -122,9 +192,7 @@ namespace Avance_Del_Proyecto
             }
         }
 
-        // ═══════════════════════════════════════════════════════
         //  RECIBIR PAGO COMPLETO
-        // ═══════════════════════════════════════════════════════
         private void BtnRecibirPago_Click(object sender, EventArgs e)
         {
             if (!ValidarSeleccion()) return;
@@ -133,7 +201,7 @@ namespace Avance_Del_Proyecto
 
             if (item.Estado == "pagado")
             {
-                MessageBox.Show("Este pedido ya está pagado.", "Aviso",
+                MessageBox.Show("Este pedido ya está liquidado.", "Aviso",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
@@ -144,32 +212,32 @@ namespace Avance_Del_Proyecto
 
             if (string.IsNullOrWhiteSpace(input)) return;
 
-            if (!decimal.TryParse(input, out decimal montoPagado))
+            if (!decimal.TryParse(input, out decimal monto))
             {
                 MessageBox.Show("Monto inválido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (montoPagado < item.Saldo)
+            if (monto < item.Saldo)
             {
-                MessageBox.Show($"Monto insuficiente. Faltan: ${item.Saldo - montoPagado:F2}\nUsa 'Recibir abono' para pagos parciales.",
+                MessageBox.Show($"Pago insuficiente. Faltan: ${item.Saldo - monto:F2}\n¿Deseas registrar un abono en su lugar?",
                     "Pago incompleto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            ActualizarPedidoBD(item.IdPedido, item.Abonado + item.Saldo, "pagado");
-            decimal cambio = montoPagado - item.Saldo;
-            GenerarTicketPDF(item, "Pago completo", montoPagado, 0);
+            string tipoPago = ObtenerTipoPago();
+            ActualizarPedidoBD(item.IdPedido, item.Abonado + item.Saldo, "pagado", tipoPago);
 
-            string msg = $"✅ Pedido #{item.IdPedido} liquidado.";
+            decimal cambio = monto - item.Saldo;
+            GenerarTicketTxt(item, "Pago completo", tipoPago, monto, 0);
+
+            string msg = $"✅ Pedido #{item.IdPedido} liquidado correctamente.";
             if (cambio > 0) msg += $"\nCambio: ${cambio:F2}";
             MessageBox.Show(msg, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             RefrescarPedidos();
         }
 
-        // ═══════════════════════════════════════════════════════
         //  RECIBIR ABONO
-        // ═══════════════════════════════════════════════════════
         private void BtnRecibirAbono_Click(object sender, EventArgs e)
         {
             if (!ValidarSeleccion()) return;
@@ -197,51 +265,57 @@ namespace Avance_Del_Proyecto
 
             if (abono >= item.Saldo)
             {
-                MessageBox.Show("El abono cubre el total. Usa 'Recibir pago'.",
-                    "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("El abono cubre el saldo total. Por favor usa 'Recibir pago' para liquidarlo.",
+                    "Usa Recibir Pago", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
             decimal nuevoAbonado = item.Abonado + abono;
             decimal nuevoSaldo = item.Total - nuevoAbonado;
+            string tipoPago = ObtenerTipoPago();
 
-            ActualizarPedidoBD(item.IdPedido, nuevoAbonado, "abono");
-            GenerarTicketPDF(item, "Abono", abono, nuevoSaldo);
+            ActualizarPedidoBD(item.IdPedido, nuevoAbonado, "pendiente", tipoPago);
+            GenerarTicketTxt(item, "Abono", tipoPago, abono, nuevoSaldo);
 
             MessageBox.Show($"✅ Abono de ${abono:F2} registrado.\nSaldo pendiente: ${nuevoSaldo:F2}",
                 "Abono registrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
             RefrescarPedidos();
         }
 
-        // ═══════════════════════════════════════════════════════
-        //  CANCELAR OPERACIÓN
-        // ═══════════════════════════════════════════════════════
+        //  Cancelar/reiniciar la ventana
+        //funciona para volver a elegir al paciene
         private void BtnCancelarOperacion_Click(object sender, EventArgs e)
         {
-            this.Close();
+            idPacienteActual = -1;
+            nombrePacienteActual = "";
+            idPedidoSeleccionado = -1;
+            totalPedido = 0;
+            abonadoPedido = 0;
+
+            lboxNombresPacientesPagosAbonos.SelectedIndex = -1;
+            lboxPedidosPacientes.DataSource = null;
+            lboxPedidosPacientes.Items.Clear();
+            lblNombrePaciente.Text = "Nombre del paciente:";
         }
 
-        // ═══════════════════════════════════════════════════════
-        //  ACTUALIZAR PEDIDO EN BD
-        // ═══════════════════════════════════════════════════════
-        private void ActualizarPedidoBD(int idPedido, decimal nuevoAbonado, string estado)
+        //  actualizar en la base de datos Dios mio no muevan NADA POR FAVOR
+        private void ActualizarPedidoBD(int idPedido, decimal nuevoAbonado, string estado, string tipoPago)
         {
             using (MySqlConnection con = new MySqlConnection(SQLconection))
             {
                 con.Open();
-                string sql = "UPDATE pedidos SET abonado = @ab, estado = @est WHERE id_pedido = @id";
+                string sql = "UPDATE pedidos SET abonado = @ab, estado = @est, tipo_pago = @tipo WHERE id_pedido = @id";
                 MySqlCommand cmd = new MySqlCommand(sql, con);
                 cmd.Parameters.AddWithValue("@ab", nuevoAbonado);
                 cmd.Parameters.AddWithValue("@est", estado);
+                cmd.Parameters.AddWithValue("@tipo", tipoPago);
                 cmd.Parameters.AddWithValue("@id", idPedido);
                 cmd.ExecuteNonQuery();
             }
         }
 
-        // ═══════════════════════════════════════════════════════
-        //  GENERAR TICKET PDF
-        // ═══════════════════════════════════════════════════════
-        private void GenerarTicketPDF(PedidoItem item, string tipoPago, decimal montoPagado, decimal saldo)
+        //  generar .txt
+        private void GenerarTicketTxt(PedidoItem item, string tipoOperacion, string tipoPago, decimal montoPagado, decimal saldo)
         {
             string carpeta = Path.Combine(
                 Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
@@ -249,89 +323,62 @@ namespace Avance_Del_Proyecto
             Directory.CreateDirectory(carpeta);
 
             string archivo = Path.Combine(carpeta,
-                $"Ticket_Pedido_{item.IdPedido}_{DateTime.Now:yyyyMMdd_HHmm}.pdf");
+                $"Ticket_Pedido_{item.IdPedido}_{DateTime.Now:yyyyMMdd_HHmm}.txt");
 
+            // Obtener productos del pedido
             DataTable productos = new DataTable();
             using (MySqlConnection con = new MySqlConnection(SQLconection))
             {
                 con.Open();
-                string query = @"
-                    SELECT CONCAT(p.codigo, ' - ', p.nombre) AS nombre_display, dp.precio_unitario
-                    FROM detalle_pedido dp
-                    JOIN productos p ON dp.id_producto = p.id_producto
-                    WHERE dp.id_pedido = @id";
+                string query = @"SELECT CONCAT(p.codigo, ' - ', p.nombre) AS nombre_display, dp.precio_unitario
+                                 FROM detalle_pedido dp
+                                 JOIN productos p ON dp.id_producto = p.id_producto
+                                 WHERE dp.id_pedido = @id";
                 MySqlDataAdapter da = new MySqlDataAdapter(query, con);
                 da.SelectCommand.Parameters.AddWithValue("@id", item.IdPedido);
                 da.Fill(productos);
             }
 
-            using (FileStream fs = new FileStream(archivo, FileMode.Create))
+            using (StreamWriter sw = new StreamWriter(archivo, false, System.Text.Encoding.UTF8))
             {
-                Document doc = new Document(PageSize.A5, 30, 30, 30, 30);
-                PdfWriter.GetInstance(doc, fs);
-                doc.Open();
-
-                BaseFont bf = BaseFont.CreateFont(BaseFont.HELVETICA_BOLD, BaseFont.CP1252, false);
-                BaseFont bfNormal = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1252, false);
-                var fTitulo = new iTextSharp.text.Font(bf, 16, iTextSharp.text.Font.NORMAL, new BaseColor(0, 130, 74));
-                var fNormal = new iTextSharp.text.Font(bfNormal, 10);
-                var fBold = new iTextSharp.text.Font(bf, 10);
-                var fTotal = new iTextSharp.text.Font(bf, 12, iTextSharp.text.Font.NORMAL, new BaseColor(0, 100, 50));
-                var fPeq = new iTextSharp.text.Font(bfNormal, 8, iTextSharp.text.Font.NORMAL, BaseColor.GRAY);
-
-                doc.Add(new Paragraph("SIGEO - Ortopedia", fTitulo) { Alignment = Element.ALIGN_CENTER });
-                doc.Add(new Paragraph("Comprobante de Pago", fBold) { Alignment = Element.ALIGN_CENTER });
-                doc.Add(new Paragraph($"Pedido #:  {item.IdPedido}", fNormal));
-                doc.Add(new Paragraph($"Fecha:     {DateTime.Now:dd/MM/yyyy HH:mm}", fNormal));
-                doc.Add(new Paragraph($"Paciente:  {lblNombrePaciente.Text}", fNormal));
-                doc.Add(new Paragraph($"Tipo pago: {tipoPago} ({ObtenerTipoPago()})", fNormal));
-                doc.Add(new Paragraph("─────────────────────────────────", fPeq));
-
-                PdfPTable tabla = new PdfPTable(2) { WidthPercentage = 100 };
-                tabla.SetWidths(new float[] { 3f, 1f });
-
-                var hProd = new PdfPCell(new Phrase("Producto", fBold))
-                { BackgroundColor = new BaseColor(0, 130, 74), BorderWidth = 0, Padding = 4 };
-                var hPrecio = new PdfPCell(new Phrase("Precio", fBold))
-                { BackgroundColor = new BaseColor(0, 130, 74), BorderWidth = 0, Padding = 4, HorizontalAlignment = Element.ALIGN_RIGHT };
-                var fEncabezado = new iTextSharp.text.Font(bf, 10, iTextSharp.text.Font.NORMAL, BaseColor.WHITE);
-                tabla.AddCell(hProd);
-                tabla.AddCell(hPrecio);
+                sw.WriteLine("========================================");
+                sw.WriteLine("         SIGEO - Ortopedia              ");
+                sw.WriteLine("         Comprobante de Pago            ");
+                sw.WriteLine("========================================");
+                sw.WriteLine($"Pedido #:    {item.IdPedido}");
+                sw.WriteLine($"Fecha:       {DateTime.Now:dd/MM/yyyy HH:mm}");
+                sw.WriteLine($"Paciente:    {nombrePacienteActual}");
+                sw.WriteLine($"Operacion:   {tipoOperacion}");
+                sw.WriteLine($"Tipo de pago:{tipoPago}");
+                sw.WriteLine("----------------------------------------");
+                sw.WriteLine($"{"Producto",-30} {"Precio",10}");
+                sw.WriteLine("----------------------------------------");
 
                 foreach (DataRow r in productos.Rows)
-                {
-                    tabla.AddCell(new PdfPCell(new Phrase(r["nombre_display"].ToString(), fNormal))
-                    { BorderWidth = 0, Padding = 3 });
-                    tabla.AddCell(new PdfPCell(new Phrase($"${Convert.ToDecimal(r["precio_unitario"]):F2}", fNormal))
-                    { BorderWidth = 0, Padding = 3, HorizontalAlignment = Element.ALIGN_RIGHT });
-                }
-                doc.Add(tabla);
+                    sw.WriteLine($"{r["nombre_display"],-30} ${Convert.ToDecimal(r["precio_unitario"]):F2,9}");
 
-                doc.Add(new Paragraph("─────────────────────────────────", fPeq));
-                doc.Add(new Paragraph($"TOTAL:           ${item.Total:F2}", fTotal));
-                doc.Add(new Paragraph($"Monto pagado:    ${montoPagado:F2}", fBold));
+                sw.WriteLine("----------------------------------------");
+                sw.WriteLine($"{"TOTAL:",-30} ${item.Total:F2,9}");
+                sw.WriteLine($"{"Monto pagado:",-30} ${montoPagado:F2,9}");
 
                 if (saldo > 0)
-                    doc.Add(new Paragraph($"Saldo pendiente: ${saldo:F2}",
-                        new iTextSharp.text.Font(bf, 11, iTextSharp.text.Font.NORMAL, BaseColor.RED)));
+                    sw.WriteLine($"{"Saldo pendiente:",-30} ${saldo:F2,9}");
                 else
-                    doc.Add(new Paragraph("PAGADO EN SU TOTALIDAD",
-                        new iTextSharp.text.Font(bf, 11, iTextSharp.text.Font.NORMAL, new BaseColor(0, 130, 74))));
+                    sw.WriteLine($"{"PAGADO EN SU TOTALIDAD",-30}");
 
-                doc.Add(new Paragraph("\n¡Gracias por su preferencia!", fPeq) { Alignment = Element.ALIGN_CENTER });
-                doc.Close();
+                sw.WriteLine("========================================");
+                sw.WriteLine("     ¡Gracias por su preferencia!      ");
+                sw.WriteLine("========================================");
             }
 
-            MessageBox.Show($"Ticket guardado en:\n{archivo}", "PDF generado",
+            MessageBox.Show($"Ticket guardado en:\n{archivo}", "Ticket generado",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        // ═══════════════════════════════════════════════════════
         //  HELPERS
-        // ═══════════════════════════════════════════════════════
         private bool ValidarSeleccion()
         {
-            if (lboxNombresPacientes.SelectedItem == null)
+            if (idPacienteActual < 0)
             {
                 MessageBox.Show("Selecciona un paciente primero.", "Aviso",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -356,16 +403,16 @@ namespace Avance_Del_Proyecto
 
         private void RefrescarPedidos()
         {
-            if (lboxNombresPacientes.SelectedItem is DataRowView drv)
-                CargarPedidosPaciente(Convert.ToInt32(drv["id_paciente"]));
+            if (idPacienteActual >= 0)
+                CargarPedidosPaciente(idPacienteActual);
         }
 
-        // Eventos vacíos requeridos por el designer original
+        // Eventos vacíos requeridos por el Designer
         private void lblNombrePaciente_Click(object sender, EventArgs e) { }
         private void btnCancelarOperacion_Click(object sender, EventArgs e) { }
     }
 
-    // ── Clase auxiliar para items del listbox de pedidos ─────
+    // Clase auxiliar para items del listbox de pedidos
     public class PedidoItem
     {
         public string Display { get; set; }

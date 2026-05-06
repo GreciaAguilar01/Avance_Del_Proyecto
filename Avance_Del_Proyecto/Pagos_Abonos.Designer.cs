@@ -36,7 +36,7 @@ namespace Avance_Del_Proyecto
             this.rbtnPagoTarjetaDebito = new System.Windows.Forms.RadioButton();
             this.rbtnPagoTarjetaCredito = new System.Windows.Forms.RadioButton();
             this.rbtnTransferencia = new System.Windows.Forms.RadioButton();
-            this.lboxNombresPacientes = new System.Windows.Forms.ListBox();
+            this.lboxNombresPacientesPagosAbonos = new System.Windows.Forms.ListBox();
             this.lblNombrePaciente = new Avance_Del_Proyecto.labelRedondeado();
             this.pboxFotoPaciente = new System.Windows.Forms.PictureBox();
             this.panelRedondeado1 = new Avance_Del_Proyecto.panelRedondeado();
@@ -136,13 +136,13 @@ namespace Avance_Del_Proyecto
             this.rbtnTransferencia.Text = "Pago en transferencia";
             this.rbtnTransferencia.UseVisualStyleBackColor = true;
             // 
-            // lboxNombresPacientes
+            // lboxNombresPacientesPagosAbonos
             // 
-            this.lboxNombresPacientes.FormattingEnabled = true;
-            this.lboxNombresPacientes.Location = new System.Drawing.Point(57, 39);
-            this.lboxNombresPacientes.Name = "lboxNombresPacientes";
-            this.lboxNombresPacientes.Size = new System.Drawing.Size(139, 30);
-            this.lboxNombresPacientes.TabIndex = 7;
+            this.lboxNombresPacientesPagosAbonos.FormattingEnabled = true;
+            this.lboxNombresPacientesPagosAbonos.Location = new System.Drawing.Point(57, 39);
+            this.lboxNombresPacientesPagosAbonos.Name = "lboxNombresPacientesPagosAbonos";
+            this.lboxNombresPacientesPagosAbonos.Size = new System.Drawing.Size(139, 30);
+            this.lboxNombresPacientesPagosAbonos.TabIndex = 7;
             // 
             // lblNombrePaciente
             // 
@@ -176,7 +176,7 @@ namespace Avance_Del_Proyecto
             this.panelRedondeado1.Controls.Add(this.rbtnPagoTarjetaCredito);
             this.panelRedondeado1.Controls.Add(this.btnRecibirPago);
             this.panelRedondeado1.Controls.Add(this.rbtnTransferencia);
-            this.panelRedondeado1.Controls.Add(this.lboxNombresPacientes);
+            this.panelRedondeado1.Controls.Add(this.lboxNombresPacientesPagosAbonos);
             this.panelRedondeado1.Controls.Add(this.lblNombrePaciente);
             this.panelRedondeado1.Cursor = System.Windows.Forms.Cursors.SizeNESW;
             this.panelRedondeado1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -218,7 +218,7 @@ namespace Avance_Del_Proyecto
         private System.Windows.Forms.RadioButton rbtnPagoTarjetaDebito;
         private System.Windows.Forms.RadioButton rbtnPagoTarjetaCredito;
         private System.Windows.Forms.RadioButton rbtnTransferencia;
-        private System.Windows.Forms.ListBox lboxNombresPacientes;
+        private System.Windows.Forms.ListBox lboxNombresPacientesPagosAbonos;
         private labelRedondeado lblNombrePaciente;
         private System.Windows.Forms.PictureBox pboxFotoPaciente;
         private panelRedondeado panelRedondeado1;

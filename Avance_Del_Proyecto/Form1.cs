@@ -25,7 +25,10 @@ namespace Avance_Del_Proyecto
             if (Usuario == "Emiliano" && Contrasena == "1234")
             
             {
-                MessageBox.Show("¡Bienvenida de nuevo, " + usuario + "!", "Acceso Concedido");
+                MessageBox.Show("¡Bienvenida de nuevo, " + Usuario + "!", "Acceso Concedido");
+                Menu_Interfaz ObjMenuInt = new Menu_Interfaz();
+                ObjMenuInt.Show();
+                this.Hide();
             }
             else
             {

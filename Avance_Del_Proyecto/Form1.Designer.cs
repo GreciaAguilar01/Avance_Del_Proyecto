@@ -1,17 +1,9 @@
 ﻿namespace Avance_Del_Proyecto
 {
-    //oal
     partial class Form1
     {
-        /// <summary>
-        /// Variable del diseñador necesaria.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Limpiar los recursos que se estén usando.
-        /// </summary>
-        /// <param name="disposing">true si los recursos administrados se deben desechar; false en caso contrario.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -23,10 +15,6 @@
 
         #region Código generado por el Diseñador de Windows Forms
 
-        /// <summary>
-        /// Método necesario para admitir el Diseñador. No se puede modificar
-        /// el contenido de este método con el editor de código.
-        /// </summary>
         private void InitializeComponent()
         {
             this.panelRedondeado2 = new Avance_Del_Proyecto.panelRedondeado();
@@ -43,7 +31,7 @@
             // 
             // panelRedondeado2
             // 
-            this.panelRedondeado2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(152)))), ((int)(((byte)(100)))));
+            this.panelRedondeado2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(131)))));
             this.panelRedondeado2.BorderRadius = 20;
             this.panelRedondeado2.Controls.Add(this.BtnIS);
             this.panelRedondeado2.Controls.Add(this.TbContrasena);
@@ -59,8 +47,8 @@
             // 
             this.BtnIS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(155)))), ((int)(((byte)(85)))));
             this.BtnIS.BorderRadius = 35;
-            this.BtnIS.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(155)))), ((int)(((byte)(85)))));
             this.BtnIS.FlatAppearance.BorderSize = 0;
+            this.BtnIS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnIS.Font = new System.Drawing.Font("Comic Sans MS", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnIS.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BtnIS.Location = new System.Drawing.Point(30, 219);
@@ -75,10 +63,11 @@
             // 
             this.TbContrasena.BorderRadius = 20;
             this.TbContrasena.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TbContrasena.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(32)))), ((int)(((byte)(108)))));
             this.TbContrasena.Location = new System.Drawing.Point(32, 156);
             this.TbContrasena.Name = "TbContrasena";
             this.TbContrasena.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.TbContrasena.Size = new System.Drawing.Size(572, 36);
+            this.TbContrasena.Size = new System.Drawing.Size(572, 45);
             this.TbContrasena.TabIndex = 3;
             this.TbContrasena.TextValue = "";
             // 
@@ -86,6 +75,7 @@
             // 
             this.TbUsuario.BorderRadius = 20;
             this.TbUsuario.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TbUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(32)))), ((int)(((byte)(108)))));
             this.TbUsuario.Location = new System.Drawing.Point(30, 67);
             this.TbUsuario.Name = "TbUsuario";
             this.TbUsuario.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
@@ -131,7 +121,6 @@
             this.label1.Font = new System.Drawing.Font("Cooper Black", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(207)))), ((int)(((byte)(176)))));
             this.label1.Location = new System.Drawing.Point(214, 34);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(806, 35);
             this.label1.TabIndex = 0;
@@ -145,9 +134,8 @@
             this.ClientSize = new System.Drawing.Size(1066, 477);
             this.Controls.Add(this.panelRedondeado2);
             this.Controls.Add(this.panelRedondeado1);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Inicio de Sesión";
             this.panelRedondeado2.ResumeLayout(false);
             this.panelRedondeado2.PerformLayout();
             this.panelRedondeado1.ResumeLayout(false);
@@ -162,10 +150,9 @@
         private panelRedondeado panelRedondeado1;
         private panelRedondeado panelRedondeado2;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
         private botonRedondeado BtnIS;
         private textboxRedondeado TbContrasena;
         private textboxRedondeado TbUsuario;
-        private System.Windows.Forms.Label label3;
     }
 }
-

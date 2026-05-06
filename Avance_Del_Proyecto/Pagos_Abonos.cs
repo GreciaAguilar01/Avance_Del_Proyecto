@@ -1,224 +1,379 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 
 namespace Avance_Del_Proyecto
 {
     public partial class Pagos_Abonos : Form
     {
-        private botonRedondeado btnRecibirAbono;
-        private botonRedondeado btnCancelarOperacion;
-        private RadioButton rbtnEfectivo;
-        private RadioButton rbtnPagoTarjetaDebito;
-        private RadioButton rbtnPagoTarjetaCredito;
-        private RadioButton rbtnTransferencia;
-        private ListBox lboxNombresPacientes;
-        private labelRedondeado lblNombrePaciente;
-        private PictureBox pboxFotoPaciente;
-        private panelRedondeado panelRedondeado1;
-        private ListBox lboxPedidosPacientes;
-        private botonRedondeado btnRecibirPago;
+        string SQLconection = "Server=localhost;Port=3306;Database=sigeo_db;Uid=root;Pwd=root;";
+
+        private int idPedidoSeleccionado = -1;
+        private decimal totalPedido = 0;
+        private decimal abonadoPedido = 0;
 
         public Pagos_Abonos() => InitializeComponent();
 
-        private void InitializeComponent()
+        // ═══════════════════════════════════════════════════════
+        //  CARGA INICIAL
+        // ═══════════════════════════════════════════════════════
+        protected override void OnLoad(EventArgs e)
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pagos_Abonos));
-            this.btnRecibirPago = new Avance_Del_Proyecto.botonRedondeado();
-            this.btnRecibirAbono = new Avance_Del_Proyecto.botonRedondeado();
-            this.btnCancelarOperacion = new Avance_Del_Proyecto.botonRedondeado();
-            this.rbtnEfectivo = new System.Windows.Forms.RadioButton();
-            this.rbtnPagoTarjetaDebito = new System.Windows.Forms.RadioButton();
-            this.rbtnPagoTarjetaCredito = new System.Windows.Forms.RadioButton();
-            this.rbtnTransferencia = new System.Windows.Forms.RadioButton();
-            this.lboxNombresPacientes = new System.Windows.Forms.ListBox();
-            this.lblNombrePaciente = new Avance_Del_Proyecto.labelRedondeado();
-            this.pboxFotoPaciente = new System.Windows.Forms.PictureBox();
-            this.panelRedondeado1 = new Avance_Del_Proyecto.panelRedondeado();
-            this.lboxPedidosPacientes = new System.Windows.Forms.ListBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pboxFotoPaciente)).BeginInit();
-            this.panelRedondeado1.SuspendLayout();
-            this.SuspendLayout();
-            // 
-            // btnRecibirPago
-            // 
-            this.btnRecibirPago.BackColor = System.Drawing.Color.Lime;
-            this.btnRecibirPago.BorderRadius = 20;
-            this.btnRecibirPago.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRecibirPago.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold);
-            this.btnRecibirPago.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.btnRecibirPago.Location = new System.Drawing.Point(39, 247);
-            this.btnRecibirPago.Name = "btnRecibirPago";
-            this.btnRecibirPago.Size = new System.Drawing.Size(140, 30);
-            this.btnRecibirPago.TabIndex = 0;
-            this.btnRecibirPago.Text = "Recibir pago";
-            this.btnRecibirPago.UseVisualStyleBackColor = false;
-            // 
-            // btnRecibirAbono
-            // 
-            this.btnRecibirAbono.BackColor = System.Drawing.Color.Yellow;
-            this.btnRecibirAbono.BorderRadius = 20;
-            this.btnRecibirAbono.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRecibirAbono.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold);
-            this.btnRecibirAbono.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.btnRecibirAbono.Location = new System.Drawing.Point(39, 285);
-            this.btnRecibirAbono.Name = "btnRecibirAbono";
-            this.btnRecibirAbono.Size = new System.Drawing.Size(140, 30);
-            this.btnRecibirAbono.TabIndex = 1;
-            this.btnRecibirAbono.Text = "Recibir abono";
-            this.btnRecibirAbono.UseVisualStyleBackColor = false;
-            // 
-            // btnCancelarOperacion
-            // 
-            this.btnCancelarOperacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnCancelarOperacion.BorderRadius = 20;
-            this.btnCancelarOperacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelarOperacion.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold);
-            this.btnCancelarOperacion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.btnCancelarOperacion.Location = new System.Drawing.Point(39, 323);
-            this.btnCancelarOperacion.Name = "btnCancelarOperacion";
-            this.btnCancelarOperacion.Size = new System.Drawing.Size(140, 30);
-            this.btnCancelarOperacion.TabIndex = 2;
-            this.btnCancelarOperacion.Text = "Cancelar operación";
-            this.btnCancelarOperacion.UseVisualStyleBackColor = false;
-            this.btnCancelarOperacion.Click += new System.EventHandler(this.btnCancelarOperacion_Click);
-            // 
-            // rbtnEfectivo
-            // 
-            this.rbtnEfectivo.AutoSize = true;
-            this.rbtnEfectivo.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold);
-            this.rbtnEfectivo.Location = new System.Drawing.Point(39, 90);
-            this.rbtnEfectivo.Name = "rbtnEfectivo";
-            this.rbtnEfectivo.Size = new System.Drawing.Size(114, 20);
-            this.rbtnEfectivo.TabIndex = 3;
-            this.rbtnEfectivo.TabStop = true;
-            this.rbtnEfectivo.Text = "Pago en efectivo";
-            this.rbtnEfectivo.UseVisualStyleBackColor = true;
-            // 
-            // rbtnPagoTarjetaDebito
-            // 
-            this.rbtnPagoTarjetaDebito.AutoSize = true;
-            this.rbtnPagoTarjetaDebito.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold);
-            this.rbtnPagoTarjetaDebito.Location = new System.Drawing.Point(39, 126);
-            this.rbtnPagoTarjetaDebito.Name = "rbtnPagoTarjetaDebito";
-            this.rbtnPagoTarjetaDebito.Size = new System.Drawing.Size(169, 20);
-            this.rbtnPagoTarjetaDebito.TabIndex = 4;
-            this.rbtnPagoTarjetaDebito.TabStop = true;
-            this.rbtnPagoTarjetaDebito.Text = "Pago con tarjeta de débito";
-            this.rbtnPagoTarjetaDebito.UseVisualStyleBackColor = true;
-            // 
-            // rbtnPagoTarjetaCredito
-            // 
-            this.rbtnPagoTarjetaCredito.AutoSize = true;
-            this.rbtnPagoTarjetaCredito.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold);
-            this.rbtnPagoTarjetaCredito.Location = new System.Drawing.Point(39, 162);
-            this.rbtnPagoTarjetaCredito.Name = "rbtnPagoTarjetaCredito";
-            this.rbtnPagoTarjetaCredito.Size = new System.Drawing.Size(173, 20);
-            this.rbtnPagoTarjetaCredito.TabIndex = 5;
-            this.rbtnPagoTarjetaCredito.TabStop = true;
-            this.rbtnPagoTarjetaCredito.Text = "Pago con tarjeta de crédito";
-            this.rbtnPagoTarjetaCredito.UseVisualStyleBackColor = true;
-            // 
-            // rbtnTransferencia
-            // 
-            this.rbtnTransferencia.AutoSize = true;
-            this.rbtnTransferencia.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold);
-            this.rbtnTransferencia.Location = new System.Drawing.Point(39, 198);
-            this.rbtnTransferencia.Name = "rbtnTransferencia";
-            this.rbtnTransferencia.Size = new System.Drawing.Size(142, 20);
-            this.rbtnTransferencia.TabIndex = 6;
-            this.rbtnTransferencia.TabStop = true;
-            this.rbtnTransferencia.Text = "Pago en transferencia";
-            this.rbtnTransferencia.UseVisualStyleBackColor = true;
-            // 
-            // lboxNombresPacientes
-            // 
-            this.lboxNombresPacientes.FormattingEnabled = true;
-            this.lboxNombresPacientes.Location = new System.Drawing.Point(57, 39);
-            this.lboxNombresPacientes.Name = "lboxNombresPacientes";
-            this.lboxNombresPacientes.Size = new System.Drawing.Size(139, 30);
-            this.lboxNombresPacientes.TabIndex = 7;
-            // 
-            // lblNombrePaciente
-            // 
-            this.lblNombrePaciente.BorderRadius = 20;
-            this.lblNombrePaciente.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold);
-            this.lblNombrePaciente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(207)))), ((int)(((byte)(176)))));
-            this.lblNombrePaciente.Location = new System.Drawing.Point(55, 13);
-            this.lblNombrePaciente.Name = "lblNombrePaciente";
-            this.lblNombrePaciente.Size = new System.Drawing.Size(139, 23);
-            this.lblNombrePaciente.TabIndex = 8;
-            this.lblNombrePaciente.Text = "Nombre del paciente:";
-            this.lblNombrePaciente.Click += new System.EventHandler(this.lblNombrePaciente_Click);
-            // 
-            // pboxFotoPaciente
-            // 
-            this.pboxFotoPaciente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.pboxFotoPaciente.Location = new System.Drawing.Point(274, 12);
-            this.pboxFotoPaciente.Name = "pboxFotoPaciente";
-            this.pboxFotoPaciente.Size = new System.Drawing.Size(139, 123);
-            this.pboxFotoPaciente.TabIndex = 9;
-            this.pboxFotoPaciente.TabStop = false;
-            // 
-            // panelRedondeado1
-            // 
-            this.panelRedondeado1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(130)))), ((int)(((byte)(74)))));
-            this.panelRedondeado1.BorderRadius = 20;
-            this.panelRedondeado1.Controls.Add(this.rbtnEfectivo);
-            this.panelRedondeado1.Controls.Add(this.rbtnPagoTarjetaDebito);
-            this.panelRedondeado1.Controls.Add(this.btnCancelarOperacion);
-            this.panelRedondeado1.Controls.Add(this.btnRecibirAbono);
-            this.panelRedondeado1.Controls.Add(this.rbtnPagoTarjetaCredito);
-            this.panelRedondeado1.Controls.Add(this.btnRecibirPago);
-            this.panelRedondeado1.Controls.Add(this.rbtnTransferencia);
-            this.panelRedondeado1.Controls.Add(this.lboxNombresPacientes);
-            this.panelRedondeado1.Controls.Add(this.lblNombrePaciente);
-            this.panelRedondeado1.Cursor = System.Windows.Forms.Cursors.SizeNESW;
-            this.panelRedondeado1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelRedondeado1.Location = new System.Drawing.Point(0, 0);
-            this.panelRedondeado1.Name = "panelRedondeado1";
-            this.panelRedondeado1.Size = new System.Drawing.Size(233, 411);
-            this.panelRedondeado1.TabIndex = 10;
-            // 
-            // lboxPedidosPacientes
-            // 
-            this.lboxPedidosPacientes.FormattingEnabled = true;
-            this.lboxPedidosPacientes.Location = new System.Drawing.Point(274, 156);
-            this.lboxPedidosPacientes.Name = "lboxPedidosPacientes";
-            this.lboxPedidosPacientes.Size = new System.Drawing.Size(506, 251);
-            this.lboxPedidosPacientes.TabIndex = 11;
-            // 
-            // Pagos_Abonos
-            // 
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(207)))), ((int)(((byte)(176)))));
-            this.ClientSize = new System.Drawing.Size(784, 411);
-            this.Controls.Add(this.lboxPedidosPacientes);
-            this.Controls.Add(this.pboxFotoPaciente);
-            this.Controls.Add(this.panelRedondeado1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Pagos_Abonos";
-            this.Text = "Pagos y abonos";
-            ((System.ComponentModel.ISupportInitialize)(this.pboxFotoPaciente)).EndInit();
-            this.panelRedondeado1.ResumeLayout(false);
-            this.panelRedondeado1.PerformLayout();
-            this.ResumeLayout(false);
+            base.OnLoad(e);
+            CargarPacientes();
 
+            lboxNombresPacientes.SelectedIndexChanged += LboxNombresPacientes_SelectedIndexChanged;
+            lboxPedidosPacientes.SelectedIndexChanged += LboxPedidosPacientes_SelectedIndexChanged;
+            btnRecibirPago.Click += BtnRecibirPago_Click;
+            btnRecibirAbono.Click += BtnRecibirAbono_Click;
+            btnCancelarOperacion.Click += BtnCancelarOperacion_Click;
         }
 
-        private void lblNombrePaciente_Click(object sender, EventArgs e)
+        // ═══════════════════════════════════════════════════════
+        //  CARGAR PACIENTES
+        // ═══════════════════════════════════════════════════════
+        private void CargarPacientes()
         {
+            using (MySqlConnection con = new MySqlConnection(SQLconection))
+            {
+                con.Open();
+                string query = "SELECT id_paciente, nombre_completo FROM pacientes ORDER BY nombre_completo";
+                MySqlDataAdapter da = new MySqlDataAdapter(query, con);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
 
+                lboxNombresPacientes.DataSource = dt;
+                lboxNombresPacientes.DisplayMember = "nombre_completo";
+                lboxNombresPacientes.ValueMember = "id_paciente";
+            }
         }
 
-        private void btnCancelarOperacion_Click(object sender, EventArgs e)
+        // ═══════════════════════════════════════════════════════
+        //  AL SELECCIONAR PACIENTE
+        // ═══════════════════════════════════════════════════════
+        private void LboxNombresPacientes_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (lboxNombresPacientes.SelectedItem == null) return;
 
+            DataRowView drv = (DataRowView)lboxNombresPacientes.SelectedItem;
+            int idPaciente = Convert.ToInt32(drv["id_paciente"]);
+            lblNombrePaciente.Text = drv["nombre_completo"].ToString();
+
+            idPedidoSeleccionado = -1;
+            totalPedido = 0;
+            abonadoPedido = 0;
+
+            CargarPedidosPaciente(idPaciente);
         }
+
+        private void CargarPedidosPaciente(int idPaciente)
+        {
+            using (MySqlConnection con = new MySqlConnection(SQLconection))
+            {
+                con.Open();
+                string query = @"
+                    SELECT id_pedido, fecha, total, abonado, estado,
+                           (total - abonado) AS saldo
+                    FROM pedidos
+                    WHERE id_paciente = @idp
+                    ORDER BY fecha DESC";
+
+                MySqlDataAdapter da = new MySqlDataAdapter(query, con);
+                da.SelectCommand.Parameters.AddWithValue("@idp", idPaciente);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                lboxPedidosPacientes.DataSource = null;
+                lboxPedidosPacientes.Items.Clear();
+
+                foreach (DataRow r in dt.Rows)
+                {
+                    string fecha = Convert.ToDateTime(r["fecha"]).ToString("dd/MM/yyyy");
+                    string estado = r["estado"].ToString() == "pagado" ? "✅ Pagado" : "⏳ Pendiente";
+                    decimal saldo = Convert.ToDecimal(r["saldo"]);
+
+                    lboxPedidosPacientes.Items.Add(new PedidoItem
+                    {
+                        Display = $"#{r["id_pedido"]}  |  {fecha}  |  Total: ${Convert.ToDecimal(r["total"]):F2}  |  Saldo: ${saldo:F2}  |  {estado}",
+                        IdPedido = Convert.ToInt32(r["id_pedido"]),
+                        Total = Convert.ToDecimal(r["total"]),
+                        Abonado = Convert.ToDecimal(r["abonado"]),
+                        Saldo = saldo,
+                        Estado = r["estado"].ToString()
+                    });
+                }
+            }
+        }
+
+        // ═══════════════════════════════════════════════════════
+        //  AL SELECCIONAR UN PEDIDO
+        // ═══════════════════════════════════════════════════════
+        private void LboxPedidosPacientes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lboxPedidosPacientes.SelectedItem is PedidoItem item)
+            {
+                idPedidoSeleccionado = item.IdPedido;
+                totalPedido = item.Total;
+                abonadoPedido = item.Abonado;
+            }
+        }
+
+        // ═══════════════════════════════════════════════════════
+        //  RECIBIR PAGO COMPLETO
+        // ═══════════════════════════════════════════════════════
+        private void BtnRecibirPago_Click(object sender, EventArgs e)
+        {
+            if (!ValidarSeleccion()) return;
+
+            PedidoItem item = (PedidoItem)lboxPedidosPacientes.SelectedItem;
+
+            if (item.Estado == "pagado")
+            {
+                MessageBox.Show("Este pedido ya está pagado.", "Aviso",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            string input = Microsoft.VisualBasic.Interaction.InputBox(
+                $"Saldo pendiente: ${item.Saldo:F2}\nIngresa el monto recibido:",
+                "Recibir pago", item.Saldo.ToString("F2"));
+
+            if (string.IsNullOrWhiteSpace(input)) return;
+
+            if (!decimal.TryParse(input, out decimal montoPagado))
+            {
+                MessageBox.Show("Monto inválido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (montoPagado < item.Saldo)
+            {
+                MessageBox.Show($"Monto insuficiente. Faltan: ${item.Saldo - montoPagado:F2}\nUsa 'Recibir abono' para pagos parciales.",
+                    "Pago incompleto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            ActualizarPedidoBD(item.IdPedido, item.Abonado + item.Saldo, "pagado");
+            decimal cambio = montoPagado - item.Saldo;
+            GenerarTicketPDF(item, "Pago completo", montoPagado, 0);
+
+            string msg = $"✅ Pedido #{item.IdPedido} liquidado.";
+            if (cambio > 0) msg += $"\nCambio: ${cambio:F2}";
+            MessageBox.Show(msg, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            RefrescarPedidos();
+        }
+
+        // ═══════════════════════════════════════════════════════
+        //  RECIBIR ABONO
+        // ═══════════════════════════════════════════════════════
+        private void BtnRecibirAbono_Click(object sender, EventArgs e)
+        {
+            if (!ValidarSeleccion()) return;
+
+            PedidoItem item = (PedidoItem)lboxPedidosPacientes.SelectedItem;
+
+            if (item.Estado == "pagado")
+            {
+                MessageBox.Show("Este pedido ya está pagado.", "Aviso",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            string input = Microsoft.VisualBasic.Interaction.InputBox(
+                $"Saldo pendiente: ${item.Saldo:F2}\nIngresa el monto del abono:",
+                "Recibir abono", "");
+
+            if (string.IsNullOrWhiteSpace(input)) return;
+
+            if (!decimal.TryParse(input, out decimal abono) || abono <= 0)
+            {
+                MessageBox.Show("Monto inválido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (abono >= item.Saldo)
+            {
+                MessageBox.Show("El abono cubre el total. Usa 'Recibir pago'.",
+                    "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            decimal nuevoAbonado = item.Abonado + abono;
+            decimal nuevoSaldo = item.Total - nuevoAbonado;
+
+            ActualizarPedidoBD(item.IdPedido, nuevoAbonado, "abono");
+            GenerarTicketPDF(item, "Abono", abono, nuevoSaldo);
+
+            MessageBox.Show($"✅ Abono de ${abono:F2} registrado.\nSaldo pendiente: ${nuevoSaldo:F2}",
+                "Abono registrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            RefrescarPedidos();
+        }
+
+        // ═══════════════════════════════════════════════════════
+        //  CANCELAR OPERACIÓN
+        // ═══════════════════════════════════════════════════════
+        private void BtnCancelarOperacion_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        // ═══════════════════════════════════════════════════════
+        //  ACTUALIZAR PEDIDO EN BD
+        // ═══════════════════════════════════════════════════════
+        private void ActualizarPedidoBD(int idPedido, decimal nuevoAbonado, string estado)
+        {
+            using (MySqlConnection con = new MySqlConnection(SQLconection))
+            {
+                con.Open();
+                string sql = "UPDATE pedidos SET abonado = @ab, estado = @est WHERE id_pedido = @id";
+                MySqlCommand cmd = new MySqlCommand(sql, con);
+                cmd.Parameters.AddWithValue("@ab", nuevoAbonado);
+                cmd.Parameters.AddWithValue("@est", estado);
+                cmd.Parameters.AddWithValue("@id", idPedido);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        // ═══════════════════════════════════════════════════════
+        //  GENERAR TICKET PDF
+        // ═══════════════════════════════════════════════════════
+        private void GenerarTicketPDF(PedidoItem item, string tipoPago, decimal montoPagado, decimal saldo)
+        {
+            string carpeta = Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+                "SIGEO_Tickets");
+            Directory.CreateDirectory(carpeta);
+
+            string archivo = Path.Combine(carpeta,
+                $"Ticket_Pedido_{item.IdPedido}_{DateTime.Now:yyyyMMdd_HHmm}.pdf");
+
+            DataTable productos = new DataTable();
+            using (MySqlConnection con = new MySqlConnection(SQLconection))
+            {
+                con.Open();
+                string query = @"
+                    SELECT CONCAT(p.codigo, ' - ', p.nombre) AS nombre_display, dp.precio_unitario
+                    FROM detalle_pedido dp
+                    JOIN productos p ON dp.id_producto = p.id_producto
+                    WHERE dp.id_pedido = @id";
+                MySqlDataAdapter da = new MySqlDataAdapter(query, con);
+                da.SelectCommand.Parameters.AddWithValue("@id", item.IdPedido);
+                da.Fill(productos);
+            }
+
+            using (FileStream fs = new FileStream(archivo, FileMode.Create))
+            {
+                Document doc = new Document(PageSize.A5, 30, 30, 30, 30);
+                PdfWriter.GetInstance(doc, fs);
+                doc.Open();
+
+                BaseFont bf = BaseFont.CreateFont(BaseFont.HELVETICA_BOLD, BaseFont.CP1252, false);
+                BaseFont bfNormal = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1252, false);
+                var fTitulo = new iTextSharp.text.Font(bf, 16, iTextSharp.text.Font.NORMAL, new BaseColor(0, 130, 74));
+                var fNormal = new iTextSharp.text.Font(bfNormal, 10);
+                var fBold = new iTextSharp.text.Font(bf, 10);
+                var fTotal = new iTextSharp.text.Font(bf, 12, iTextSharp.text.Font.NORMAL, new BaseColor(0, 100, 50));
+                var fPeq = new iTextSharp.text.Font(bfNormal, 8, iTextSharp.text.Font.NORMAL, BaseColor.GRAY);
+
+                doc.Add(new Paragraph("SIGEO - Ortopedia", fTitulo) { Alignment = Element.ALIGN_CENTER });
+                doc.Add(new Paragraph("Comprobante de Pago", fBold) { Alignment = Element.ALIGN_CENTER });
+                doc.Add(new Paragraph($"Pedido #:  {item.IdPedido}", fNormal));
+                doc.Add(new Paragraph($"Fecha:     {DateTime.Now:dd/MM/yyyy HH:mm}", fNormal));
+                doc.Add(new Paragraph($"Paciente:  {lblNombrePaciente.Text}", fNormal));
+                doc.Add(new Paragraph($"Tipo pago: {tipoPago} ({ObtenerTipoPago()})", fNormal));
+                doc.Add(new Paragraph("─────────────────────────────────", fPeq));
+
+                PdfPTable tabla = new PdfPTable(2) { WidthPercentage = 100 };
+                tabla.SetWidths(new float[] { 3f, 1f });
+
+                var hProd = new PdfPCell(new Phrase("Producto", fBold))
+                { BackgroundColor = new BaseColor(0, 130, 74), BorderWidth = 0, Padding = 4 };
+                var hPrecio = new PdfPCell(new Phrase("Precio", fBold))
+                { BackgroundColor = new BaseColor(0, 130, 74), BorderWidth = 0, Padding = 4, HorizontalAlignment = Element.ALIGN_RIGHT };
+                var fEncabezado = new iTextSharp.text.Font(bf, 10, iTextSharp.text.Font.NORMAL, BaseColor.WHITE);
+                tabla.AddCell(hProd);
+                tabla.AddCell(hPrecio);
+
+                foreach (DataRow r in productos.Rows)
+                {
+                    tabla.AddCell(new PdfPCell(new Phrase(r["nombre_display"].ToString(), fNormal))
+                    { BorderWidth = 0, Padding = 3 });
+                    tabla.AddCell(new PdfPCell(new Phrase($"${Convert.ToDecimal(r["precio_unitario"]):F2}", fNormal))
+                    { BorderWidth = 0, Padding = 3, HorizontalAlignment = Element.ALIGN_RIGHT });
+                }
+                doc.Add(tabla);
+
+                doc.Add(new Paragraph("─────────────────────────────────", fPeq));
+                doc.Add(new Paragraph($"TOTAL:           ${item.Total:F2}", fTotal));
+                doc.Add(new Paragraph($"Monto pagado:    ${montoPagado:F2}", fBold));
+
+                if (saldo > 0)
+                    doc.Add(new Paragraph($"Saldo pendiente: ${saldo:F2}",
+                        new iTextSharp.text.Font(bf, 11, iTextSharp.text.Font.NORMAL, BaseColor.RED)));
+                else
+                    doc.Add(new Paragraph("PAGADO EN SU TOTALIDAD",
+                        new iTextSharp.text.Font(bf, 11, iTextSharp.text.Font.NORMAL, new BaseColor(0, 130, 74))));
+
+                doc.Add(new Paragraph("\n¡Gracias por su preferencia!", fPeq) { Alignment = Element.ALIGN_CENTER });
+                doc.Close();
+            }
+
+            MessageBox.Show($"Ticket guardado en:\n{archivo}", "PDF generado",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        // ═══════════════════════════════════════════════════════
+        //  HELPERS
+        // ═══════════════════════════════════════════════════════
+        private bool ValidarSeleccion()
+        {
+            if (lboxNombresPacientes.SelectedItem == null)
+            {
+                MessageBox.Show("Selecciona un paciente primero.", "Aviso",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (lboxPedidosPacientes.SelectedItem == null)
+            {
+                MessageBox.Show("Selecciona un pedido de la lista.", "Aviso",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            return true;
+        }
+
+        private string ObtenerTipoPago()
+        {
+            if (rbtnPagoTarjetaDebito.Checked) return "Tarjeta de débito";
+            if (rbtnPagoTarjetaCredito.Checked) return "Tarjeta de crédito";
+            if (rbtnTransferencia.Checked) return "Transferencia";
+            return "Efectivo";
+        }
+
+        private void RefrescarPedidos()
+        {
+            if (lboxNombresPacientes.SelectedItem is DataRowView drv)
+                CargarPedidosPaciente(Convert.ToInt32(drv["id_paciente"]));
+        }
+
+        // Eventos vacíos requeridos por el designer original
+        private void lblNombrePaciente_Click(object sender, EventArgs e) { }
+        private void btnCancelarOperacion_Click(object sender, EventArgs e) { }
+    }
+
+    // ── Clase auxiliar para items del listbox de pedidos ─────
+    public class PedidoItem
+    {
+        public string Display { get; set; }
+        public int IdPedido { get; set; }
+        public decimal Total { get; set; }
+        public decimal Abonado { get; set; }
+        public decimal Saldo { get; set; }
+        public string Estado { get; set; }
+        public override string ToString() => Display;
     }
 }

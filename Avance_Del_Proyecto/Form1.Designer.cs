@@ -146,17 +146,20 @@
             this.Controls.Add(this.panelRedondeado2);
             this.Controls.Add(this.panelRedondeado1);
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.BackColor = System.Drawing.Color.LightBlue;
+            this.ClientSize = new System.Drawing.Size(1121, 558);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.panelRedondeado2.ResumeLayout(false);
             this.panelRedondeado2.PerformLayout();
             this.panelRedondeado1.ResumeLayout(false);
-            this.panelRedondeado1.PerformLayout();
-            this.ResumeLayout(false);
-
-        }
-
-        #endregion
 
         private System.Windows.Forms.Label label1;
         private panelRedondeado panelRedondeado1;
@@ -166,6 +169,12 @@
         private textboxRedondeado TbContrasena;
         private textboxRedondeado TbUsuario;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button BtnIS;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button BtnIS;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
 

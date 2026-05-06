@@ -28,13 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panelRedondeado1 = new Avance_Del_Proyecto.panelRedondeado();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.panelRedondeado5 = new Avance_Del_Proyecto.panelRedondeado();
-            this.panelRedondeado2 = new Avance_Del_Proyecto.panelRedondeado();
-            this.BtnRegresarMenu = new Avance_Del_Proyecto.botonRedondeado();
-            this.BtnBorrarForm = new Avance_Del_Proyecto.botonRedondeado();
-            this.BtnGuardarInfP = new Avance_Del_Proyecto.botonRedondeado();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -42,26 +36,34 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.panelRedondeado5 = new Avance_Del_Proyecto.panelRedondeado();
+            this.BtnRetornarMenu = new Avance_Del_Proyecto.botonRedondeado();
+            this.BtnBorrarInf = new Avance_Del_Proyecto.botonRedondeado();
+            this.BtnGuardarInf = new Avance_Del_Proyecto.botonRedondeado();
+            this.panelRedondeado2 = new Avance_Del_Proyecto.panelRedondeado();
+            this.label15 = new System.Windows.Forms.Label();
+            this.TxbCorreoF = new Avance_Del_Proyecto.textboxRedondeado();
+            this.label14 = new System.Windows.Forms.Label();
+            this.TxbNumF = new Avance_Del_Proyecto.textboxRedondeado();
+            this.label13 = new System.Windows.Forms.Label();
+            this.TxbNombreF = new Avance_Del_Proyecto.textboxRedondeado();
+            this.label12 = new System.Windows.Forms.Label();
+            this.TxbCorreoP = new Avance_Del_Proyecto.textboxRedondeado();
+            this.label11 = new System.Windows.Forms.Label();
+            this.TxbNumP = new Avance_Del_Proyecto.textboxRedondeado();
+            this.label10 = new System.Windows.Forms.Label();
+            this.TxbFechaNac = new Avance_Del_Proyecto.textboxRedondeado();
+            this.label9 = new System.Windows.Forms.Label();
+            this.TxbNombreP = new Avance_Del_Proyecto.textboxRedondeado();
+            this.label8 = new System.Windows.Forms.Label();
+            this.panelRedondeado1 = new Avance_Del_Proyecto.panelRedondeado();
+            this.LabelTitulo = new Avance_Del_Proyecto.labelRedondeado();
             this.labelRedondeado1 = new Avance_Del_Proyecto.labelRedondeado();
-            this.TBCorreoF = new Avance_Del_Proyecto.textboxRedondeado();
-            this.TBNumCF = new Avance_Del_Proyecto.textboxRedondeado();
-            this.TbNombreF = new Avance_Del_Proyecto.textboxRedondeado();
-            this.TBCorreoP = new Avance_Del_Proyecto.textboxRedondeado();
-            this.TBNumCP = new Avance_Del_Proyecto.textboxRedondeado();
-            this.TBFnP = new Avance_Del_Proyecto.textboxRedondeado();
-            this.TbNombreP = new Avance_Del_Proyecto.textboxRedondeado();
             this.tableLayoutPanel1.SuspendLayout();
+            this.panelRedondeado5.SuspendLayout();
+            this.panelRedondeado2.SuspendLayout();
+            this.panelRedondeado1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panelRedondeado1
-            // 
-            this.panelRedondeado1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(31)))), ((int)(((byte)(122)))));
-            this.panelRedondeado1.BorderRadius = 20;
-            this.panelRedondeado1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelRedondeado1.Location = new System.Drawing.Point(0, 0);
-            this.panelRedondeado1.Name = "panelRedondeado1";
-            this.panelRedondeado1.Size = new System.Drawing.Size(1068, 96);
-            this.panelRedondeado1.TabIndex = 0;
             // 
             // tableLayoutPanel1
             // 
@@ -71,69 +73,14 @@
             this.tableLayoutPanel1.Controls.Add(this.panelRedondeado5, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.panelRedondeado2, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 96);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 100);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 53.46939F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46.53061F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1068, 490);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1068, 516);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // panelRedondeado5
-            // 
-            this.panelRedondeado5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(103)))), ((int)(((byte)(90)))));
-            this.panelRedondeado5.BorderRadius = 20;
-            this.panelRedondeado5.Location = new System.Drawing.Point(537, 265);
-            this.panelRedondeado5.Name = "panelRedondeado5";
-            this.panelRedondeado5.Size = new System.Drawing.Size(519, 222);
-            this.panelRedondeado5.TabIndex = 5;
-            // 
-            // panelRedondeado2
-            // 
-            this.panelRedondeado2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.panelRedondeado2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(103)))), ((int)(((byte)(90)))));
-            this.panelRedondeado2.BorderRadius = 35;
-            this.panelRedondeado2.Location = new System.Drawing.Point(18, 3);
-            this.panelRedondeado2.Name = "panelRedondeado2";
-            this.tableLayoutPanel1.SetRowSpan(this.panelRedondeado2, 2);
-            this.panelRedondeado2.Size = new System.Drawing.Size(498, 484);
-            this.panelRedondeado2.TabIndex = 2;
-            // 
-            // BtnRegresarMenu
-            // 
-            this.BtnRegresarMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(126)))), ((int)(((byte)(34)))));
-            this.BtnRegresarMenu.BorderRadius = 20;
-            this.BtnRegresarMenu.Location = new System.Drawing.Point(20, 152);
-            this.BtnRegresarMenu.Name = "BtnRegresarMenu";
-            this.BtnRegresarMenu.Size = new System.Drawing.Size(482, 46);
-            this.BtnRegresarMenu.TabIndex = 2;
-            this.BtnRegresarMenu.Text = "Regresar al Menu";
-            this.BtnRegresarMenu.UseVisualStyleBackColor = false;
-            this.BtnRegresarMenu.Click += new System.EventHandler(this.BtnRegresarMenu_Click);
-            // 
-            // BtnBorrarForm
-            // 
-            this.BtnBorrarForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(126)))), ((int)(((byte)(34)))));
-            this.BtnBorrarForm.BorderRadius = 20;
-            this.BtnBorrarForm.Location = new System.Drawing.Point(20, 86);
-            this.BtnBorrarForm.Name = "BtnBorrarForm";
-            this.BtnBorrarForm.Size = new System.Drawing.Size(482, 46);
-            this.BtnBorrarForm.TabIndex = 1;
-            this.BtnBorrarForm.Text = "Limpiar Formulario";
-            this.BtnBorrarForm.UseVisualStyleBackColor = false;
-            this.BtnBorrarForm.Click += new System.EventHandler(this.BtnBorrarForm_Click);
-            // 
-            // BtnGuardarInfP
-            // 
-            this.BtnGuardarInfP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(142)))), ((int)(((byte)(115)))));
-            this.BtnGuardarInfP.BorderRadius = 20;
-            this.BtnGuardarInfP.Location = new System.Drawing.Point(20, 22);
-            this.BtnGuardarInfP.Name = "BtnGuardarInfP";
-            this.BtnGuardarInfP.Size = new System.Drawing.Size(482, 46);
-            this.BtnGuardarInfP.TabIndex = 0;
-            this.BtnGuardarInfP.Text = "Guardar Información";
-            this.BtnGuardarInfP.UseVisualStyleBackColor = false;
-            this.BtnGuardarInfP.Click += new System.EventHandler(this.BtnGuardarInfP_Click);
             // 
             // label7
             // 
@@ -205,6 +152,258 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre/s del Paciente:";
             // 
+            // panelRedondeado5
+            // 
+            this.panelRedondeado5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(103)))), ((int)(((byte)(90)))));
+            this.panelRedondeado5.BorderRadius = 20;
+            this.panelRedondeado5.Controls.Add(this.BtnRetornarMenu);
+            this.panelRedondeado5.Controls.Add(this.BtnBorrarInf);
+            this.panelRedondeado5.Controls.Add(this.BtnGuardarInf);
+            this.panelRedondeado5.Location = new System.Drawing.Point(537, 278);
+            this.panelRedondeado5.Name = "panelRedondeado5";
+            this.panelRedondeado5.Size = new System.Drawing.Size(519, 222);
+            this.panelRedondeado5.TabIndex = 5;
+            // 
+            // BtnRetornarMenu
+            // 
+            this.BtnRetornarMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(236)))), ((int)(((byte)(157)))));
+            this.BtnRetornarMenu.BorderRadius = 20;
+            this.BtnRetornarMenu.Location = new System.Drawing.Point(26, 146);
+            this.BtnRetornarMenu.Name = "BtnRetornarMenu";
+            this.BtnRetornarMenu.Size = new System.Drawing.Size(464, 58);
+            this.BtnRetornarMenu.TabIndex = 2;
+            this.BtnRetornarMenu.Text = "Regresra al Menú";
+            this.BtnRetornarMenu.UseVisualStyleBackColor = false;
+            this.BtnRetornarMenu.Click += new System.EventHandler(this.BtnRetornarMenu_Click);
+            // 
+            // BtnBorrarInf
+            // 
+            this.BtnBorrarInf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(105)))), ((int)(((byte)(78)))));
+            this.BtnBorrarInf.BorderRadius = 20;
+            this.BtnBorrarInf.Location = new System.Drawing.Point(26, 82);
+            this.BtnBorrarInf.Name = "BtnBorrarInf";
+            this.BtnBorrarInf.Size = new System.Drawing.Size(464, 58);
+            this.BtnBorrarInf.TabIndex = 1;
+            this.BtnBorrarInf.Text = "Eliminar datos del Formulario\r\n";
+            this.BtnBorrarInf.UseVisualStyleBackColor = false;
+            this.BtnBorrarInf.Click += new System.EventHandler(this.BtnBorrarInf_Click);
+            // 
+            // BtnGuardarInf
+            // 
+            this.BtnGuardarInf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(190)))), ((int)(((byte)(137)))));
+            this.BtnGuardarInf.BorderRadius = 20;
+            this.BtnGuardarInf.Location = new System.Drawing.Point(26, 16);
+            this.BtnGuardarInf.Name = "BtnGuardarInf";
+            this.BtnGuardarInf.Size = new System.Drawing.Size(464, 58);
+            this.BtnGuardarInf.TabIndex = 0;
+            this.BtnGuardarInf.Text = "Guardar Información";
+            this.BtnGuardarInf.UseVisualStyleBackColor = false;
+            this.BtnGuardarInf.Click += new System.EventHandler(this.BtnGuardarInf_Click);
+            // 
+            // panelRedondeado2
+            // 
+            this.panelRedondeado2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.panelRedondeado2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(103)))), ((int)(((byte)(90)))));
+            this.panelRedondeado2.BorderRadius = 35;
+            this.panelRedondeado2.Controls.Add(this.label15);
+            this.panelRedondeado2.Controls.Add(this.TxbCorreoF);
+            this.panelRedondeado2.Controls.Add(this.label14);
+            this.panelRedondeado2.Controls.Add(this.TxbNumF);
+            this.panelRedondeado2.Controls.Add(this.label13);
+            this.panelRedondeado2.Controls.Add(this.TxbNombreF);
+            this.panelRedondeado2.Controls.Add(this.label12);
+            this.panelRedondeado2.Controls.Add(this.TxbCorreoP);
+            this.panelRedondeado2.Controls.Add(this.label11);
+            this.panelRedondeado2.Controls.Add(this.TxbNumP);
+            this.panelRedondeado2.Controls.Add(this.label10);
+            this.panelRedondeado2.Controls.Add(this.TxbFechaNac);
+            this.panelRedondeado2.Controls.Add(this.label9);
+            this.panelRedondeado2.Controls.Add(this.TxbNombreP);
+            this.panelRedondeado2.Controls.Add(this.label8);
+            this.panelRedondeado2.Location = new System.Drawing.Point(18, 3);
+            this.panelRedondeado2.Name = "panelRedondeado2";
+            this.tableLayoutPanel1.SetRowSpan(this.panelRedondeado2, 2);
+            this.panelRedondeado2.Size = new System.Drawing.Size(498, 510);
+            this.panelRedondeado2.TabIndex = 2;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Comic Sans MS", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.label15.Location = new System.Drawing.Point(19, 436);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(219, 31);
+            this.label15.TabIndex = 14;
+            this.label15.Text = "Correo del Familiar";
+            // 
+            // TxbCorreoF
+            // 
+            this.TxbCorreoF.BorderRadius = 20;
+            this.TxbCorreoF.Location = new System.Drawing.Point(3, 467);
+            this.TxbCorreoF.Name = "TxbCorreoF";
+            this.TxbCorreoF.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.TxbCorreoF.Size = new System.Drawing.Size(474, 37);
+            this.TxbCorreoF.TabIndex = 13;
+            this.TxbCorreoF.TextValue = "";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Comic Sans MS", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.label14.Location = new System.Drawing.Point(19, 365);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(311, 31);
+            this.label14.TabIndex = 12;
+            this.label14.Text = "Numero Celular del Familiar";
+            // 
+            // TxbNumF
+            // 
+            this.TxbNumF.BorderRadius = 20;
+            this.TxbNumF.Location = new System.Drawing.Point(3, 396);
+            this.TxbNumF.Name = "TxbNumF";
+            this.TxbNumF.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.TxbNumF.Size = new System.Drawing.Size(474, 37);
+            this.TxbNumF.TabIndex = 11;
+            this.TxbNumF.TextValue = "";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Comic Sans MS", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.label13.Location = new System.Drawing.Point(19, 365);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(0, 31);
+            this.label13.TabIndex = 10;
+            // 
+            // TxbNombreF
+            // 
+            this.TxbNombreF.BorderRadius = 20;
+            this.TxbNombreF.Location = new System.Drawing.Point(3, 325);
+            this.TxbNombreF.Name = "TxbNombreF";
+            this.TxbNombreF.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.TxbNombreF.Size = new System.Drawing.Size(474, 37);
+            this.TxbNombreF.TabIndex = 9;
+            this.TxbNombreF.TextValue = "";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Comic Sans MS", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.label12.Location = new System.Drawing.Point(19, 294);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(232, 31);
+            this.label12.TabIndex = 8;
+            this.label12.Text = "Nombre del Familiar";
+            // 
+            // TxbCorreoP
+            // 
+            this.TxbCorreoP.BorderRadius = 20;
+            this.TxbCorreoP.Location = new System.Drawing.Point(3, 254);
+            this.TxbCorreoP.Name = "TxbCorreoP";
+            this.TxbCorreoP.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.TxbCorreoP.Size = new System.Drawing.Size(474, 37);
+            this.TxbCorreoP.TabIndex = 7;
+            this.TxbCorreoP.TextValue = "";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Comic Sans MS", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.label11.Location = new System.Drawing.Point(19, 223);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(231, 31);
+            this.label11.TabIndex = 6;
+            this.label11.Text = "Correo del Paciente:";
+            // 
+            // TxbNumP
+            // 
+            this.TxbNumP.BorderRadius = 20;
+            this.TxbNumP.Location = new System.Drawing.Point(3, 183);
+            this.TxbNumP.Name = "TxbNumP";
+            this.TxbNumP.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.TxbNumP.Size = new System.Drawing.Size(474, 37);
+            this.TxbNumP.TabIndex = 5;
+            this.TxbNumP.TextValue = "";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Comic Sans MS", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.label10.Location = new System.Drawing.Point(19, 152);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(323, 31);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "Numero Celular del Paciente:";
+            // 
+            // TxbFechaNac
+            // 
+            this.TxbFechaNac.BorderRadius = 20;
+            this.TxbFechaNac.Location = new System.Drawing.Point(3, 112);
+            this.TxbFechaNac.Name = "TxbFechaNac";
+            this.TxbFechaNac.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.TxbFechaNac.Size = new System.Drawing.Size(474, 37);
+            this.TxbFechaNac.TabIndex = 3;
+            this.TxbFechaNac.TextValue = "";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Comic Sans MS", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.label9.Location = new System.Drawing.Point(19, 81);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(382, 31);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "Fecha de Nacimiento del Paciente:";
+            // 
+            // TxbNombreP
+            // 
+            this.TxbNombreP.BorderRadius = 20;
+            this.TxbNombreP.Location = new System.Drawing.Point(3, 41);
+            this.TxbNombreP.Name = "TxbNombreP";
+            this.TxbNombreP.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.TxbNombreP.Size = new System.Drawing.Size(474, 37);
+            this.TxbNombreP.TabIndex = 1;
+            this.TxbNombreP.TextValue = "";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Comic Sans MS", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.label8.Location = new System.Drawing.Point(19, 10);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(237, 31);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Nombre del Paciente";
+            // 
+            // panelRedondeado1
+            // 
+            this.panelRedondeado1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(31)))), ((int)(((byte)(122)))));
+            this.panelRedondeado1.BorderRadius = 20;
+            this.panelRedondeado1.Controls.Add(this.LabelTitulo);
+            this.panelRedondeado1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelRedondeado1.Location = new System.Drawing.Point(0, 0);
+            this.panelRedondeado1.Name = "panelRedondeado1";
+            this.panelRedondeado1.Size = new System.Drawing.Size(1068, 100);
+            this.panelRedondeado1.TabIndex = 0;
+            // 
+            // LabelTitulo
+            // 
+            this.LabelTitulo.BorderRadius = 20;
+            this.LabelTitulo.Font = new System.Drawing.Font("Cooper Black", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelTitulo.Location = new System.Drawing.Point(370, 21);
+            this.LabelTitulo.Name = "LabelTitulo";
+            this.LabelTitulo.Size = new System.Drawing.Size(603, 65);
+            this.LabelTitulo.TabIndex = 0;
+            this.LabelTitulo.Text = "Ingresar Pacientes";
+            // 
             // labelRedondeado1
             // 
             this.labelRedondeado1.BorderRadius = 20;
@@ -216,88 +415,22 @@
             this.labelRedondeado1.TabIndex = 0;
             this.labelRedondeado1.Text = "Ingresar Paciente - Ortopedia";
             // 
-            // TBCorreoF
-            // 
-            this.TBCorreoF.BorderRadius = 20;
-            this.TBCorreoF.Location = new System.Drawing.Point(13, 410);
-            this.TBCorreoF.Name = "TBCorreoF";
-            this.TBCorreoF.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.TBCorreoF.Size = new System.Drawing.Size(467, 38);
-            this.TBCorreoF.TabIndex = 11;
-            this.TBCorreoF.TextValue = "";
-            // 
-            // TBNumCF
-            // 
-            this.TBNumCF.BorderRadius = 20;
-            this.TBNumCF.Location = new System.Drawing.Point(13, 346);
-            this.TBNumCF.Name = "TBNumCF";
-            this.TBNumCF.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.TBNumCF.Size = new System.Drawing.Size(467, 38);
-            this.TBNumCF.TabIndex = 9;
-            this.TBNumCF.TextValue = "";
-            // 
-            // TbNombreF
-            // 
-            this.TbNombreF.BorderRadius = 20;
-            this.TbNombreF.Location = new System.Drawing.Point(13, 285);
-            this.TbNombreF.Name = "TbNombreF";
-            this.TbNombreF.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.TbNombreF.Size = new System.Drawing.Size(467, 38);
-            this.TbNombreF.TabIndex = 9;
-            this.TbNombreF.TextValue = "";
-            // 
-            // TBCorreoP
-            // 
-            this.TBCorreoP.BorderRadius = 20;
-            this.TBCorreoP.Location = new System.Drawing.Point(13, 223);
-            this.TBCorreoP.Name = "TBCorreoP";
-            this.TBCorreoP.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.TBCorreoP.Size = new System.Drawing.Size(467, 38);
-            this.TBCorreoP.TabIndex = 7;
-            this.TBCorreoP.TextValue = "";
-            // 
-            // TBNumCP
-            // 
-            this.TBNumCP.BorderRadius = 20;
-            this.TBNumCP.Location = new System.Drawing.Point(13, 157);
-            this.TBNumCP.Name = "TBNumCP";
-            this.TBNumCP.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.TBNumCP.Size = new System.Drawing.Size(467, 34);
-            this.TBNumCP.TabIndex = 5;
-            this.TBNumCP.TextValue = "";
-            // 
-            // TBFnP
-            // 
-            this.TBFnP.BorderRadius = 20;
-            this.TBFnP.Location = new System.Drawing.Point(13, 94);
-            this.TBFnP.Name = "TBFnP";
-            this.TBFnP.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.TBFnP.Size = new System.Drawing.Size(467, 38);
-            this.TBFnP.TabIndex = 3;
-            this.TBFnP.TextValue = "";
-            // 
-            // TbNombreP
-            // 
-            this.TbNombreP.BorderRadius = 20;
-            this.TbNombreP.Location = new System.Drawing.Point(13, 35);
-            this.TbNombreP.Name = "TbNombreP";
-            this.TbNombreP.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.TbNombreP.Size = new System.Drawing.Size(467, 38);
-            this.TbNombreP.TabIndex = 2;
-            this.TbNombreP.TextValue = "";
-            // 
             // Ingreso_Paciente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(207)))), ((int)(((byte)(176)))));
-            this.ClientSize = new System.Drawing.Size(1068, 586);
+            this.ClientSize = new System.Drawing.Size(1068, 616);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.panelRedondeado1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Ingreso_Paciente";
             this.Text = "Ingreso_Paciente";
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.panelRedondeado5.ResumeLayout(false);
+            this.panelRedondeado2.ResumeLayout(false);
+            this.panelRedondeado2.PerformLayout();
+            this.panelRedondeado1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -325,5 +458,24 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private botonRedondeado BtnRegresarMenu;
+        private System.Windows.Forms.Label label8;
+        private textboxRedondeado TxbNombreP;
+        private textboxRedondeado TxbNumF;
+        private System.Windows.Forms.Label label13;
+        private textboxRedondeado TxbNombreF;
+        private System.Windows.Forms.Label label12;
+        private textboxRedondeado TxbCorreoP;
+        private System.Windows.Forms.Label label11;
+        private textboxRedondeado TxbNumP;
+        private System.Windows.Forms.Label label10;
+        private textboxRedondeado TxbFechaNac;
+        private System.Windows.Forms.Label label9;
+        private botonRedondeado BtnGuardarInf;
+        private System.Windows.Forms.Label label15;
+        private textboxRedondeado TxbCorreoF;
+        private System.Windows.Forms.Label label14;
+        private botonRedondeado BtnRetornarMenu;
+        private botonRedondeado BtnBorrarInf;
+        private labelRedondeado LabelTitulo;
     }
 }

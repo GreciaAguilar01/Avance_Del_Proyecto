@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.BtnP = new Avance_Del_Proyecto.botonRedondeado();
+            this.BtnPedidos_Productos = new Avance_Del_Proyecto.botonRedondeado();
             this.BtnPagosAbonos = new Avance_Del_Proyecto.botonRedondeado();
             this.BtnProducccion = new Avance_Del_Proyecto.botonRedondeado();
             this.BtnInventario = new Avance_Del_Proyecto.botonRedondeado();
@@ -46,7 +46,7 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.BtnP, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.BtnPedidos_Productos, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.BtnPagosAbonos, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.BtnProducccion, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.BtnInventario, 0, 1);
@@ -62,20 +62,21 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(945, 389);
             this.tableLayoutPanel1.TabIndex = 7;
             // 
-            // BtnP
+            // BtnPedidos_Productos
             // 
-            this.BtnP.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.BtnPedidos_Productos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(234)))), ((int)(((byte)(72)))));
-            this.BtnP.BorderRadius = 20;
-            this.BtnP.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold);
-            this.BtnP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(89)))), ((int)(((byte)(45)))));
-            this.BtnP.Location = new System.Drawing.Point(475, 291);
-            this.BtnP.Name = "BtnP";
-            this.BtnP.Size = new System.Drawing.Size(467, 76);
-            this.BtnP.TabIndex = 7;
-            this.BtnP.Text = "Producción";
-            this.BtnP.UseVisualStyleBackColor = false;
+            this.BtnPedidos_Productos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(234)))), ((int)(((byte)(72)))));
+            this.BtnPedidos_Productos.BorderRadius = 20;
+            this.BtnPedidos_Productos.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold);
+            this.BtnPedidos_Productos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(89)))), ((int)(((byte)(45)))));
+            this.BtnPedidos_Productos.Location = new System.Drawing.Point(475, 291);
+            this.BtnPedidos_Productos.Name = "BtnPedidos_Productos";
+            this.BtnPedidos_Productos.Size = new System.Drawing.Size(467, 76);
+            this.BtnPedidos_Productos.TabIndex = 7;
+            this.BtnPedidos_Productos.Text = "Pedidos y Productos";
+            this.BtnPedidos_Productos.UseVisualStyleBackColor = false;
+            this.BtnPedidos_Productos.Click += new System.EventHandler(this.BtnPedidos_Productos_Click);
             // 
             // BtnPagosAbonos
             // 
@@ -92,6 +93,7 @@
             this.BtnPagosAbonos.TabIndex = 6;
             this.BtnPagosAbonos.Text = "Pagos y Abonos";
             this.BtnPagosAbonos.UseVisualStyleBackColor = false;
+            this.BtnPagosAbonos.Click += new System.EventHandler(this.BtnPagosAbonos_Click);
             // 
             // BtnProducccion
             // 
@@ -106,6 +108,7 @@
             this.BtnProducccion.TabIndex = 5;
             this.BtnProducccion.Text = "Producción";
             this.BtnProducccion.UseVisualStyleBackColor = false;
+            this.BtnProducccion.Click += new System.EventHandler(this.BtnProducccion_Click);
             // 
             // BtnInventario
             // 
@@ -120,6 +123,7 @@
             this.BtnInventario.TabIndex = 4;
             this.BtnInventario.Text = "Inventario";
             this.BtnInventario.UseVisualStyleBackColor = false;
+            this.BtnInventario.Click += new System.EventHandler(this.BtnInventario_Click);
             // 
             // BtnEditarinfP
             // 
@@ -197,7 +201,7 @@
         private panelRedondeado panelRedondeado1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private botonRedondeado BtnP;
+        private botonRedondeado BtnPedidos_Productos;
         private botonRedondeado BtnPagosAbonos;
         private botonRedondeado BtnProducccion;
         private botonRedondeado BtnInventario;

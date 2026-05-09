@@ -32,34 +32,16 @@ namespace Avance_Del_Proyecto
             TxbCorreoF.Text = "";
         }
 
-
-        private void BtnRegresarMenu_Click(object sender, EventArgs e)
-        {
-            Form menu = Application.OpenForms["Menu_Interfaz"];
-            if (menu != null)
-            {
-                menu.Show();
-                this.Close();
-            }
-            else
-            {
-                Menu_Interfaz nuevoMenu = new Menu_Interfaz();
-                nuevoMenu.Show();
-                this.Close();
-            }
-        }
-
         private void BtnGuardarInf_Click(object sender, EventArgs e)
         {
-            string conexionString = "server=localhost;port=3306;database=Ortopedia_Prueba1;uid=root;pwd=2496;";
+            string conexionString = "server=localhost;port=3306;database=Ortopedia ;uid=root;pwd=4444;";
             using (MySqlConnection con = new MySqlConnection(conexionString))
             {
                 try
                 {
                     con.Open();
-                    string query = @"INSERT INTO IngresoPacientes 
-                                (Nombre_Paciente, Fecha_NacimientoP, Celular_Paciente, Correo_Paciente, 
-                                 Nombre_Familiar, Celular_Familiar, Correo_Familiar) 
+                    string query = @"INSERT INTO Pacientes 
+                                (nombre, fecha_naci, celular, correo, nombreFam, celularFam, correoFam) 
                                 VALUES 
                                 (@nomP, @fecP, @celP, @corP, @nomF, @celF, @corF)";
 
@@ -70,7 +52,7 @@ namespace Avance_Del_Proyecto
                     cmd.Parameters.AddWithValue("@corP", TxbCorreoP.TextValue.Trim());
                     cmd.Parameters.AddWithValue("@nomF", TxbNombreF.TextValue.Trim());
                     cmd.Parameters.AddWithValue("@celF", TxbNumF.TextValue .Trim());
-                    cmd.Parameters.AddWithValue("@corF", TxbCorreoF.Text.Trim());
+                    cmd.Parameters.AddWithValue("@corF", TxbCorreoF.TextValue.Trim());
 
                     cmd.ExecuteNonQuery();
 

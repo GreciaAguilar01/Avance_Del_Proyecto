@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.IO;
+using Microsoft.VisualBasic;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
@@ -8,7 +9,7 @@ namespace Avance_Del_Proyecto
 {
     public partial class Pagos_Abonos : Form
     {
-        string SQLconection = "Server=localhost;Port=3306;Database=sigeo_db;Uid=root;Pwd=root;";
+        string SQLconection = "Server=localhost;Port=3306;Database=Ortopedia; Uid=root;Pwd=4444;";
 
         private int idPacienteActual = -1;
         private string nombrePacienteActual = "";
@@ -60,7 +61,7 @@ namespace Avance_Del_Proyecto
             using (MySqlConnection con = new MySqlConnection(SQLconection))
             {
                 con.Open();
-                string query = "SELECT id_paciente, nombre FROM pacientes ORDER BY nombre";
+                string query = "SELECT Id_Paciente, nombre FROM pacientes ORDER BY nombre";
                 lboxNombresPacientesPagosAbonos.DisplayMember = "nombre";
                 MySqlDataAdapter da = new MySqlDataAdapter(query, con);
                 DataTable dt = new DataTable();
@@ -68,7 +69,7 @@ namespace Avance_Del_Proyecto
 
                 lboxNombresPacientesPagosAbonos.DataSource = dt;
                 lboxNombresPacientesPagosAbonos.DisplayMember = "nombre";
-                lboxNombresPacientesPagosAbonos.ValueMember = "id_paciente";
+                lboxNombresPacientesPagosAbonos.ValueMember = "Id_Paciente";
                 lboxNombresPacientesPagosAbonos.SelectedIndex = -1;
             }
         }
@@ -78,7 +79,7 @@ namespace Avance_Del_Proyecto
             for (int i = 0; i < lboxNombresPacientesPagosAbonos.Items.Count; i++)
             {
                 DataRowView drv = (DataRowView)lboxNombresPacientesPagosAbonos.Items[i];
-                if (Convert.ToInt32(drv["id_paciente"]) == idPacienteActual)
+                if (Convert.ToInt32(drv["Id_Paciente"]) == idPacienteActual)
                 {
                     lboxNombresPacientesPagosAbonos.SelectedIndex = i;
                     break;
@@ -99,7 +100,7 @@ namespace Avance_Del_Proyecto
                 MySqlTransaction trans = con.BeginTransaction();
                 try
                 {
-                    string sqlPedido = @"INSERT INTO pedidos (id_paciente, fecha_pedido, tipo_pago, total, abonado, estado)
+                    string sqlPedido = @"INSERT INTO pedidos (Id_Paciente, fecha_pedido, tipo_pago, total, abonado, estado)
                                          VALUES (@idp, @fecha_pedido, 'Pendiente', @total, 0, 'pendiente');
                                          SELECT LAST_INSERT_ID();";
                     MySqlCommand cmd = new MySqlCommand(sqlPedido, con, trans);
@@ -110,7 +111,7 @@ namespace Avance_Del_Proyecto
 
                     foreach (DataRow r in tablaOrdenRecibida.Rows)
                     {
-                        string sqlDetalle = "INSERT INTO detalle_pedido (id_pedido, id_producto, precio_unitario) VALUES (@idPed, @idProd, @precio)";
+                        string sqlDetalle = "INSERT INTO detalle_pedido (id_pedido, Id_prod, precio_unitario) VALUES (@idPed, @idProd, @precio)";
                         MySqlCommand cmdD = new MySqlCommand(sqlDetalle, con, trans);
                         cmdD.Parameters.AddWithValue("@idPed", idPedido);
                         cmdD.Parameters.AddWithValue("@idProd", Convert.ToInt32(r["id_producto"]));
@@ -151,7 +152,7 @@ namespace Avance_Del_Proyecto
                 string query = @"SELECT id_pedido, fecha_pedido, total, abonado, estado,
                                         (total - abonado) AS saldo
                                  FROM pedidos
-                                 WHERE id_paciente = @idp
+                                 WHERE Id_Paciente = @idp
                                  ORDER BY fecha_pedido DESC";
 
                 MySqlDataAdapter da = new MySqlDataAdapter(query, con);

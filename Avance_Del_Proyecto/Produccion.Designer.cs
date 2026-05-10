@@ -50,9 +50,11 @@
             this.lblTotal = new System.Windows.Forms.Label();
             this.lblBuscar = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.btnNuevoPedido = new Avance_Del_Proyecto.botonRedondeado();
             this.lblControl = new Avance_Del_Proyecto.labelRedondeado();
             this.lblProduccion = new Avance_Del_Proyecto.labelRedondeado();
+            this.flowPendientes = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowProceso = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowTerminados = new System.Windows.Forms.FlowLayoutPanel();
             this.tblGeneral.SuspendLayout();
             this.panelPendientes.SuspendLayout();
             this.panelProceso.SuspendLayout();
@@ -87,6 +89,7 @@
             this.panelPendientes.AutoScroll = true;
             this.panelPendientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(207)))), ((int)(((byte)(176)))));
             this.panelPendientes.BorderRadius = 20;
+            this.panelPendientes.Controls.Add(this.flowPendientes);
             this.panelPendientes.Controls.Add(this.lblPendiente);
             this.panelPendientes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelPendientes.Location = new System.Drawing.Point(6, 3);
@@ -112,6 +115,7 @@
             // 
             this.panelProceso.AutoScroll = true;
             this.panelProceso.BorderRadius = 20;
+            this.panelProceso.Controls.Add(this.flowProceso);
             this.panelProceso.Controls.Add(this.lblProceso);
             this.panelProceso.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelProceso.Location = new System.Drawing.Point(272, 3);
@@ -137,6 +141,7 @@
             // 
             this.panelTerminados.AutoScroll = true;
             this.panelTerminados.BorderRadius = 20;
+            this.panelTerminados.Controls.Add(this.flowTerminados);
             this.panelTerminados.Controls.Add(this.lblTerminados);
             this.panelTerminados.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelTerminados.Location = new System.Drawing.Point(538, 3);
@@ -165,7 +170,6 @@
             this.panelControl.Controls.Add(this.gbResumen);
             this.panelControl.Controls.Add(this.lblBuscar);
             this.panelControl.Controls.Add(this.txtBuscar);
-            this.panelControl.Controls.Add(this.btnNuevoPedido);
             this.panelControl.Controls.Add(this.lblControl);
             this.panelControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl.Location = new System.Drawing.Point(804, 3);
@@ -324,20 +328,6 @@
             this.txtBuscar.Size = new System.Drawing.Size(191, 20);
             this.txtBuscar.TabIndex = 2;
             // 
-            // btnNuevoPedido
-            // 
-            this.btnNuevoPedido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(31)))), ((int)(((byte)(122)))));
-            this.btnNuevoPedido.BorderRadius = 20;
-            this.btnNuevoPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevoPedido.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevoPedido.ForeColor = System.Drawing.Color.White;
-            this.btnNuevoPedido.Location = new System.Drawing.Point(4, 65);
-            this.btnNuevoPedido.Name = "btnNuevoPedido";
-            this.btnNuevoPedido.Size = new System.Drawing.Size(252, 43);
-            this.btnNuevoPedido.TabIndex = 1;
-            this.btnNuevoPedido.Text = "Nuevo Pedido";
-            this.btnNuevoPedido.UseVisualStyleBackColor = false;
-            // 
             // lblControl
             // 
             this.lblControl.BackColor = System.Drawing.Color.Black;
@@ -366,6 +356,36 @@
             this.lblProduccion.Size = new System.Drawing.Size(1070, 84);
             this.lblProduccion.TabIndex = 0;
             this.lblProduccion.Text = "Producción";
+            // 
+            // flowPendientes
+            // 
+            this.flowPendientes.AutoScroll = true;
+            this.flowPendientes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowPendientes.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowPendientes.Location = new System.Drawing.Point(0, 36);
+            this.flowPendientes.Name = "flowPendientes";
+            this.flowPendientes.Size = new System.Drawing.Size(260, 405);
+            this.flowPendientes.TabIndex = 1;
+            // 
+            // flowProceso
+            // 
+            this.flowProceso.AutoScroll = true;
+            this.flowProceso.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowProceso.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowProceso.Location = new System.Drawing.Point(0, 36);
+            this.flowProceso.Name = "flowProceso";
+            this.flowProceso.Size = new System.Drawing.Size(260, 405);
+            this.flowProceso.TabIndex = 1;
+            // 
+            // flowTerminados
+            // 
+            this.flowTerminados.AutoScroll = true;
+            this.flowTerminados.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowTerminados.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowTerminados.Location = new System.Drawing.Point(0, 36);
+            this.flowTerminados.Name = "flowTerminados";
+            this.flowTerminados.Size = new System.Drawing.Size(260, 405);
+            this.flowTerminados.TabIndex = 1;
             // 
             // Produccion
             // 
@@ -404,7 +424,6 @@
         private labelRedondeado lblTerminados;
         private panelRedondeado panelControl;
         private labelRedondeado lblControl;
-        private botonRedondeado btnNuevoPedido;
         private System.Windows.Forms.Label lblBuscar;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.GroupBox gbResumen;
@@ -419,5 +438,8 @@
         private System.Windows.Forms.Label lblTrm;
         private System.Windows.Forms.Label lblTerminadoss;
         private System.Windows.Forms.Label lblPrc;
+        private System.Windows.Forms.FlowLayoutPanel flowPendientes;
+        private System.Windows.Forms.FlowLayoutPanel flowProceso;
+        private System.Windows.Forms.FlowLayoutPanel flowTerminados;
     }
 }

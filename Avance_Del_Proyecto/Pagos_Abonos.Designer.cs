@@ -41,15 +41,18 @@ namespace Avance_Del_Proyecto
             this.rbtnTransferencia = new System.Windows.Forms.RadioButton();
             this.lboxNombresPacientesPagosAbonos = new System.Windows.Forms.ListBox();
             this.lblNombrePaciente = new Avance_Del_Proyecto.labelRedondeado();
+            this.lblTitulo = new Avance_Del_Proyecto.labelRedondeado();
             this.panelRedondeado1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lboxPedidosPacientes
             // 
+            this.lboxPedidosPacientes.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lboxPedidosPacientes.FormattingEnabled = true;
-            this.lboxPedidosPacientes.Location = new System.Drawing.Point(274, 156);
+            this.lboxPedidosPacientes.ItemHeight = 15;
+            this.lboxPedidosPacientes.Location = new System.Drawing.Point(239, 65);
             this.lboxPedidosPacientes.Name = "lboxPedidosPacientes";
-            this.lboxPedidosPacientes.Size = new System.Drawing.Size(506, 251);
+            this.lboxPedidosPacientes.Size = new System.Drawing.Size(541, 394);
             this.lboxPedidosPacientes.TabIndex = 11;
             // 
             // panelRedondeado1
@@ -67,8 +70,7 @@ namespace Avance_Del_Proyecto
             this.panelRedondeado1.Controls.Add(this.lboxNombresPacientesPagosAbonos);
             this.panelRedondeado1.Controls.Add(this.lblNombrePaciente);
             this.panelRedondeado1.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.panelRedondeado1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelRedondeado1.Location = new System.Drawing.Point(0, 0);
+            this.panelRedondeado1.Location = new System.Drawing.Point(0, 56);
             this.panelRedondeado1.Name = "panelRedondeado1";
             this.panelRedondeado1.Size = new System.Drawing.Size(233, 411);
             this.panelRedondeado1.TabIndex = 10;
@@ -181,10 +183,12 @@ namespace Avance_Del_Proyecto
             // 
             // lboxNombresPacientesPagosAbonos
             // 
+            this.lboxNombresPacientesPagosAbonos.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lboxNombresPacientesPagosAbonos.FormattingEnabled = true;
+            this.lboxNombresPacientesPagosAbonos.ItemHeight = 15;
             this.lboxNombresPacientesPagosAbonos.Location = new System.Drawing.Point(47, 39);
             this.lboxNombresPacientesPagosAbonos.Name = "lboxNombresPacientesPagosAbonos";
-            this.lboxNombresPacientesPagosAbonos.Size = new System.Drawing.Size(139, 30);
+            this.lboxNombresPacientesPagosAbonos.Size = new System.Drawing.Size(139, 19);
             this.lboxNombresPacientesPagosAbonos.TabIndex = 7;
             // 
             // lblNombrePaciente
@@ -199,14 +203,29 @@ namespace Avance_Del_Proyecto
             this.lblNombrePaciente.Text = "Nombre del paciente:";
             this.lblNombrePaciente.Click += new System.EventHandler(this.lblNombrePaciente_Click);
             // 
+            // lblTitulo
+            // 
+            this.lblTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(31)))), ((int)(((byte)(122)))));
+            this.lblTitulo.BorderRadius = 20;
+            this.lblTitulo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblTitulo.Font = new System.Drawing.Font("Comic Sans MS", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.ForeColor = System.Drawing.Color.White;
+            this.lblTitulo.Location = new System.Drawing.Point(0, 0);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(784, 53);
+            this.lblTitulo.TabIndex = 12;
+            this.lblTitulo.Text = "Pagos y abonos";
+            // 
             // Pagos_Abonos
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(207)))), ((int)(((byte)(176)))));
-            this.ClientSize = new System.Drawing.Size(784, 411);
+            this.ClientSize = new System.Drawing.Size(784, 470);
+            this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.lboxPedidosPacientes);
             this.Controls.Add(this.panelRedondeado1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Pagos_Abonos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pagos y abonos";
             this.panelRedondeado1.ResumeLayout(false);
             this.panelRedondeado1.PerformLayout();
@@ -228,5 +247,6 @@ namespace Avance_Del_Proyecto
         private System.Windows.Forms.ListBox lboxPedidosPacientes;
         private botonRedondeado btnRecibirPago;
         private botonRedondeado btnMenu;
+        private labelRedondeado lblTitulo;
     }
 }

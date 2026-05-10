@@ -55,7 +55,7 @@ namespace Avance_Del_Proyecto
             using (MySqlConnection con = new MySqlConnection(SQLconection))
             {
                 con.Open();
-                string query = "SELECT id_prod, precio, CONCAT(codigo, ' - ', nombre) AS nombre_display FROM inventario";
+                string query = "SELECT id_prod, precio, CONCAT(codigo_barras, ' - ', nombre) AS nombre_display FROM inventario";
                 MySqlDataAdapter da = new MySqlDataAdapter(query, con);
                 DataTable dt = new DataTable();
                 da.Fill(dt);

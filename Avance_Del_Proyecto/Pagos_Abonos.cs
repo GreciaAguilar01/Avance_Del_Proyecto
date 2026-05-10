@@ -340,7 +340,7 @@ namespace Avance_Del_Proyecto
             using (MySqlConnection con = new MySqlConnection(SQLConection))
             {
                 con.Open();
-                string query = @"SELECT CONCAT(p.codigo, ' - ', p.nombre) AS nombre_display, dp.precio_unitario
+                string query = @"SELECT CONCAT(p.codigo_barras, ' - ', p.nombre) AS nombre_display, dp.precio_unitario
                                  FROM detalle_pedido dp
                                  JOIN inventario p ON dp.id_prod = p.id_prod
                                  WHERE dp.id_pedido = @id";

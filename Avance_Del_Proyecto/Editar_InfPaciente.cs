@@ -91,7 +91,7 @@ namespace Avance_Del_Proyecto
                 try
                 {
                     con.Open();
-                    string query = @"UPDATE IngresoPacientes 
+                    string query = @"UPDATE Pacientes 
                             SET nombre = @nomP,
                                 fecha_naci = @fecP, 
                                 celular = @celP, 

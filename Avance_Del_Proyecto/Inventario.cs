@@ -28,7 +28,7 @@ namespace Avance_Del_Proyecto
             using (MySqlConnection conectar = new MySqlConnection(SQLConection)) 
             {
                 conectar.Open();
-                string query = "select ID_prod as \"ID\", nombre, cantidad, codigo_barras as \"codigo de barras\", fecha_ingreso as \"fecha de ingreso\", precio from productos";
+                string query = "select ID_prod as \"ID\", nombre, cantidad, codigo_barras as \"codigo de barras\", fecha_ingreso as \"fecha de ingreso\", precio from inventario";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(query, conectar);
                 tablaDatos = new DataTable();
                 adapter.Fill(tablaDatos);
@@ -124,7 +124,7 @@ namespace Avance_Del_Proyecto
                 frmDetalleProducto ventana = new frmDetalleProducto();
                 ventana.EsEdicion = true;
                 
-                 int id = Convert.ToInt32(dgvInventario.CurrentRow.Cells["ID"].Value);
+                int id = Convert.ToInt32(dgvInventario.CurrentRow.Cells["ID"].Value);
                 string nombre = dgvInventario.CurrentRow.Cells["nombre"].Value.ToString();
                 int codigo = Convert.ToInt32(dgvInventario.CurrentRow.Cells["Codigo de barras"].Value);
                 int cantidad = Convert.ToInt32(dgvInventario.CurrentRow.Cells["cantidad"].Value);

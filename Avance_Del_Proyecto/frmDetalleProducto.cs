@@ -14,8 +14,9 @@ namespace Avance_Del_Proyecto
 {
     public partial class frmDetalleProducto : Form
     {
+
         public bool EsEdicion { get; set; } = false;
-        public int? IdProducto { get; set; }
+        public int IdProducto { get; set; }
         string SQLConection = "Server=localhost; Port=3306; Database=Ortopedia; Uid=root; Pwd=4444";
         public Productos ProductoNuevo = new Productos();
         public frmDetalleProducto()
@@ -25,7 +26,7 @@ namespace Avance_Del_Proyecto
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if(!int.TryParse(txtCantidad.TextValue, out int cantidad))
+            if (!int.TryParse(txtCantidad.TextValue, out int cantidad))
             { MessageBox.Show("La cantidad debe ser un número entero", "Error en cantidad"); return; }
             if (!int.TryParse(txtCodigo.TextValue, out int codigo))
             { MessageBox.Show("El codigo debe ser un número válido", "Error en codigo"); return; }
@@ -49,6 +50,8 @@ namespace Avance_Del_Proyecto
                         cmd.Parameters.AddWithValue("@cantidad", cantidad);
                         cmd.Parameters.AddWithValue("@codigo", codigo);
                         cmd.ExecuteNonQuery();
+
+                        if (EsEdicion) { cmd.Parameters.AddWithValue("@id", IdProducto); }
 
                         MessageBox.Show("Producto guardado");
                     }

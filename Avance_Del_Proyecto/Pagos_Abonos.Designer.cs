@@ -29,9 +29,9 @@ namespace Avance_Del_Proyecto
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pagos_Abonos));
-            this.pboxFotoPaciente = new System.Windows.Forms.PictureBox();
             this.lboxPedidosPacientes = new System.Windows.Forms.ListBox();
             this.panelRedondeado1 = new Avance_Del_Proyecto.panelRedondeado();
+            this.btnMenu = new Avance_Del_Proyecto.botonRedondeado();
             this.rbtnEfectivo = new System.Windows.Forms.RadioButton();
             this.rbtnPagoTarjetaDebito = new System.Windows.Forms.RadioButton();
             this.btnCancelarOperacion = new Avance_Del_Proyecto.botonRedondeado();
@@ -41,18 +41,8 @@ namespace Avance_Del_Proyecto
             this.rbtnTransferencia = new System.Windows.Forms.RadioButton();
             this.lboxNombresPacientesPagosAbonos = new System.Windows.Forms.ListBox();
             this.lblNombrePaciente = new Avance_Del_Proyecto.labelRedondeado();
-            ((System.ComponentModel.ISupportInitialize)(this.pboxFotoPaciente)).BeginInit();
             this.panelRedondeado1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // pboxFotoPaciente
-            // 
-            this.pboxFotoPaciente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.pboxFotoPaciente.Location = new System.Drawing.Point(274, 12);
-            this.pboxFotoPaciente.Name = "pboxFotoPaciente";
-            this.pboxFotoPaciente.Size = new System.Drawing.Size(139, 123);
-            this.pboxFotoPaciente.TabIndex = 9;
-            this.pboxFotoPaciente.TabStop = false;
             // 
             // lboxPedidosPacientes
             // 
@@ -66,6 +56,7 @@ namespace Avance_Del_Proyecto
             // 
             this.panelRedondeado1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(130)))), ((int)(((byte)(74)))));
             this.panelRedondeado1.BorderRadius = 20;
+            this.panelRedondeado1.Controls.Add(this.btnMenu);
             this.panelRedondeado1.Controls.Add(this.rbtnEfectivo);
             this.panelRedondeado1.Controls.Add(this.rbtnPagoTarjetaDebito);
             this.panelRedondeado1.Controls.Add(this.btnCancelarOperacion);
@@ -75,12 +66,27 @@ namespace Avance_Del_Proyecto
             this.panelRedondeado1.Controls.Add(this.rbtnTransferencia);
             this.panelRedondeado1.Controls.Add(this.lboxNombresPacientesPagosAbonos);
             this.panelRedondeado1.Controls.Add(this.lblNombrePaciente);
-            this.panelRedondeado1.Cursor = System.Windows.Forms.Cursors.SizeNESW;
+            this.panelRedondeado1.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.panelRedondeado1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelRedondeado1.Location = new System.Drawing.Point(0, 0);
             this.panelRedondeado1.Name = "panelRedondeado1";
             this.panelRedondeado1.Size = new System.Drawing.Size(233, 411);
             this.panelRedondeado1.TabIndex = 10;
+            // 
+            // btnMenu
+            // 
+            this.btnMenu.BackColor = System.Drawing.Color.Khaki;
+            this.btnMenu.BorderRadius = 20;
+            this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenu.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btnMenu.Location = new System.Drawing.Point(39, 358);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(140, 30);
+            this.btnMenu.TabIndex = 9;
+            this.btnMenu.Text = "Regresar al Menú";
+            this.btnMenu.UseVisualStyleBackColor = false;
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
             // rbtnEfectivo
             // 
@@ -113,7 +119,7 @@ namespace Avance_Del_Proyecto
             this.btnCancelarOperacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelarOperacion.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold);
             this.btnCancelarOperacion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.btnCancelarOperacion.Location = new System.Drawing.Point(39, 323);
+            this.btnCancelarOperacion.Location = new System.Drawing.Point(39, 321);
             this.btnCancelarOperacion.Name = "btnCancelarOperacion";
             this.btnCancelarOperacion.Size = new System.Drawing.Size(140, 30);
             this.btnCancelarOperacion.TabIndex = 2;
@@ -128,7 +134,7 @@ namespace Avance_Del_Proyecto
             this.btnRecibirAbono.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRecibirAbono.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold);
             this.btnRecibirAbono.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.btnRecibirAbono.Location = new System.Drawing.Point(39, 285);
+            this.btnRecibirAbono.Location = new System.Drawing.Point(39, 284);
             this.btnRecibirAbono.Name = "btnRecibirAbono";
             this.btnRecibirAbono.Size = new System.Drawing.Size(140, 30);
             this.btnRecibirAbono.TabIndex = 1;
@@ -199,11 +205,9 @@ namespace Avance_Del_Proyecto
             this.ClientSize = new System.Drawing.Size(784, 411);
             this.Controls.Add(this.lboxPedidosPacientes);
             this.Controls.Add(this.panelRedondeado1);
-            this.Controls.Add(this.pboxFotoPaciente);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Pagos_Abonos";
             this.Text = "Pagos y abonos";
-            ((System.ComponentModel.ISupportInitialize)(this.pboxFotoPaciente)).EndInit();
             this.panelRedondeado1.ResumeLayout(false);
             this.panelRedondeado1.PerformLayout();
             this.ResumeLayout(false);
@@ -220,9 +224,9 @@ namespace Avance_Del_Proyecto
         private System.Windows.Forms.RadioButton rbtnTransferencia;
         private System.Windows.Forms.ListBox lboxNombresPacientesPagosAbonos;
         private labelRedondeado lblNombrePaciente;
-        private System.Windows.Forms.PictureBox pboxFotoPaciente;
         private panelRedondeado panelRedondeado1;
         private System.Windows.Forms.ListBox lboxPedidosPacientes;
         private botonRedondeado btnRecibirPago;
+        private botonRedondeado btnMenu;
     }
 }

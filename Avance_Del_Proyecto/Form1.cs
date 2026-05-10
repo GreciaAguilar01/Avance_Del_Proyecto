@@ -35,5 +35,12 @@ namespace Avance_Del_Proyecto
                 MessageBox.Show("Usuario o contraseña incorrectos. Intenta de nuevo.", "Error");
             }
         }
+
+        private void btnRegistro_Click(object sender, EventArgs e)
+        {
+            Registro ventana = new Registro();
+            ventana.ShowDialog();
+            this.Hide();
+        }
     }
 }

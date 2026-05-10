@@ -16,7 +16,7 @@ namespace Avance_Del_Proyecto
     {
         public bool EsEdicion { get; set; } = false;
         public int? IdProducto { get; set; }
-        string SQLConection = "Server=localhost; Port=3306; Database=ejemplo_ortopedia; Uid=root; Pwd=4444";
+        string SQLConection = "Server=localhost; Port=3306; Database=Ortopedia; Uid=root; Pwd=4444";
         public Productos ProductoNuevo = new Productos();
         public frmDetalleProducto()
         {
@@ -29,14 +29,14 @@ namespace Avance_Del_Proyecto
             { MessageBox.Show("La cantidad debe ser un número entero", "Error en cantidad"); return; }
             if (!int.TryParse(txtCodigo.TextValue, out int codigo))
             { MessageBox.Show("El codigo debe ser un número válido", "Error en codigo"); return; }
-            if (!int.TryParse(txtID.TextValue, out int id))
-            { MessageBox.Show("El ID debe ser un número válido", "Error en ID"); return; }
+            if (!int.TryParse(txtPrecio.TextValue, out int precio))
+            { MessageBox.Show("El precio debe ser un número válido", "Error en precio"); return; }
 
             string query;
             if (this.EsEdicion)
-            { query = "UPDATE productos SET nombre = @nombre, cantidad = @cantidad, codigo_barras = @codigo, fecha_ingreso = @FechaIngreso WHERE ID_prod = @ID"; }
+            { query = "UPDATE productos SET nombre = @nombre, cantidad = @cantidad, codigo_barras = @codigo, precio = @precio WHERE ID_prod = @ID"; }
             else
-            { query = "INSERT INTO productos (ID_prod, nombre, cantidad, codigo_barras, fecha_ingreso) VALUES (@ID, @nombre, @cantidad, @codigo, @FechaIngreso)"; }
+            { query = "INSERT INTO productos (nombre, cantidad, codigo_barras, precio) VALUES (@nombre, @cantidad, @codigo, @precio)"; }
 
             try
             {
@@ -48,10 +48,7 @@ namespace Avance_Del_Proyecto
                         cmd.Parameters.AddWithValue("@nombre", txtNombre.TextValue);
                         cmd.Parameters.AddWithValue("@cantidad", cantidad);
                         cmd.Parameters.AddWithValue("@codigo", codigo);
-                        cmd.Parameters.AddWithValue("@FechaIngreso", dtpIngreso.Value);
                         cmd.ExecuteNonQuery();
-
-                        if (EsEdicion) { cmd.Parameters.AddWithValue("@id", id); }
 
                         MessageBox.Show("Producto guardado");
                     }
@@ -62,13 +59,12 @@ namespace Avance_Del_Proyecto
                 this.Close();
             } catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
         }
-        public void LlenarCampos(string nombre, int codigo, int cantidad, DateTime FechaIngreso, int id)
+        public void LlenarCampos(string nombre, int codigo, int cantidad, int precio)
         {
             txtNombre.TextValue = nombre;
             txtCodigo.TextValue = codigo.ToString();
             txtCantidad.TextValue = cantidad.ToString();
-            txtID.TextValue = id.ToString();
-            dtpIngreso.Value = FechaIngreso;
+            txtPrecio.TextValue = precio.ToString();
 
             this.Text = "Editando producto" + nombre;
         }

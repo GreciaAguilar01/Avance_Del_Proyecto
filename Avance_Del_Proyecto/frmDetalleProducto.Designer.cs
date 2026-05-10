@@ -32,13 +32,11 @@
             this.txtNombre = new Avance_Del_Proyecto.textboxRedondeado();
             this.txtCantidad = new Avance_Del_Proyecto.textboxRedondeado();
             this.lblCantidad = new System.Windows.Forms.Label();
-            this.txtID = new Avance_Del_Proyecto.textboxRedondeado();
-            this.lblID = new System.Windows.Forms.Label();
             this.txtCodigo = new Avance_Del_Proyecto.textboxRedondeado();
             this.lblCodigo = new System.Windows.Forms.Label();
-            this.lblFecha = new System.Windows.Forms.Label();
-            this.dtpIngreso = new System.Windows.Forms.DateTimePicker();
             this.btnGuardar = new Avance_Del_Proyecto.botonRedondeado();
+            this.txtPrecio = new Avance_Del_Proyecto.textboxRedondeado();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblNombre
@@ -46,7 +44,7 @@
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(135)))), ((int)(((byte)(61)))));
-            this.lblNombre.Location = new System.Drawing.Point(222, 21);
+            this.lblNombre.Location = new System.Drawing.Point(24, 18);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(171, 21);
             this.lblNombre.TabIndex = 0;
@@ -59,10 +57,10 @@
             this.txtNombre.BackColor = System.Drawing.Color.White;
             this.txtNombre.BorderRadius = 15;
             this.txtNombre.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(212, 46);
+            this.txtNombre.Location = new System.Drawing.Point(28, 46);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtNombre.Size = new System.Drawing.Size(436, 27);
+            this.txtNombre.Size = new System.Drawing.Size(620, 27);
             this.txtNombre.TabIndex = 1;
             this.txtNombre.TextValue = "";
             // 
@@ -73,7 +71,7 @@
             this.txtCantidad.BackColor = System.Drawing.Color.White;
             this.txtCantidad.BorderRadius = 15;
             this.txtCantidad.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCantidad.Location = new System.Drawing.Point(18, 100);
+            this.txtCantidad.Location = new System.Drawing.Point(28, 100);
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.txtCantidad.Size = new System.Drawing.Size(159, 27);
@@ -91,31 +89,6 @@
             this.lblCantidad.TabIndex = 2;
             this.lblCantidad.Text = "Cantidad:";
             // 
-            // txtID
-            // 
-            this.txtID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtID.BackColor = System.Drawing.Color.White;
-            this.txtID.BorderRadius = 15;
-            this.txtID.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtID.Location = new System.Drawing.Point(18, 46);
-            this.txtID.Name = "txtID";
-            this.txtID.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtID.Size = new System.Drawing.Size(159, 27);
-            this.txtID.TabIndex = 5;
-            this.txtID.TextValue = "";
-            // 
-            // lblID
-            // 
-            this.lblID.AutoSize = true;
-            this.lblID.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(135)))), ((int)(((byte)(61)))));
-            this.lblID.Location = new System.Drawing.Point(24, 21);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(106, 21);
-            this.lblID.TabIndex = 4;
-            this.lblID.Text = "ID producto:";
-            // 
             // txtCodigo
             // 
             this.txtCodigo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -123,7 +96,7 @@
             this.txtCodigo.BackColor = System.Drawing.Color.White;
             this.txtCodigo.BorderRadius = 15;
             this.txtCodigo.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigo.Location = new System.Drawing.Point(212, 100);
+            this.txtCodigo.Location = new System.Drawing.Point(260, 100);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.txtCodigo.Size = new System.Drawing.Size(151, 27);
@@ -135,31 +108,11 @@
             this.lblCodigo.AutoSize = true;
             this.lblCodigo.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCodigo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(135)))), ((int)(((byte)(61)))));
-            this.lblCodigo.Location = new System.Drawing.Point(223, 75);
+            this.lblCodigo.Location = new System.Drawing.Point(256, 76);
             this.lblCodigo.Name = "lblCodigo";
             this.lblCodigo.Size = new System.Drawing.Size(140, 21);
             this.lblCodigo.TabIndex = 6;
             this.lblCodigo.Text = "Codigo de barras:";
-            // 
-            // lblFecha
-            // 
-            this.lblFecha.AutoSize = true;
-            this.lblFecha.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFecha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(135)))), ((int)(((byte)(61)))));
-            this.lblFecha.Location = new System.Drawing.Point(430, 75);
-            this.lblFecha.Name = "lblFecha";
-            this.lblFecha.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblFecha.Size = new System.Drawing.Size(140, 21);
-            this.lblFecha.TabIndex = 8;
-            this.lblFecha.Text = "Fecha de ingreso:";
-            // 
-            // dtpIngreso
-            // 
-            this.dtpIngreso.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpIngreso.Location = new System.Drawing.Point(420, 100);
-            this.dtpIngreso.Name = "dtpIngreso";
-            this.dtpIngreso.Size = new System.Drawing.Size(228, 23);
-            this.dtpIngreso.TabIndex = 9;
             // 
             // btnGuardar
             // 
@@ -176,25 +129,48 @@
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // botonAgregar
+            // txtPrecio
+            // 
+            this.txtPrecio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPrecio.BackColor = System.Drawing.Color.White;
+            this.txtPrecio.BorderRadius = 15;
+            this.txtPrecio.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecio.Location = new System.Drawing.Point(484, 100);
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtPrecio.Size = new System.Drawing.Size(159, 27);
+            this.txtPrecio.TabIndex = 12;
+            this.txtPrecio.TextValue = "";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(135)))), ((int)(((byte)(61)))));
+            this.label1.Location = new System.Drawing.Point(481, 75);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 21);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Precio:";
+            // 
+            // frmDetalleProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(207)))), ((int)(((byte)(176)))));
             this.ClientSize = new System.Drawing.Size(684, 196);
+            this.Controls.Add(this.txtPrecio);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.dtpIngreso);
-            this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.lblCodigo);
-            this.Controls.Add(this.txtID);
-            this.Controls.Add(this.lblID);
             this.Controls.Add(this.txtCantidad);
             this.Controls.Add(this.lblCantidad);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lblNombre);
             this.MaximizeBox = false;
-            this.Name = "botonAgregar";
+            this.Name = "frmDetalleProducto";
             this.Text = "botonAgregar";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -207,12 +183,10 @@
         private textboxRedondeado txtNombre;
         private textboxRedondeado txtCantidad;
         private System.Windows.Forms.Label lblCantidad;
-        private textboxRedondeado txtID;
-        private System.Windows.Forms.Label lblID;
         private textboxRedondeado txtCodigo;
         private System.Windows.Forms.Label lblCodigo;
-        private System.Windows.Forms.Label lblFecha;
-        private System.Windows.Forms.DateTimePicker dtpIngreso;
         private botonRedondeado btnGuardar;
+        private textboxRedondeado txtPrecio;
+        private System.Windows.Forms.Label label1;
     }
 }

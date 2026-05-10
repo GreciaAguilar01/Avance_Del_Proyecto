@@ -7,7 +7,7 @@ namespace Avance_Del_Proyecto
 {
     public partial class Pedido_Producto : Form
     {
-        string SQLconection = "Server=localhost;Port=3306;Database=sigeo_db;Uid=root;Pwd=root;";
+        string SQLconection = "Server=localhost;Port=3306;Database=Ortopedia;Uid=root;Pwd=4444;";
 
         private DataTable tablaOrden = new DataTable();
         private int idPacienteSeleccionado = -1;
@@ -21,7 +21,7 @@ namespace Avance_Del_Proyecto
         //  CARGA INICIAL
         private void Pedido_Producto_Load(object sender, EventArgs e)
         {
-            tablaOrden.Columns.Add("id_producto", typeof(int));
+            tablaOrden.Columns.Add("id_prod", typeof(int));
             tablaOrden.Columns.Add("nombre_display", typeof(string));
             tablaOrden.Columns.Add("precio", typeof(decimal));
 
@@ -55,14 +55,14 @@ namespace Avance_Del_Proyecto
             using (MySqlConnection con = new MySqlConnection(SQLconection))
             {
                 con.Open();
-                string query = "SELECT id_producto, precio, CONCAT(codigo, ' - ', nombre) AS nombre_display FROM productos";
+                string query = "SELECT id_prod, precio, CONCAT(codigo, ' - ', nombre) AS nombre_display FROM inventario";
                 MySqlDataAdapter da = new MySqlDataAdapter(query, con);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
 
                 lboxProductos.DataSource = dt;
                 lboxProductos.DisplayMember = "nombre_display";
-                lboxProductos.ValueMember = "id_producto";
+                lboxProductos.ValueMember = "id_prod";
             }
         }
 
@@ -94,13 +94,13 @@ namespace Avance_Del_Proyecto
             }
 
             DataRowView fila = (DataRowView)lboxProductos.SelectedItem;
-            int id = Convert.ToInt32(fila["id_producto"]);
+            int id = Convert.ToInt32(fila["id_prod"]);
             string nombre = fila["nombre_display"].ToString();
             decimal precio = Convert.ToDecimal(fila["precio"]);
 
             foreach (DataRow r in tablaOrden.Rows)
             {
-                if (Convert.ToInt32(r["id_producto"]) == id)
+                if (Convert.ToInt32(r["id_prod"]) == id)
                 {
                     MessageBox.Show("Ese producto ya está en la orden.", "Aviso",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -199,5 +199,12 @@ namespace Avance_Del_Proyecto
         private void lblNombrePaciente_Click(object sender, EventArgs e) { }
         private void lblNombrePaciente_Click_1(object sender, EventArgs e) { }
         private void lblListaDeProductos_Click(object sender, EventArgs e) { }
+
+        private void btnMenu_Click(object sender, EventArgs e)
+        {
+            Menu_Interfaz VentanaManu = new Menu_Interfaz();
+            VentanaManu.Show();
+            this.Hide();
+        }
     }
 }

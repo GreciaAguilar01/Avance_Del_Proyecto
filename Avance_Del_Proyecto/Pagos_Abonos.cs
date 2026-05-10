@@ -9,7 +9,7 @@ namespace Avance_Del_Proyecto
 {
     public partial class Pagos_Abonos : Form
     {
-        string SQLconection = "Server=localhost;Port=3306;Database=Ortopedia; Uid=root;Pwd=4444;";
+        string SQLConection = "Server=localhost;Port=3306;Database=Ortopedia; Uid=root;Pwd=4444;";
 
         private int idPacienteActual = -1;
         private string nombrePacienteActual = "";
@@ -58,7 +58,7 @@ namespace Avance_Del_Proyecto
         //  CARGAR LISTA DE PACIENTES
         private void CargarPacientes()
         {
-            using (MySqlConnection con = new MySqlConnection(SQLconection))
+            using (MySqlConnection con = new MySqlConnection(SQLConection))
             {
                 con.Open();
                 string query = "SELECT Id_Paciente, nombre FROM pacientes ORDER BY nombre";
@@ -94,7 +94,7 @@ namespace Avance_Del_Proyecto
             foreach (DataRow r in tablaOrdenRecibida.Rows)
                 total += Convert.ToDecimal(r["precio"]);
 
-            using (MySqlConnection con = new MySqlConnection(SQLconection))
+            using (MySqlConnection con = new MySqlConnection(SQLConection))
             {
                 con.Open();
                 MySqlTransaction trans = con.BeginTransaction();
@@ -111,12 +111,21 @@ namespace Avance_Del_Proyecto
 
                     foreach (DataRow r in tablaOrdenRecibida.Rows)
                     {
+                        int idProd = Convert.ToInt32(r["id_prod"]);
+                        decimal precio = Convert.ToDecimal(r["precio"]);
+
                         string sqlDetalle = "INSERT INTO detalle_pedido (id_pedido, Id_prod, precio_unitario) VALUES (@idPed, @idProd, @precio)";
                         MySqlCommand cmdD = new MySqlCommand(sqlDetalle, con, trans);
                         cmdD.Parameters.AddWithValue("@idPed", idPedido);
-                        cmdD.Parameters.AddWithValue("@idProd", Convert.ToInt32(r["id_producto"]));
+                        cmdD.Parameters.AddWithValue("@idProd", Convert.ToInt32(r["id_prod"]));
                         cmdD.Parameters.AddWithValue("@precio", Convert.ToDecimal(r["precio"]));
                         cmdD.ExecuteNonQuery();
+
+                        string sqlRestarStock = "UPDATE inventario SET cantidad = cantidad - 1 WHERE id_prod = @idProd";
+                        
+                        MySqlCommand cmdStock = new MySqlCommand(sqlRestarStock, con, trans);
+                        cmdStock.Parameters.AddWithValue("@idProd", idProd);
+                        cmdStock.ExecuteNonQuery();
                     }
 
                     trans.Commit();
@@ -146,7 +155,7 @@ namespace Avance_Del_Proyecto
 
         private void CargarPedidosPaciente(int idPaciente)
         {
-            using (MySqlConnection con = new MySqlConnection(SQLconection))
+            using (MySqlConnection con = new MySqlConnection(SQLConection))
             {
                 con.Open();
                 string query = @"SELECT id_pedido, fecha_pedido, total, abonado, estado,
@@ -302,7 +311,7 @@ namespace Avance_Del_Proyecto
         //  actualizar en la base de datos Dios mio no muevan NADA POR FAVOR
         private void ActualizarPedidoBD(int idPedido, decimal nuevoAbonado, string estado, string tipoPago)
         {
-            using (MySqlConnection con = new MySqlConnection(SQLconection))
+            using (MySqlConnection con = new MySqlConnection(SQLConection))
             {
                 con.Open();
                 string sql = "UPDATE pedidos SET abonado = @ab, estado = @est, tipo_pago = @tipo WHERE id_pedido = @id";
@@ -328,12 +337,12 @@ namespace Avance_Del_Proyecto
 
             // Obtener productos del pedido
             DataTable productos = new DataTable();
-            using (MySqlConnection con = new MySqlConnection(SQLconection))
+            using (MySqlConnection con = new MySqlConnection(SQLConection))
             {
                 con.Open();
                 string query = @"SELECT CONCAT(p.codigo, ' - ', p.nombre) AS nombre_display, dp.precio_unitario
                                  FROM detalle_pedido dp
-                                 JOIN productos p ON dp.id_producto = p.id_producto
+                                 JOIN inventario p ON dp.id_prod = p.id_prod
                                  WHERE dp.id_pedido = @id";
                 MySqlDataAdapter da = new MySqlDataAdapter(query, con);
                 da.SelectCommand.Parameters.AddWithValue("@id", item.IdPedido);
@@ -411,6 +420,13 @@ namespace Avance_Del_Proyecto
         // Eventos vacíos requeridos por el Designer
         private void lblNombrePaciente_Click(object sender, EventArgs e) { }
         private void btnCancelarOperacion_Click(object sender, EventArgs e) { }
+
+        private void btnMenu_Click(object sender, EventArgs e)
+        {
+            Menu_Interfaz VentanaManu = new Menu_Interfaz();
+            VentanaManu.Show();
+            this.Hide();
+        }
     }
 
     // Clase auxiliar para items del listbox de pedidos

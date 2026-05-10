@@ -17,6 +17,7 @@ namespace Avance_Del_Proyecto
         {
             InitializeComponent();
         }
+        string conexionString = "server=localhost;port=3306;database=Ortopedia;uid=root;pwd=4444;";
 
         private void BtnRetornarMenu_Click(object sender, EventArgs e)
         {
@@ -47,13 +48,12 @@ namespace Avance_Del_Proyecto
 
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
-            string conexionString = "server=localhost;port=3306;database=Ortopedia_Prueba1;uid=root;pwd=2496;";
             using (MySqlConnection con = new MySqlConnection(conexionString))
             {
                 try
                 {
                     con.Open();
-                    string query = "SELECT * FROM IngresoPacientes WHERE Nombre_Paciente = @busqueda";
+                    string query = "SELECT * FROM Pacientes WHERE nombre = @busqueda";
                     MySqlCommand cmd = new MySqlCommand(query, con);
                     cmd.Parameters.AddWithValue("@busqueda", TbBuscarNombre.TextValue.Trim()); 
 
@@ -61,13 +61,13 @@ namespace Avance_Del_Proyecto
                     {
                         if (reader.Read())
                         {
-                            TxbNombreP_Edit.TextValue = reader["Nombre_Paciente"].ToString();
-                            TxbFechaNac_Edit.TextValue = reader["Fecha_NacimientoP"].ToString();
-                            TxbNumP_Edit.TextValue = reader["Celular_Paciente"].ToString();
-                            TxbCorreoP_Edit.TextValue = reader["Correo_Paciente"].ToString();
-                            TxbNombreF_Edit.TextValue = reader["Nombre_Familiar"].ToString();
-                            TxbNumF_Edit.TextValue = reader["Celular_Familiar"].ToString();
-                            TxbCorreoF_Edit.TextValue = reader["Correo_Familiar"].ToString();
+                            TxbNombreP_Edit.TextValue = reader["nombre"].ToString();
+                            TxbFechaNac_Edit.TextValue = reader["fecha_naci"].ToString();
+                            TxbNumP_Edit.TextValue = reader["celular"].ToString();
+                            TxbCorreoP_Edit.TextValue = reader["correo"].ToString();
+                            TxbNombreF_Edit.TextValue = reader["nombreFam"].ToString();
+                            TxbNumF_Edit.TextValue = reader["celularFam"].ToString();
+                            TxbCorreoF_Edit.TextValue = reader["correoFam"].ToString();
 
                             MessageBox.Show("Paciente encontrado. Puedes editar su información.", "Éxito");
                         }
@@ -86,22 +86,20 @@ namespace Avance_Del_Proyecto
 
         private void BtnGuardarInf_Editada_Click(object sender, EventArgs e)
         {
-            string conexionString = "server=localhost;port=3306;database=Ortopedia_Prueba1;uid=root;pwd=2496;";
-
             using (MySqlConnection con = new MySqlConnection(conexionString))
             {
                 try
                 {
                     con.Open();
                     string query = @"UPDATE IngresoPacientes 
-                            SET Nombre_Paciente = @nomP,
-                                Fecha_NacimientoP = @fecP, 
-                                Celular_Paciente = @celP, 
-                                Correo_Paciente = @corP, 
-                                Nombre_Familiar = @nomF, 
-                                Celular_Familiar = @celF, 
-                                Correo_Familiar = @corF 
-                            WHERE Nombre_Paciente = @nomP_Original";
+                            SET nombre = @nomP,
+                                fecha_naci = @fecP, 
+                                celular = @celP, 
+                                correo = @corP, 
+                                nombreFam = @nomF, 
+                                celularFam = @celF, 
+                                correoFam = @corF 
+                            WHERE nombre = @nomP_Original";
 
                     MySqlCommand cmd = new MySqlCommand(query, con);
                     cmd.Parameters.AddWithValue("@nomP_Original", TbBuscarNombre.TextValue.Trim());

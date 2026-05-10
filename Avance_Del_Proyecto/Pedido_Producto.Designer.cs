@@ -43,22 +43,26 @@ namespace Avance_Del_Proyecto
             this.lblListaDeProductos = new Avance_Del_Proyecto.labelRedondeado();
             this.lblOrdenProductos = new Avance_Del_Proyecto.labelRedondeado();
             this.lboxOrdenPaciente = new System.Windows.Forms.ListBox();
+            this.btnMenu = new Avance_Del_Proyecto.botonRedondeado();
             this.panelRedondeado1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lboxProductos
             // 
             this.lboxProductos.BackColor = System.Drawing.Color.White;
+            this.lboxProductos.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lboxProductos.FormattingEnabled = true;
+            this.lboxProductos.ItemHeight = 15;
             this.lboxProductos.Location = new System.Drawing.Point(232, 43);
             this.lboxProductos.Name = "lboxProductos";
-            this.lboxProductos.Size = new System.Drawing.Size(540, 160);
+            this.lboxProductos.Size = new System.Drawing.Size(540, 154);
             this.lboxProductos.TabIndex = 0;
             // 
             // panelRedondeado1
             // 
             this.panelRedondeado1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(130)))), ((int)(((byte)(74)))));
             this.panelRedondeado1.BorderRadius = 20;
+            this.panelRedondeado1.Controls.Add(this.btnMenu);
             this.panelRedondeado1.Controls.Add(this.lblNombrePaciente);
             this.panelRedondeado1.Controls.Add(this.lboxNombresPacientesPedido);
             this.panelRedondeado1.Controls.Add(this.lblOrden);
@@ -89,10 +93,12 @@ namespace Avance_Del_Proyecto
             // 
             // lboxNombresPacientesPedido
             // 
+            this.lboxNombresPacientesPedido.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lboxNombresPacientesPedido.FormattingEnabled = true;
+            this.lboxNombresPacientesPedido.ItemHeight = 15;
             this.lboxNombresPacientesPedido.Location = new System.Drawing.Point(30, 50);
             this.lboxNombresPacientesPedido.Name = "lboxNombresPacientesPedido";
-            this.lboxNombresPacientesPedido.Size = new System.Drawing.Size(140, 30);
+            this.lboxNombresPacientesPedido.Size = new System.Drawing.Size(140, 19);
             this.lboxNombresPacientesPedido.TabIndex = 11;
             // 
             // lblOrden
@@ -101,7 +107,7 @@ namespace Avance_Del_Proyecto
             this.lblOrden.BorderRadius = 20;
             this.lblOrden.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold);
             this.lblOrden.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(207)))), ((int)(((byte)(176)))));
-            this.lblOrden.Location = new System.Drawing.Point(51, 86);
+            this.lblOrden.Location = new System.Drawing.Point(51, 72);
             this.lblOrden.Name = "lblOrden";
             this.lblOrden.Size = new System.Drawing.Size(98, 29);
             this.lblOrden.TabIndex = 7;
@@ -111,7 +117,8 @@ namespace Avance_Del_Proyecto
             // 
             this.lblNoDeOrden.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(207)))), ((int)(((byte)(176)))));
             this.lblNoDeOrden.BorderRadius = 20;
-            this.lblNoDeOrden.Location = new System.Drawing.Point(12, 115);
+            this.lblNoDeOrden.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNoDeOrden.Location = new System.Drawing.Point(12, 101);
             this.lblNoDeOrden.Name = "lblNoDeOrden";
             this.lblNoDeOrden.Size = new System.Drawing.Size(177, 29);
             this.lblNoDeOrden.TabIndex = 8;
@@ -123,7 +130,7 @@ namespace Avance_Del_Proyecto
             this.lblFecha.BorderRadius = 20;
             this.lblFecha.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold);
             this.lblFecha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(207)))), ((int)(((byte)(176)))));
-            this.lblFecha.Location = new System.Drawing.Point(76, 158);
+            this.lblFecha.Location = new System.Drawing.Point(76, 133);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(46, 29);
             this.lblFecha.TabIndex = 9;
@@ -132,7 +139,7 @@ namespace Avance_Del_Proyecto
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(29, 193);
+            this.dateTimePicker1.Location = new System.Drawing.Point(29, 168);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(143, 20);
             this.dateTimePicker1.TabIndex = 10;
@@ -144,7 +151,7 @@ namespace Avance_Del_Proyecto
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold);
             this.btnAgregar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.btnAgregar.Location = new System.Drawing.Point(30, 233);
+            this.btnAgregar.Location = new System.Drawing.Point(30, 218);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(140, 29);
             this.btnAgregar.TabIndex = 3;
@@ -159,7 +166,7 @@ namespace Avance_Del_Proyecto
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold);
             this.btnCancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.btnCancelar.Location = new System.Drawing.Point(29, 273);
+            this.btnCancelar.Location = new System.Drawing.Point(29, 250);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(142, 29);
             this.btnCancelar.TabIndex = 4;
@@ -174,7 +181,7 @@ namespace Avance_Del_Proyecto
             this.btnCancelarOrden.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelarOrden.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold);
             this.btnCancelarOrden.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.btnCancelarOrden.Location = new System.Drawing.Point(30, 313);
+            this.btnCancelarOrden.Location = new System.Drawing.Point(30, 282);
             this.btnCancelarOrden.Name = "btnCancelarOrden";
             this.btnCancelarOrden.Size = new System.Drawing.Size(140, 29);
             this.btnCancelarOrden.TabIndex = 5;
@@ -189,7 +196,7 @@ namespace Avance_Del_Proyecto
             this.btnPagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPagar.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold);
             this.btnPagar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.btnPagar.Location = new System.Drawing.Point(30, 353);
+            this.btnPagar.Location = new System.Drawing.Point(30, 314);
             this.btnPagar.Name = "btnPagar";
             this.btnPagar.Size = new System.Drawing.Size(140, 29);
             this.btnPagar.TabIndex = 6;
@@ -225,11 +232,28 @@ namespace Avance_Del_Proyecto
             // lboxOrdenPaciente
             // 
             this.lboxOrdenPaciente.BackColor = System.Drawing.Color.White;
+            this.lboxOrdenPaciente.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lboxOrdenPaciente.FormattingEnabled = true;
+            this.lboxOrdenPaciente.ItemHeight = 15;
             this.lboxOrdenPaciente.Location = new System.Drawing.Point(236, 239);
             this.lboxOrdenPaciente.Name = "lboxOrdenPaciente";
-            this.lboxOrdenPaciente.Size = new System.Drawing.Size(540, 160);
+            this.lboxOrdenPaciente.Size = new System.Drawing.Size(540, 154);
             this.lboxOrdenPaciente.TabIndex = 13;
+            // 
+            // btnMenu
+            // 
+            this.btnMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnMenu.BorderRadius = 30;
+            this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenu.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btnMenu.Location = new System.Drawing.Point(31, 346);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(140, 29);
+            this.btnMenu.TabIndex = 13;
+            this.btnMenu.Text = "Menú";
+            this.btnMenu.UseVisualStyleBackColor = false;
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
             // Pedido_Producto
             // 
@@ -265,5 +289,6 @@ namespace Avance_Del_Proyecto
         private botonRedondeado btnPagar;
         private labelRedondeado lblOrdenProductos;
         private System.Windows.Forms.ListBox lboxOrdenPaciente;
+        private botonRedondeado btnMenu;
     }
 }

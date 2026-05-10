@@ -139,6 +139,12 @@
     <Compile Include="panelRedondeado.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Registro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registro.Designer.cs">
+      <DependentUpon>Registro.cs</DependentUpon>
+    </Compile>
     <Compile Include="textboxRedondeado.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -176,6 +182,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Registro.resx">
+      <DependentUpon>Registro.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="App.config" />
     <None Include="Properties\Settings.settings">

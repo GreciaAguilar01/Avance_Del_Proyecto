@@ -17,18 +17,18 @@ namespace Avance_Del_Proyecto
         public Inventario()
         {
             InitializeComponent();
-            actualizaGrid();
+            ActualizaGrid();
             txtBuscar.TextChanged += new EventHandler(txtBuscar_TextChanged);
         }
         DataTable tablaDatos;
 
-        string SQLConection = "Server=localhost; Port=3306; Database=ejemplo_ortopedia; Uid=root; Pwd=4444";
-        public void actualizaGrid()
+        string SQLConection = "Server=localhost; Port=3306; Database=Ortopedia; Uid=root; Pwd=4444";
+        public void ActualizaGrid()
         {
             using (MySqlConnection conectar = new MySqlConnection(SQLConection)) 
             {
                 conectar.Open();
-                string query = "select ID_prod as \"ID\", nombre, cantidad, codigo_barras as \"Codigo de barras\", fecha_ingreso as \"Fecha de ingreso\" from productos";
+                string query = "select ID_prod as \"ID\", nombre, cantidad, codigo_barras as \"codigo de barras\", fecha_ingreso as \"fecha de ingreso\", precio from productos";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(query, conectar);
                 tablaDatos = new DataTable();
                 adapter.Fill(tablaDatos);
@@ -87,7 +87,7 @@ namespace Avance_Del_Proyecto
                 ventana.Text = "Nuevo Producto";
                 if(ventana.ShowDialog() == DialogResult.OK)
                 {
-                    actualizaGrid();
+                    ActualizaGrid();
                 }
             }
             
@@ -104,7 +104,7 @@ namespace Avance_Del_Proyecto
                     {
                         int idEliminado = Convert.ToInt32(dgvInventario.CurrentRow.Cells["ID"].Value);
                         EliminarProducto(idEliminado);
-                        actualizaGrid();
+                        ActualizaGrid();
                     }
                     catch (Exception ex) { MessageBox.Show("Error al intentar borrar el producto" + ex.Message); }
                 }
@@ -124,15 +124,16 @@ namespace Avance_Del_Proyecto
                 frmDetalleProducto ventana = new frmDetalleProducto();
                 ventana.EsEdicion = true;
                 
-                int id = Convert.ToInt32(dgvInventario.CurrentRow.Cells["ID"].Value);
+                 int id = Convert.ToInt32(dgvInventario.CurrentRow.Cells["ID"].Value);
                 string nombre = dgvInventario.CurrentRow.Cells["nombre"].Value.ToString();
                 int codigo = Convert.ToInt32(dgvInventario.CurrentRow.Cells["Codigo de barras"].Value);
                 int cantidad = Convert.ToInt32(dgvInventario.CurrentRow.Cells["cantidad"].Value);
-                DateTime fecha_ingreso = Convert.ToDateTime(dgvInventario.CurrentRow.Cells["fecha de ingreso"].Value);
+                //DateTime fecha_ingreso = Convert.ToDateTime(dgvInventario.CurrentRow.Cells["fecha de ingreso"].Value);
+                int precio = Convert.ToInt32(dgvInventario.CurrentRow.Cells["precio"].Value); 
 
                 ventana.IdProducto = id;
-                ventana.LlenarCampos(nombre, codigo, cantidad, fecha_ingreso, id);
-                if (ventana.ShowDialog() == DialogResult.OK) { actualizaGrid(); }
+                ventana.LlenarCampos(nombre, codigo, cantidad, precio);
+                if (ventana.ShowDialog() == DialogResult.OK) { ActualizaGrid(); }
             }
         }
         private void txtBuscar_TextChanged(object sender, EventArgs e)
@@ -142,6 +143,13 @@ namespace Avance_Del_Proyecto
                 DataView dv = tablaDatos.DefaultView;
                 dv.RowFilter = string.Format("nombre LIKE '%{0}%'", txtBuscar.Text);
             }
+        }
+
+        private void botonRedondeado1_Click(object sender, EventArgs e)
+        {
+            Menu_Interfaz VentanaManu = new Menu_Interfaz();
+            VentanaManu.Show();
+            this.Hide();
         }
     }
 }

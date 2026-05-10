@@ -30,6 +30,7 @@ namespace Avance_Del_Proyecto
         {
             this.lboxProductos = new System.Windows.Forms.ListBox();
             this.panelRedondeado1 = new Avance_Del_Proyecto.panelRedondeado();
+            this.btnMenu = new Avance_Del_Proyecto.botonRedondeado();
             this.lblNombrePaciente = new Avance_Del_Proyecto.labelRedondeado();
             this.lboxNombresPacientesPedido = new System.Windows.Forms.ListBox();
             this.lblOrden = new Avance_Del_Proyecto.labelRedondeado();
@@ -43,7 +44,7 @@ namespace Avance_Del_Proyecto
             this.lblListaDeProductos = new Avance_Del_Proyecto.labelRedondeado();
             this.lblOrdenProductos = new Avance_Del_Proyecto.labelRedondeado();
             this.lboxOrdenPaciente = new System.Windows.Forms.ListBox();
-            this.btnMenu = new Avance_Del_Proyecto.botonRedondeado();
+            this.labelRedondeado1 = new Avance_Del_Proyecto.labelRedondeado();
             this.panelRedondeado1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,7 +54,7 @@ namespace Avance_Del_Proyecto
             this.lboxProductos.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lboxProductos.FormattingEnabled = true;
             this.lboxProductos.ItemHeight = 15;
-            this.lboxProductos.Location = new System.Drawing.Point(232, 43);
+            this.lboxProductos.Location = new System.Drawing.Point(232, 110);
             this.lboxProductos.Name = "lboxProductos";
             this.lboxProductos.Size = new System.Drawing.Size(540, 154);
             this.lboxProductos.TabIndex = 0;
@@ -73,11 +74,26 @@ namespace Avance_Del_Proyecto
             this.panelRedondeado1.Controls.Add(this.btnCancelar);
             this.panelRedondeado1.Controls.Add(this.btnCancelarOrden);
             this.panelRedondeado1.Controls.Add(this.btnPagar);
-            this.panelRedondeado1.Location = new System.Drawing.Point(12, 8);
+            this.panelRedondeado1.Location = new System.Drawing.Point(12, 75);
             this.panelRedondeado1.Name = "panelRedondeado1";
             this.panelRedondeado1.Size = new System.Drawing.Size(201, 391);
             this.panelRedondeado1.TabIndex = 11;
             this.panelRedondeado1.Paint += new System.Windows.Forms.PaintEventHandler(this.panelRedondeado1_Paint);
+            // 
+            // btnMenu
+            // 
+            this.btnMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnMenu.BorderRadius = 30;
+            this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenu.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btnMenu.Location = new System.Drawing.Point(31, 346);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(140, 29);
+            this.btnMenu.TabIndex = 13;
+            this.btnMenu.Text = "Menú";
+            this.btnMenu.UseVisualStyleBackColor = false;
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
             // lblNombrePaciente
             // 
@@ -210,7 +226,7 @@ namespace Avance_Del_Proyecto
             this.lblListaDeProductos.BorderRadius = 20;
             this.lblListaDeProductos.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold);
             this.lblListaDeProductos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(207)))), ((int)(((byte)(176)))));
-            this.lblListaDeProductos.Location = new System.Drawing.Point(232, 12);
+            this.lblListaDeProductos.Location = new System.Drawing.Point(232, 79);
             this.lblListaDeProductos.Name = "lblListaDeProductos";
             this.lblListaDeProductos.Size = new System.Drawing.Size(541, 28);
             this.lblListaDeProductos.TabIndex = 11;
@@ -223,7 +239,7 @@ namespace Avance_Del_Proyecto
             this.lblOrdenProductos.BorderRadius = 20;
             this.lblOrdenProductos.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold);
             this.lblOrdenProductos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(207)))), ((int)(((byte)(176)))));
-            this.lblOrdenProductos.Location = new System.Drawing.Point(232, 208);
+            this.lblOrdenProductos.Location = new System.Drawing.Point(232, 275);
             this.lblOrdenProductos.Name = "lblOrdenProductos";
             this.lblOrdenProductos.Size = new System.Drawing.Size(541, 28);
             this.lblOrdenProductos.TabIndex = 12;
@@ -235,30 +251,29 @@ namespace Avance_Del_Proyecto
             this.lboxOrdenPaciente.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lboxOrdenPaciente.FormattingEnabled = true;
             this.lboxOrdenPaciente.ItemHeight = 15;
-            this.lboxOrdenPaciente.Location = new System.Drawing.Point(236, 239);
+            this.lboxOrdenPaciente.Location = new System.Drawing.Point(236, 306);
             this.lboxOrdenPaciente.Name = "lboxOrdenPaciente";
             this.lboxOrdenPaciente.Size = new System.Drawing.Size(540, 154);
             this.lboxOrdenPaciente.TabIndex = 13;
             // 
-            // btnMenu
+            // labelRedondeado1
             // 
-            this.btnMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnMenu.BorderRadius = 30;
-            this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenu.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold);
-            this.btnMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.btnMenu.Location = new System.Drawing.Point(31, 346);
-            this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(140, 29);
-            this.btnMenu.TabIndex = 13;
-            this.btnMenu.Text = "Menú";
-            this.btnMenu.UseVisualStyleBackColor = false;
-            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
+            this.labelRedondeado1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(31)))), ((int)(((byte)(122)))));
+            this.labelRedondeado1.BorderRadius = 20;
+            this.labelRedondeado1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelRedondeado1.Font = new System.Drawing.Font("Comic Sans MS", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRedondeado1.ForeColor = System.Drawing.Color.White;
+            this.labelRedondeado1.Location = new System.Drawing.Point(0, 0);
+            this.labelRedondeado1.Name = "labelRedondeado1";
+            this.labelRedondeado1.Size = new System.Drawing.Size(784, 72);
+            this.labelRedondeado1.TabIndex = 14;
+            this.labelRedondeado1.Text = "Pedido del producto";
             // 
             // Pedido_Producto
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(207)))), ((int)(((byte)(176)))));
-            this.ClientSize = new System.Drawing.Size(784, 411);
+            this.ClientSize = new System.Drawing.Size(784, 473);
+            this.Controls.Add(this.labelRedondeado1);
             this.Controls.Add(this.lboxOrdenPaciente);
             this.Controls.Add(this.lblOrdenProductos);
             this.Controls.Add(this.panelRedondeado1);
@@ -290,5 +305,6 @@ namespace Avance_Del_Proyecto
         private labelRedondeado lblOrdenProductos;
         private System.Windows.Forms.ListBox lboxOrdenPaciente;
         private botonRedondeado btnMenu;
+        private labelRedondeado labelRedondeado1;
     }
 }

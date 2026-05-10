@@ -23,21 +23,18 @@ namespace Avance_Del_Proyecto
             ventanaPacientes.Show();
             this.Hide();
         }
-
         private void BtnEditarinfP_Click(object sender, EventArgs e)
         {
             Editar_InfPaciente VentanaEditP = new Editar_InfPaciente();
             VentanaEditP.Show();
             this.Hide();
         }
-
         private void BtnInventario_Click(object sender, EventArgs e)
         {
             Inventario VentanaInvt = new Inventario();
             VentanaInvt.Show();
             this.Hide();
         }
-
         private void BtnProducccion_Click(object sender, EventArgs e)
         {
             
@@ -49,14 +46,12 @@ namespace Avance_Del_Proyecto
             VentanaPagos_abonos.Show();
             this.Hide();
         }
-
         private void BtnPedido_Click(object sender, EventArgs e)
         {
             Pedido_Producto VentanaPedidoProducto = new Pedido_Producto();
             VentanaPedidoProducto.Show();
             this.Hide();
         }
-
         private void BtnPedidos_Productos_Click(object sender, EventArgs e)
         {
             Pedido_Producto VentanaPedido_Producto = new Pedido_Producto();

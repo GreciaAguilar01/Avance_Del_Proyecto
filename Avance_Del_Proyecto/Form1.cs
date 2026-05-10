@@ -44,6 +44,13 @@ namespace Avance_Del_Proyecto
                             ObjMenuInt.Show();
                             this.Hide();
                         }
+                        else 
+                        {
+                            MessageBox.Show("Usuario o contraseña incorrectos. Intente de nuevo.");
+                            TbUsuario.TextValue = "";
+                            TbContrasena.TextValue = "";
+                            TbUsuario.Focus();
+                        }
                     }
 
                 }

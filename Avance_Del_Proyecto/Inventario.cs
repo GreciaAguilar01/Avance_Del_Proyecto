@@ -28,7 +28,8 @@ namespace Avance_Del_Proyecto
             using (MySqlConnection conectar = new MySqlConnection(SQLConection)) 
             {
                 conectar.Open();
-                string query = "select ID_prod as \"ID\", nombre, cantidad, codigo_barras as \"codigo de barras\", fecha_ingreso as \"fecha de ingreso\", precio from inventario";
+                string query = "select ID_prod as \"ID\", nombre, cantidad, codigo_barras as " +
+                    "\"codigo de barras\", fecha_ingreso as \"fecha de ingreso\", precio from inventario";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(query, conectar);
                 tablaDatos = new DataTable();
                 adapter.Fill(tablaDatos);

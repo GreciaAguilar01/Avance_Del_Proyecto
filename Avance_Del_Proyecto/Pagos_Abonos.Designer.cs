@@ -54,6 +54,7 @@ namespace Avance_Del_Proyecto
             this.lboxPedidosPacientes.Name = "lboxPedidosPacientes";
             this.lboxPedidosPacientes.Size = new System.Drawing.Size(541, 394);
             this.lboxPedidosPacientes.TabIndex = 11;
+            this.lboxPedidosPacientes.SelectedIndexChanged += new System.EventHandler(this.LboxPedidos_SelectedIndexChanged);
             // 
             // panelRedondeado1
             // 
@@ -142,6 +143,7 @@ namespace Avance_Del_Proyecto
             this.btnRecibirAbono.TabIndex = 1;
             this.btnRecibirAbono.Text = "Recibir abono";
             this.btnRecibirAbono.UseVisualStyleBackColor = false;
+            this.btnRecibirAbono.Click += new System.EventHandler(this.BtnRecibirAbono_Click);
             // 
             // rbtnPagoTarjetaCredito
             // 
@@ -168,6 +170,7 @@ namespace Avance_Del_Proyecto
             this.btnRecibirPago.TabIndex = 0;
             this.btnRecibirPago.Text = "Recibir pago";
             this.btnRecibirPago.UseVisualStyleBackColor = false;
+            this.btnRecibirPago.Click += new System.EventHandler(this.BtnRecibirPago_Click);
             // 
             // rbtnTransferencia
             // 

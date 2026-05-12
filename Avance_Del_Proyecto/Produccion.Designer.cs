@@ -30,31 +30,30 @@
         {
             this.tblGeneral = new System.Windows.Forms.TableLayoutPanel();
             this.panelPendientes = new Avance_Del_Proyecto.panelRedondeado();
+            this.flowPendientes = new System.Windows.Forms.FlowLayoutPanel();
             this.lblPendiente = new Avance_Del_Proyecto.labelRedondeado();
             this.panelProceso = new Avance_Del_Proyecto.panelRedondeado();
+            this.flowProceso = new System.Windows.Forms.FlowLayoutPanel();
             this.lblProceso = new Avance_Del_Proyecto.labelRedondeado();
             this.panelTerminados = new Avance_Del_Proyecto.panelRedondeado();
+            this.flowTerminados = new System.Windows.Forms.FlowLayoutPanel();
             this.lblTerminados = new Avance_Del_Proyecto.labelRedondeado();
             this.panelControl = new Avance_Del_Proyecto.panelRedondeado();
+            this.button1 = new System.Windows.Forms.Button();
             this.gbResumen = new System.Windows.Forms.GroupBox();
             this.tblResumen = new System.Windows.Forms.TableLayoutPanel();
-            this.lblUrg = new System.Windows.Forms.Label();
+            this.lblUrgentes2 = new System.Windows.Forms.Label();
             this.lblUrgentes = new System.Windows.Forms.Label();
-            this.lblTrm = new System.Windows.Forms.Label();
+            this.lblTerminados2 = new System.Windows.Forms.Label();
             this.lblTerminadoss = new System.Windows.Forms.Label();
-            this.lblPrc = new System.Windows.Forms.Label();
+            this.lblEnProceso2 = new System.Windows.Forms.Label();
             this.lblEnProceso = new System.Windows.Forms.Label();
-            this.lblPen = new System.Windows.Forms.Label();
+            this.lblPendientes2 = new System.Windows.Forms.Label();
             this.lblPendientes = new System.Windows.Forms.Label();
-            this.lblTtlR = new System.Windows.Forms.Label();
+            this.lblTotal2 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
-            this.lblBuscar = new System.Windows.Forms.Label();
-            this.txtBuscar = new System.Windows.Forms.TextBox();
             this.lblControl = new Avance_Del_Proyecto.labelRedondeado();
             this.lblProduccion = new Avance_Del_Proyecto.labelRedondeado();
-            this.flowPendientes = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowProceso = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowTerminados = new System.Windows.Forms.FlowLayoutPanel();
             this.tblGeneral.SuspendLayout();
             this.panelPendientes.SuspendLayout();
             this.panelProceso.SuspendLayout();
@@ -98,6 +97,16 @@
             this.panelPendientes.Size = new System.Drawing.Size(260, 441);
             this.panelPendientes.TabIndex = 2;
             // 
+            // flowPendientes
+            // 
+            this.flowPendientes.AutoScroll = true;
+            this.flowPendientes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowPendientes.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowPendientes.Location = new System.Drawing.Point(0, 36);
+            this.flowPendientes.Name = "flowPendientes";
+            this.flowPendientes.Size = new System.Drawing.Size(260, 405);
+            this.flowPendientes.TabIndex = 1;
+            // 
             // lblPendiente
             // 
             this.lblPendiente.BackColor = System.Drawing.Color.Silver;
@@ -123,6 +132,16 @@
             this.panelProceso.Name = "panelProceso";
             this.panelProceso.Size = new System.Drawing.Size(260, 441);
             this.panelProceso.TabIndex = 4;
+            // 
+            // flowProceso
+            // 
+            this.flowProceso.AutoScroll = true;
+            this.flowProceso.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowProceso.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowProceso.Location = new System.Drawing.Point(0, 36);
+            this.flowProceso.Name = "flowProceso";
+            this.flowProceso.Size = new System.Drawing.Size(260, 405);
+            this.flowProceso.TabIndex = 1;
             // 
             // lblProceso
             // 
@@ -150,6 +169,16 @@
             this.panelTerminados.Size = new System.Drawing.Size(260, 441);
             this.panelTerminados.TabIndex = 5;
             // 
+            // flowTerminados
+            // 
+            this.flowTerminados.AutoScroll = true;
+            this.flowTerminados.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowTerminados.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowTerminados.Location = new System.Drawing.Point(0, 36);
+            this.flowTerminados.Name = "flowTerminados";
+            this.flowTerminados.Size = new System.Drawing.Size(260, 405);
+            this.flowTerminados.TabIndex = 1;
+            // 
             // lblTerminados
             // 
             this.lblTerminados.BackColor = System.Drawing.Color.LimeGreen;
@@ -167,9 +196,8 @@
             // 
             this.panelControl.AutoScroll = true;
             this.panelControl.BorderRadius = 20;
+            this.panelControl.Controls.Add(this.button1);
             this.panelControl.Controls.Add(this.gbResumen);
-            this.panelControl.Controls.Add(this.lblBuscar);
-            this.panelControl.Controls.Add(this.txtBuscar);
             this.panelControl.Controls.Add(this.lblControl);
             this.panelControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl.Location = new System.Drawing.Point(804, 3);
@@ -178,12 +206,24 @@
             this.panelControl.Size = new System.Drawing.Size(260, 441);
             this.panelControl.TabIndex = 6;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.button1.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(65, 395);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(130, 25);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Menú";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // gbResumen
             // 
             this.gbResumen.Controls.Add(this.tblResumen);
             this.gbResumen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gbResumen.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbResumen.Location = new System.Drawing.Point(12, 187);
+            this.gbResumen.Location = new System.Drawing.Point(12, 130);
             this.gbResumen.Name = "gbResumen";
             this.gbResumen.Size = new System.Drawing.Size(237, 175);
             this.gbResumen.TabIndex = 4;
@@ -195,15 +235,15 @@
             this.tblResumen.ColumnCount = 2;
             this.tblResumen.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
             this.tblResumen.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tblResumen.Controls.Add(this.lblUrg, 1, 4);
+            this.tblResumen.Controls.Add(this.lblUrgentes2, 1, 4);
             this.tblResumen.Controls.Add(this.lblUrgentes, 0, 4);
-            this.tblResumen.Controls.Add(this.lblTrm, 1, 3);
+            this.tblResumen.Controls.Add(this.lblTerminados2, 1, 3);
             this.tblResumen.Controls.Add(this.lblTerminadoss, 0, 3);
-            this.tblResumen.Controls.Add(this.lblPrc, 1, 2);
+            this.tblResumen.Controls.Add(this.lblEnProceso2, 1, 2);
             this.tblResumen.Controls.Add(this.lblEnProceso, 0, 2);
-            this.tblResumen.Controls.Add(this.lblPen, 1, 1);
+            this.tblResumen.Controls.Add(this.lblPendientes2, 1, 1);
             this.tblResumen.Controls.Add(this.lblPendientes, 0, 1);
-            this.tblResumen.Controls.Add(this.lblTtlR, 1, 0);
+            this.tblResumen.Controls.Add(this.lblTotal2, 1, 0);
             this.tblResumen.Controls.Add(this.lblTotal, 0, 0);
             this.tblResumen.Location = new System.Drawing.Point(6, 27);
             this.tblResumen.Name = "tblResumen";
@@ -216,14 +256,14 @@
             this.tblResumen.Size = new System.Drawing.Size(225, 142);
             this.tblResumen.TabIndex = 3;
             // 
-            // lblUrg
+            // lblUrgentes2
             // 
-            this.lblUrg.AutoSize = true;
-            this.lblUrg.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblUrg.Location = new System.Drawing.Point(183, 112);
-            this.lblUrg.Name = "lblUrg";
-            this.lblUrg.Size = new System.Drawing.Size(39, 30);
-            this.lblUrg.TabIndex = 9;
+            this.lblUrgentes2.AutoSize = true;
+            this.lblUrgentes2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblUrgentes2.Location = new System.Drawing.Point(183, 112);
+            this.lblUrgentes2.Name = "lblUrgentes2";
+            this.lblUrgentes2.Size = new System.Drawing.Size(39, 30);
+            this.lblUrgentes2.TabIndex = 9;
             // 
             // lblUrgentes
             // 
@@ -235,14 +275,14 @@
             this.lblUrgentes.TabIndex = 8;
             this.lblUrgentes.Text = "Urgentes:";
             // 
-            // lblTrm
+            // lblTerminados2
             // 
-            this.lblTrm.AutoSize = true;
-            this.lblTrm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTrm.Location = new System.Drawing.Point(183, 84);
-            this.lblTrm.Name = "lblTrm";
-            this.lblTrm.Size = new System.Drawing.Size(39, 28);
-            this.lblTrm.TabIndex = 7;
+            this.lblTerminados2.AutoSize = true;
+            this.lblTerminados2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTerminados2.Location = new System.Drawing.Point(183, 84);
+            this.lblTerminados2.Name = "lblTerminados2";
+            this.lblTerminados2.Size = new System.Drawing.Size(39, 28);
+            this.lblTerminados2.TabIndex = 7;
             // 
             // lblTerminadoss
             // 
@@ -254,14 +294,14 @@
             this.lblTerminadoss.TabIndex = 6;
             this.lblTerminadoss.Text = "Terminados:";
             // 
-            // lblPrc
+            // lblEnProceso2
             // 
-            this.lblPrc.AutoSize = true;
-            this.lblPrc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblPrc.Location = new System.Drawing.Point(183, 56);
-            this.lblPrc.Name = "lblPrc";
-            this.lblPrc.Size = new System.Drawing.Size(39, 28);
-            this.lblPrc.TabIndex = 5;
+            this.lblEnProceso2.AutoSize = true;
+            this.lblEnProceso2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblEnProceso2.Location = new System.Drawing.Point(183, 56);
+            this.lblEnProceso2.Name = "lblEnProceso2";
+            this.lblEnProceso2.Size = new System.Drawing.Size(39, 28);
+            this.lblEnProceso2.TabIndex = 5;
             // 
             // lblEnProceso
             // 
@@ -273,14 +313,14 @@
             this.lblEnProceso.TabIndex = 4;
             this.lblEnProceso.Text = "En Proceso:";
             // 
-            // lblPen
+            // lblPendientes2
             // 
-            this.lblPen.AutoSize = true;
-            this.lblPen.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblPen.Location = new System.Drawing.Point(183, 28);
-            this.lblPen.Name = "lblPen";
-            this.lblPen.Size = new System.Drawing.Size(39, 28);
-            this.lblPen.TabIndex = 3;
+            this.lblPendientes2.AutoSize = true;
+            this.lblPendientes2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblPendientes2.Location = new System.Drawing.Point(183, 28);
+            this.lblPendientes2.Name = "lblPendientes2";
+            this.lblPendientes2.Size = new System.Drawing.Size(39, 28);
+            this.lblPendientes2.TabIndex = 3;
             // 
             // lblPendientes
             // 
@@ -292,14 +332,14 @@
             this.lblPendientes.TabIndex = 2;
             this.lblPendientes.Text = "Pendientes:";
             // 
-            // lblTtlR
+            // lblTotal2
             // 
-            this.lblTtlR.AutoSize = true;
-            this.lblTtlR.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTtlR.Location = new System.Drawing.Point(183, 0);
-            this.lblTtlR.Name = "lblTtlR";
-            this.lblTtlR.Size = new System.Drawing.Size(39, 28);
-            this.lblTtlR.TabIndex = 1;
+            this.lblTotal2.AutoSize = true;
+            this.lblTotal2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTotal2.Location = new System.Drawing.Point(183, 0);
+            this.lblTotal2.Name = "lblTotal2";
+            this.lblTotal2.Size = new System.Drawing.Size(39, 28);
+            this.lblTotal2.TabIndex = 1;
             // 
             // lblTotal
             // 
@@ -310,23 +350,6 @@
             this.lblTotal.Size = new System.Drawing.Size(174, 28);
             this.lblTotal.TabIndex = 0;
             this.lblTotal.Text = "Total Pedidos:";
-            // 
-            // lblBuscar
-            // 
-            this.lblBuscar.AutoSize = true;
-            this.lblBuscar.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBuscar.Location = new System.Drawing.Point(3, 129);
-            this.lblBuscar.Name = "lblBuscar";
-            this.lblBuscar.Size = new System.Drawing.Size(56, 20);
-            this.lblBuscar.TabIndex = 3;
-            this.lblBuscar.Text = "Buscar";
-            // 
-            // txtBuscar
-            // 
-            this.txtBuscar.Location = new System.Drawing.Point(65, 129);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(191, 20);
-            this.txtBuscar.TabIndex = 2;
             // 
             // lblControl
             // 
@@ -339,7 +362,7 @@
             this.lblControl.Name = "lblControl";
             this.lblControl.Size = new System.Drawing.Size(260, 36);
             this.lblControl.TabIndex = 0;
-            this.lblControl.Text = "Control / Resumen";
+            this.lblControl.Text = "Resumen";
             this.lblControl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblProduccion
@@ -357,36 +380,6 @@
             this.lblProduccion.TabIndex = 0;
             this.lblProduccion.Text = "Producción";
             // 
-            // flowPendientes
-            // 
-            this.flowPendientes.AutoScroll = true;
-            this.flowPendientes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowPendientes.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowPendientes.Location = new System.Drawing.Point(0, 36);
-            this.flowPendientes.Name = "flowPendientes";
-            this.flowPendientes.Size = new System.Drawing.Size(260, 405);
-            this.flowPendientes.TabIndex = 1;
-            // 
-            // flowProceso
-            // 
-            this.flowProceso.AutoScroll = true;
-            this.flowProceso.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowProceso.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowProceso.Location = new System.Drawing.Point(0, 36);
-            this.flowProceso.Name = "flowProceso";
-            this.flowProceso.Size = new System.Drawing.Size(260, 405);
-            this.flowProceso.TabIndex = 1;
-            // 
-            // flowTerminados
-            // 
-            this.flowTerminados.AutoScroll = true;
-            this.flowTerminados.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowTerminados.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowTerminados.Location = new System.Drawing.Point(0, 36);
-            this.flowTerminados.Name = "flowTerminados";
-            this.flowTerminados.Size = new System.Drawing.Size(260, 405);
-            this.flowTerminados.TabIndex = 1;
-            // 
             // Produccion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -395,8 +388,10 @@
             this.ClientSize = new System.Drawing.Size(1074, 538);
             this.Controls.Add(this.tblGeneral);
             this.Controls.Add(this.lblProduccion);
+            this.MaximizeBox = false;
             this.Name = "Produccion";
             this.Padding = new System.Windows.Forms.Padding(2);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Produccion";
             this.Resize += new System.EventHandler(this.Produccion_Resize);
             this.tblGeneral.ResumeLayout(false);
@@ -404,7 +399,6 @@
             this.panelProceso.ResumeLayout(false);
             this.panelTerminados.ResumeLayout(false);
             this.panelControl.ResumeLayout(false);
-            this.panelControl.PerformLayout();
             this.gbResumen.ResumeLayout(false);
             this.tblResumen.ResumeLayout(false);
             this.tblResumen.PerformLayout();
@@ -424,22 +418,21 @@
         private labelRedondeado lblTerminados;
         private panelRedondeado panelControl;
         private labelRedondeado lblControl;
-        private System.Windows.Forms.Label lblBuscar;
-        private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.GroupBox gbResumen;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.TableLayoutPanel tblResumen;
         private System.Windows.Forms.Label lblEnProceso;
-        private System.Windows.Forms.Label lblPen;
+        private System.Windows.Forms.Label lblPendientes2;
         private System.Windows.Forms.Label lblPendientes;
-        private System.Windows.Forms.Label lblTtlR;
-        private System.Windows.Forms.Label lblUrg;
+        private System.Windows.Forms.Label lblTotal2;
+        private System.Windows.Forms.Label lblUrgentes2;
         private System.Windows.Forms.Label lblUrgentes;
-        private System.Windows.Forms.Label lblTrm;
+        private System.Windows.Forms.Label lblTerminados2;
         private System.Windows.Forms.Label lblTerminadoss;
-        private System.Windows.Forms.Label lblPrc;
+        private System.Windows.Forms.Label lblEnProceso2;
         private System.Windows.Forms.FlowLayoutPanel flowPendientes;
         private System.Windows.Forms.FlowLayoutPanel flowProceso;
         private System.Windows.Forms.FlowLayoutPanel flowTerminados;
+        private System.Windows.Forms.Button button1;
     }
 }

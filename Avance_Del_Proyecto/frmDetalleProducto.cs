@@ -35,9 +35,9 @@ namespace Avance_Del_Proyecto
 
             string query;
             if (this.EsEdicion)
-            { query = "UPDATE productos SET nombre = @nombre, cantidad = @cantidad, codigo_barras = @codigo, precio = @precio WHERE ID_prod = @ID"; }
+            { query = "UPDATE inventario SET nombre = @nombre, cantidad = @cantidad, codigo_barras = @codigo, precio = @precio WHERE ID_prod = @id"; }
             else
-            { query = "INSERT INTO productos (nombre, cantidad, codigo_barras, precio) VALUES (@nombre, @cantidad, @codigo, @precio)"; }
+            { query = "INSERT INTO inventario (nombre, cantidad, codigo_barras, precio) VALUES (@nombre, @cantidad, @codigo, @precio)"; }
 
             try
             {
@@ -49,9 +49,9 @@ namespace Avance_Del_Proyecto
                         cmd.Parameters.AddWithValue("@nombre", txtNombre.TextValue);
                         cmd.Parameters.AddWithValue("@cantidad", cantidad);
                         cmd.Parameters.AddWithValue("@codigo", codigo);
-                        cmd.ExecuteNonQuery();
-
+                        cmd.Parameters.AddWithValue("@precio", precio);
                         if (EsEdicion) { cmd.Parameters.AddWithValue("@id", IdProducto); }
+                        cmd.ExecuteNonQuery();
 
                         MessageBox.Show("Producto guardado");
                     }

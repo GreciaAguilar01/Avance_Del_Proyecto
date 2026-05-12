@@ -16,7 +16,7 @@ namespace Avance_Del_Proyecto
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Produccion());
+            Application.Run(new Form1());
         }
     }
 }

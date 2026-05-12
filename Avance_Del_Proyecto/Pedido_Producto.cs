@@ -43,10 +43,11 @@ namespace Avance_Del_Proyecto
                 DataTable dt = new DataTable();
                 da.Fill(dt);
 
-                lboxNombresPacientesPedido.DataSource = dt;
                 lboxNombresPacientesPedido.DisplayMember = "nombre";
                 lboxNombresPacientesPedido.ValueMember = "id_paciente";
+                lboxNombresPacientesPedido.DataSource = dt;
                 lboxNombresPacientesPedido.SelectedIndex = -1;
+                idPacienteSeleccionado = -1;
             }
         }
 
@@ -73,6 +74,11 @@ namespace Avance_Del_Proyecto
             {
                 idPacienteSeleccionado = Convert.ToInt32(drv["id_paciente"]);
                 nombrePacienteSeleccionado = drv["nombre"].ToString(); // ← aquí, cambia nombre_completo por nombre
+            }
+            else
+            {
+                idPacienteSeleccionado = -1;
+                nombrePacienteSeleccionado = "";
             }
         }
 

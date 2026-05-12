@@ -41,7 +41,7 @@ namespace Avance_Del_Proyecto
         }
         private void EliminarProducto(int id)
         {
-            string query = "delete from productos where id_prod = @id";
+            string query = "delete from inventario where id_prod = @id";
             using (MySqlConnection conectar = new MySqlConnection(SQLConection))
             {
                 using (MySqlCommand cmd = new MySqlCommand(query, conectar)) 

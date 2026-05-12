@@ -37,7 +37,9 @@ namespace Avance_Del_Proyecto
         }
         private void BtnProducccion_Click(object sender, EventArgs e)
         {
-            
+            Produccion VentanaProduccion = new Produccion();
+            VentanaProduccion.Show();
+            this.Hide();
         }
 
         private void BtnPagosAbonos_Click(object sender, EventArgs e)

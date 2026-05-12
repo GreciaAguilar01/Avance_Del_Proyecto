@@ -22,15 +22,16 @@ namespace Avance_Del_Proyecto
         public Pagos_Abonos()
         {
             InitializeComponent();
+
         }
 
         // Constructor desde Pedido_Producto
         public Pagos_Abonos(int idPaciente, string nombrePaciente, DataTable orden)
         {
             InitializeComponent();
-            idPacienteActual = idPaciente;
-            nombrePacienteActual = nombrePaciente;
-            tablaOrdenRecibida = orden;
+            this.idPacienteActual = idPaciente;
+            this.nombrePacienteActual = nombrePaciente;
+            this.tablaOrdenRecibida = orden;
         }
 
         //  CARGA INICIAL
@@ -38,21 +39,24 @@ namespace Avance_Del_Proyecto
         {
             base.OnLoad(e);
 
-            // Suscribir eventos
-            lboxNombresPacientesPagosAbonos.SelectedIndexChanged += LboxPacientes_SelectedIndexChanged;
-            lboxPedidosPacientes.SelectedIndexChanged += LboxPedidos_SelectedIndexChanged;
-            btnRecibirPago.Click += BtnRecibirPago_Click;
-            btnRecibirAbono.Click += BtnRecibirAbono_Click;
-            btnCancelarOperacion.Click += BtnCancelarOperacion_Click;
+            // 1. Desconectamos el evento temporalmente para que no se dispare solo al llenar la lista
+            lboxNombresPacientesPagosAbonos.SelectedIndexChanged -= LboxPacientes_SelectedIndexChanged;
 
             CargarPacientes();
 
-            // Si se abrió desde Pedido_Producto, guardar pedido y preseleccionar paciente
+            // 2. Si venimos de un pedido (Constructor 2), procesamos esos datos
             if (idPacienteActual >= 0 && tablaOrdenRecibida != null)
             {
-                GuardarNuevoPedido();
-                PreseleccionarPaciente();
+                GuardarNuevoPedido(this.idPacienteActual); // Guardamos el pedido con el ID que TRAEMOS
+                PreseleccionarPaciente(); // Marcamos al paciente en la lista visualmente
+
+                // Refrescamos la etiqueta de nombre
+                lblNombrePaciente.Text = nombrePacienteActual;
+                CargarPedidosPaciente(idPacienteActual);
             }
+
+            // 3. Volvemos a conectar el evento para que el usuario pueda elegir a otros después
+            lboxNombresPacientesPagosAbonos.SelectedIndexChanged += LboxPacientes_SelectedIndexChanged;
         }
 
         //  CARGAR LISTA DE PACIENTES
@@ -88,7 +92,7 @@ namespace Avance_Del_Proyecto
         }
 
         //  GUARDAR NUEVO PEDIDO EN BD (viene de Pedido_Producto)
-        private void GuardarNuevoPedido()
+        private void GuardarNuevoPedido(int idParaGuardar)
         {
             decimal total = 0;
             foreach (DataRow r in tablaOrdenRecibida.Rows)
@@ -100,13 +104,22 @@ namespace Avance_Del_Proyecto
                 MySqlTransaction trans = con.BeginTransaction();
                 try
                 {
-                    string sqlPedido = @"INSERT INTO pedidos (Id_Paciente, fecha_pedido, tipo_pago, total, abonado, estado)
-                                         VALUES (@idp, @fecha_pedido, 'Pendiente', @total, 0, 'pendiente');
+                    // Preguntamos antes de guardar
+                    DialogResult respuesta = MessageBox.Show("¿Este pedido es URGENTE?", "Prioridad de Producción",
+                                             MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    string prioridadSeleccionada = (respuesta == DialogResult.Yes) ? "Urgente" : "Normal";
+
+                    // Ahora usamos esa variable en el parámetro del INSERT
+                    string sqlPedido = @"INSERT INTO pedidos (Id_Paciente, fecha_pedido, tipo_pago, total, abonado, estado, prioridad)
+                                         VALUES (@idp, @fecha_pedido, 'Pendiente', @total, 0, 'pendiente', @prio);
                                          SELECT LAST_INSERT_ID();";
                     MySqlCommand cmd = new MySqlCommand(sqlPedido, con, trans);
-                    cmd.Parameters.AddWithValue("@idp", idPacienteActual);
+                    //cmd.Parameters.AddWithValue("@idp", idPacienteActual);
                     cmd.Parameters.AddWithValue("@fecha_pedido", DateTime.Now);
                     cmd.Parameters.AddWithValue("@total", total);
+                    cmd.Parameters.AddWithValue("@prio", prioridadSeleccionada);
+                    cmd.Parameters.AddWithValue("@idp", idParaGuardar);
                     int idPedido = Convert.ToInt32(cmd.ExecuteScalar());
 
                     foreach (DataRow r in tablaOrdenRecibida.Rows)

@@ -12,9 +12,10 @@ using System.Windows.Forms;
 
 namespace Avance_Del_Proyecto
 {
-    string SQLConection = "server=localhost;database=Ortopedia;uid=root;pwd=4444;";
+    
     public partial class Produccion : Form
     {
+        string SQLConection = "server=localhost;database=Ortopedia;uid=root;pwd=4444;";
         public Produccion()
         {
             InitializeComponent();
@@ -29,11 +30,11 @@ namespace Avance_Del_Proyecto
         private void RefrescarTablero()
         {
             flowPendientes.Controls.Clear();
-            flowEnProceso.Controls.Clear();
+            flowProceso.Controls.Clear();
             flowTerminados.Controls.Clear();
 
             CargarColumna("Pendiente", flowPendientes);
-            CargarColumna("En proceso", flowEnProceso);
+            CargarColumna("En proceso", flowProceso);
             CargarColumna("Terminado", flowTerminados);
             ActualizarResumen();
         }
@@ -105,7 +106,7 @@ namespace Avance_Del_Proyecto
                             COUNT(*) AS total,
                             SUM(CASE WHEN estado_produccion = 'Pendiente' THEN 1 ELSE 0 END) AS pendientes,
                             SUM(CASE WHEN estado_produccion = 'En proceso' THEN 1 ELSE 0 END) AS en_proceso,
-                            SUM(CASE WHEN estado_produccion = 'Terminado' THEN 1 ELSE 0 END) AS terminados,
+                            SUM(CASE WHEN estado_produccion = 'Terminado'  THEN 1 ELSE 0 END) AS terminados,
                             SUM(CASE WHEN prioridad = 'Urgente' THEN 1 ELSE 0 END) AS urgentes
                          FROM pedidos";
 
@@ -116,14 +117,21 @@ namespace Avance_Del_Proyecto
                     {
                         // Asignamos los resultados a tus etiquetas (Labels)
                         // Asegúrate de que los nombres coincidan con los de tu diseño
-                        lblTotalPedidos.Text = dr["total"].ToString();
-                        lblPendientes.Text = dr["pendientes"].ToString();
-                        lblEnProceso.Text = dr["en_proceso"].ToString();
-                        lblTerminados.Text = dr["terminados"].ToString();
-                        lblUrgentes.Text = dr["urgentes"].ToString();
+                        lblTotal2.Text = dr["total"].ToString();
+                        lblPendientes2.Text = dr["pendientes"].ToString();
+                        lblEnProceso2.Text = dr["en_proceso"].ToString();
+                        lblTerminados2.Text = dr["terminados"].ToString();
+                        lblUrgentes2.Text = dr["urgentes"].ToString();
                     }
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Menu_Interfaz VentanaManu = new Menu_Interfaz();
+            VentanaManu.Show();
+            this.Hide();
         }
     }
 }

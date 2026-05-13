@@ -164,7 +164,7 @@ namespace Avance_Del_Proyecto
             ResetearTodo();
         }
 
-        // Helpers
+        //Detalles necesarios para la orden
         private void ActualizarOrden()
         {
             lboxOrdenPaciente.Items.Clear();

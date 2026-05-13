@@ -19,14 +19,11 @@ namespace Avance_Del_Proyecto
         private decimal totalPedido = 0;
         private decimal abonadoPedido = 0;
 
-        // Constructor normal (desde menú)
         public Pagos_Abonos()
         {
             InitializeComponent();
-
         }
 
-        // Constructor desde Pedido_Producto
         public Pagos_Abonos(int idPaciente, string nombrePaciente, DataTable orden)
         {
             InitializeComponent();
@@ -86,7 +83,7 @@ namespace Avance_Del_Proyecto
             }
         }
 
-        // Guarda el pedido que viene de Pedido_Producto)
+        // Guarda el pedido que viene de Pedido_Producto
         private void GuardarNuevoPedido(int idParaGuardar)
         {
             decimal total = 0;
@@ -100,17 +97,16 @@ namespace Avance_Del_Proyecto
                 try
                 {
                     // Preguntamos antes de guardar
+                    // Es para moverlo en la fila de producción
                     DialogResult respuesta = MessageBox.Show("¿Este pedido es URGENTE?", "Prioridad de Producción",
                                              MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                     string prioridadSeleccionada = (respuesta == DialogResult.Yes) ? "Urgente" : "Normal";
 
-                    // Ahora usamos esa variable en el parámetro del INSERT
                     string sqlPedido = @"INSERT INTO pedidos (Id_Paciente, fecha_pedido, tipo_pago, total, abonado, estado, prioridad)
                                          VALUES (@idp, @fecha_pedido, 'Pendiente', @total, 0, 'pendiente', @prio);
                                          SELECT LAST_INSERT_ID();";
                     MySqlCommand cmd = new MySqlCommand(sqlPedido, con, trans);
-                    //cmd.Parameters.AddWithValue("@idp", idPacienteActual);
                     cmd.Parameters.AddWithValue("@fecha_pedido", DateTime.Now);
                     cmd.Parameters.AddWithValue("@total", total);
                     cmd.Parameters.AddWithValue("@prio", prioridadSeleccionada);
@@ -202,7 +198,7 @@ namespace Avance_Del_Proyecto
                 foreach (DataRow r in dt.Rows)
                 {
                     string fecha = Convert.ToDateTime(r["fecha_pedido"]).ToString("dd/MM/yyyy");
-                    string estado = r["estado"].ToString() == "pagado" ? "✅ Pagado" : "⏳ Pendiente";
+                    string estado = r["estado"].ToString() == "pagado" ? ":D Pagado" : "... Pendiente ...";
                     decimal saldo = Convert.ToDecimal(r["saldo"]);
 
                     lboxPedidosPacientes.Items.Add(new PedidoItem
@@ -351,7 +347,7 @@ namespace Avance_Del_Proyecto
             }
         }
 
-        // generar .txt
+        // generar el .txt
         private void GenerarTicketTxt(PedidoItem item, string tipoOperacion, string tipoPago, decimal montoPagado, decimal saldo)
         {
             string carpeta = Path.Combine(
@@ -462,7 +458,7 @@ namespace Avance_Del_Proyecto
         }
     }
 
-    // Clase auxiliar para items del listbox de pedidos
+    // Para guardar los pedidos de forma más sencilla
     public class PedidoItem
     {
         public string Display { get; set; }

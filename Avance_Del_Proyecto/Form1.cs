@@ -13,7 +13,7 @@ namespace Avance_Del_Proyecto
 {
     public partial class Form1 : Form
     {
-        string SQLConection = "Server=localhost; Port=3306; Database=Ortopedia; Uid=root; Pwd=4444";
+        string SQLConection = "Server=localhost; Port=3306; Database=Ortopedia; Uid=root; Pwd=root";
         public Form1()
         {
             InitializeComponent();

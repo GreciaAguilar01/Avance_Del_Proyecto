@@ -15,7 +15,7 @@ namespace Avance_Del_Proyecto
     
     public partial class Produccion : Form
     {
-        string SQLConection = "server=localhost;database=Ortopedia;uid=root;pwd=4444;";
+        string SQLConection = "server=localhost;database=Ortopedia;uid=root;pwd=root;";
         public Produccion()
         {
             InitializeComponent();

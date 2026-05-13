@@ -42,7 +42,10 @@ namespace Avance_Del_Proyecto
             this.lboxNombresPacientesPagosAbonos = new System.Windows.Forms.ListBox();
             this.lblNombrePaciente = new Avance_Del_Proyecto.labelRedondeado();
             this.lblTitulo = new Avance_Del_Proyecto.labelRedondeado();
+            this.pbPacientePedido = new System.Windows.Forms.PictureBox();
+            this.labelRedondeado1 = new Avance_Del_Proyecto.labelRedondeado();
             this.panelRedondeado1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPacientePedido)).BeginInit();
             this.SuspendLayout();
             // 
             // lboxPedidosPacientes
@@ -50,9 +53,9 @@ namespace Avance_Del_Proyecto
             this.lboxPedidosPacientes.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lboxPedidosPacientes.FormattingEnabled = true;
             this.lboxPedidosPacientes.ItemHeight = 15;
-            this.lboxPedidosPacientes.Location = new System.Drawing.Point(239, 65);
+            this.lboxPedidosPacientes.Location = new System.Drawing.Point(239, 215);
             this.lboxPedidosPacientes.Name = "lboxPedidosPacientes";
-            this.lboxPedidosPacientes.Size = new System.Drawing.Size(541, 394);
+            this.lboxPedidosPacientes.Size = new System.Drawing.Size(541, 244);
             this.lboxPedidosPacientes.TabIndex = 11;
             this.lboxPedidosPacientes.SelectedIndexChanged += new System.EventHandler(this.LboxPedidos_SelectedIndexChanged);
             // 
@@ -219,10 +222,36 @@ namespace Avance_Del_Proyecto
             this.lblTitulo.TabIndex = 12;
             this.lblTitulo.Text = "Pagos y abonos";
             // 
+            // pbPacientePedido
+            // 
+            this.pbPacientePedido.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbPacientePedido.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pbPacientePedido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbPacientePedido.Location = new System.Drawing.Point(239, 66);
+            this.pbPacientePedido.Name = "pbPacientePedido";
+            this.pbPacientePedido.Size = new System.Drawing.Size(140, 100);
+            this.pbPacientePedido.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbPacientePedido.TabIndex = 13;
+            this.pbPacientePedido.TabStop = false;
+            // 
+            // labelRedondeado1
+            // 
+            this.labelRedondeado1.BorderRadius = 20;
+            this.labelRedondeado1.Location = new System.Drawing.Point(236, 169);
+            this.labelRedondeado1.Name = "labelRedondeado1";
+            this.labelRedondeado1.Size = new System.Drawing.Size(143, 20);
+            this.labelRedondeado1.TabIndex = 14;
+            this.labelRedondeado1.Text = "Foto del paciente";
+            this.labelRedondeado1.Click += new System.EventHandler(this.labelRedondeado1_Click);
+            // 
             // Pagos_Abonos
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(207)))), ((int)(((byte)(176)))));
             this.ClientSize = new System.Drawing.Size(784, 470);
+            this.Controls.Add(this.labelRedondeado1);
+            this.Controls.Add(this.pbPacientePedido);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.lboxPedidosPacientes);
             this.Controls.Add(this.panelRedondeado1);
@@ -232,6 +261,7 @@ namespace Avance_Del_Proyecto
             this.Text = "Pagos y abonos";
             this.panelRedondeado1.ResumeLayout(false);
             this.panelRedondeado1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPacientePedido)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -251,5 +281,7 @@ namespace Avance_Del_Proyecto
         private botonRedondeado btnRecibirPago;
         private botonRedondeado btnMenu;
         private labelRedondeado lblTitulo;
+        private System.Windows.Forms.PictureBox pbPacientePedido;
+        private labelRedondeado labelRedondeado1;
     }
 }

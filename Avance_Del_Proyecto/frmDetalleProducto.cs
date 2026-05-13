@@ -17,7 +17,7 @@ namespace Avance_Del_Proyecto
 
         public bool EsEdicion { get; set; } = false;
         public int IdProducto { get; set; }
-        string SQLConection = "Server=localhost; Port=3306; Database=Ortopedia; Uid=root; Pwd=4444";
+        string SQLConection = "Server=localhost; Port=3306; Database=Ortopedia; Uid=root; Pwd=root";
         public Productos ProductoNuevo = new Productos();
         public frmDetalleProducto()
         {

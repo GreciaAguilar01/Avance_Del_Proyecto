@@ -78,7 +78,6 @@ namespace Avance_Del_Proyecto
             this.panelRedondeado1.Name = "panelRedondeado1";
             this.panelRedondeado1.Size = new System.Drawing.Size(201, 391);
             this.panelRedondeado1.TabIndex = 11;
-            this.panelRedondeado1.Paint += new System.Windows.Forms.PaintEventHandler(this.panelRedondeado1_Paint);
             // 
             // btnMenu
             // 
@@ -105,7 +104,6 @@ namespace Avance_Del_Proyecto
             this.lblNombrePaciente.Size = new System.Drawing.Size(140, 30);
             this.lblNombrePaciente.TabIndex = 12;
             this.lblNombrePaciente.Text = "Nombre del paciente:";
-            this.lblNombrePaciente.Click += new System.EventHandler(this.lblNombrePaciente_Click_1);
             // 
             // lboxNombresPacientesPedido
             // 
@@ -151,7 +149,6 @@ namespace Avance_Del_Proyecto
             this.lblFecha.Size = new System.Drawing.Size(46, 29);
             this.lblFecha.TabIndex = 9;
             this.lblFecha.Text = "Fecha:";
-            this.lblFecha.Click += new System.EventHandler(this.lblFecha_Click);
             // 
             // dateTimePicker1
             // 
@@ -231,7 +228,6 @@ namespace Avance_Del_Proyecto
             this.lblListaDeProductos.Size = new System.Drawing.Size(541, 28);
             this.lblListaDeProductos.TabIndex = 11;
             this.lblListaDeProductos.Text = "Lista de productos";
-            this.lblListaDeProductos.Click += new System.EventHandler(this.lblListaDeProductos_Click);
             // 
             // lblOrdenProductos
             // 

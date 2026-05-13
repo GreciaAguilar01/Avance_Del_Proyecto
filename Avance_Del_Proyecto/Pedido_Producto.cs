@@ -7,7 +7,7 @@ namespace Avance_Del_Proyecto
 {
     public partial class Pedido_Producto : Form
     {
-        string SQLconection = "Server=localhost;Port=3306;Database=Ortopedia;Uid=root;Pwd=4444;";
+        string SQLconection = "Server=localhost;Port=3306;Database=Ortopedia;Uid=root;Pwd=root;";
 
         private DataTable tablaOrden = new DataTable();
         private int idPacienteSeleccionado = -1;
@@ -17,18 +17,13 @@ namespace Avance_Del_Proyecto
         {
             InitializeComponent();
         }
-
-        //  CARGA INICIAL
         private void Pedido_Producto_Load(object sender, EventArgs e)
         {
             tablaOrden.Columns.Add("id_prod", typeof(int));
             tablaOrden.Columns.Add("nombre_display", typeof(string));
             tablaOrden.Columns.Add("precio", typeof(decimal));
-
             CargarPacientes();
             CargarProductos();
-
-            // Suscribir selección de paciente
             lboxNombresPacientesPedido.SelectedIndexChanged += LboxNombresPacientesPedido_SelectedIndexChanged;
         }
 
@@ -67,13 +62,13 @@ namespace Avance_Del_Proyecto
             }
         }
 
-        //  SELECCIÓN DE PACIENTE
+        // Se elige el nombre del paciente
         private void LboxNombresPacientesPedido_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lboxNombresPacientesPedido.SelectedItem is DataRowView drv)
             {
                 idPacienteSeleccionado = Convert.ToInt32(drv["id_paciente"]);
-                nombrePacienteSeleccionado = drv["nombre"].ToString(); // ← aquí, cambia nombre_completo por nombre
+                nombrePacienteSeleccionado = drv["nombre"].ToString();
             }
             else
             {
@@ -82,7 +77,7 @@ namespace Avance_Del_Proyecto
             }
         }
 
-        //  AGREGAR producto a la orden
+        // Se agregan los productos desde el inventario
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             if (idPacienteSeleccionado < 0)
@@ -118,7 +113,7 @@ namespace Avance_Del_Proyecto
             ActualizarOrden();
         }
 
-        //  CANCELAR — quita el último producto agregado
+        // Cancelar el último pedido
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             if (tablaOrden.Rows.Count == 0)
@@ -132,7 +127,7 @@ namespace Avance_Del_Proyecto
             ActualizarOrden();
         }
 
-        //  CANCELAR ORDEN — resetea todo
+        // Cancelar la orden entera
         private void btnCancelarOrden_Click(object sender, EventArgs e)
         {
             var resp = MessageBox.Show("¿Cancelar toda la orden?", "Confirmar",
@@ -144,7 +139,7 @@ namespace Avance_Del_Proyecto
             }
         }
 
-        //  PAGAR — abre Pagos_Abonos con paciente preseleccionado
+        // Se abre la pestaña de Pagos y Abonos
         private void btnPagar_Click(object sender, EventArgs e)
         {
             if (idPacienteSeleccionado < 0)
@@ -169,7 +164,7 @@ namespace Avance_Del_Proyecto
             ResetearTodo();
         }
 
-        //  HELPERS
+        // Helpers
         private void ActualizarOrden()
         {
             lboxOrdenPaciente.Items.Clear();
@@ -196,16 +191,8 @@ namespace Avance_Del_Proyecto
             nombrePacienteSeleccionado = "";
             lboxNombresPacientesPedido.SelectedIndex = -1;
             lboxOrdenPaciente.Items.Clear();
-            lblNoDeOrden.Text = "XXXXXX";
+            lblNoDeOrden.Text = "En el ticket"; // No quiero quitarlo ya no me da el cerebro pa reoganizarlo
         }
-
-        // Eventos vacíos requeridos por el Designer
-        private void panelRedondeado1_Paint(object sender, System.Windows.Forms.PaintEventArgs e) { }
-        private void lblFecha_Click(object sender, EventArgs e) { }
-        private void lblNombrePaciente_Click(object sender, EventArgs e) { }
-        private void lblNombrePaciente_Click_1(object sender, EventArgs e) { }
-        private void lblListaDeProductos_Click(object sender, EventArgs e) { }
-
         private void btnMenu_Click(object sender, EventArgs e)
         {
             Menu_Interfaz VentanaManu = new Menu_Interfaz();

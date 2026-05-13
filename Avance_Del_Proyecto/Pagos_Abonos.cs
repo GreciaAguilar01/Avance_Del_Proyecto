@@ -4,16 +4,17 @@ using System.IO;
 using Microsoft.VisualBasic;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Drawing;
 
 namespace Avance_Del_Proyecto
 {
     public partial class Pagos_Abonos : Form
     {
-        string SQLConection = "Server=localhost;Port=3306;Database=Ortopedia; Uid=root;Pwd=4444;";
+        string SQLConection = "Server=localhost;Port=3306;Database=Ortopedia; Uid=root;Pwd=root;";
 
         private int idPacienteActual = -1;
         private string nombrePacienteActual = "";
-        private DataTable tablaOrdenRecibida;   // orden que viene de Pedido_Producto
+        private DataTable tablaOrdenRecibida;   // Orden que viene de Pedido_Producto
         private int idPedidoSeleccionado = -1;
         private decimal totalPedido = 0;
         private decimal abonadoPedido = 0;
@@ -34,32 +35,26 @@ namespace Avance_Del_Proyecto
             this.tablaOrdenRecibida = orden;
         }
 
-        //  CARGA INICIAL
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
 
-            // 1. Desconectamos el evento temporalmente para que no se dispare solo al llenar la lista
             lboxNombresPacientesPagosAbonos.SelectedIndexChanged -= LboxPacientes_SelectedIndexChanged;
 
             CargarPacientes();
 
-            // 2. Si venimos de un pedido (Constructor 2), procesamos esos datos
             if (idPacienteActual >= 0 && tablaOrdenRecibida != null)
             {
-                GuardarNuevoPedido(this.idPacienteActual); // Guardamos el pedido con el ID que TRAEMOS
-                PreseleccionarPaciente(); // Marcamos al paciente en la lista visualmente
-
-                // Refrescamos la etiqueta de nombre
+                GuardarNuevoPedido(this.idPacienteActual);
+                PreseleccionarPaciente();
                 lblNombrePaciente.Text = nombrePacienteActual;
                 CargarPedidosPaciente(idPacienteActual);
             }
 
-            // 3. Volvemos a conectar el evento para que el usuario pueda elegir a otros después
             lboxNombresPacientesPagosAbonos.SelectedIndexChanged += LboxPacientes_SelectedIndexChanged;
         }
 
-        //  CARGAR LISTA DE PACIENTES
+        // Se carga la lista de los pacientes
         private void CargarPacientes()
         {
             using (MySqlConnection con = new MySqlConnection(SQLConection))
@@ -91,7 +86,7 @@ namespace Avance_Del_Proyecto
             }
         }
 
-        //  GUARDAR NUEVO PEDIDO EN BD (viene de Pedido_Producto)
+        // Guarda el pedido que viene de Pedido_Producto)
         private void GuardarNuevoPedido(int idParaGuardar)
         {
             decimal total = 0;
@@ -152,7 +147,7 @@ namespace Avance_Del_Proyecto
             }
         }
 
-        //  AL SELECCIONAR PACIENTE → cargar sus pedidos
+        // Se cargan los pedidos del paciente al seleccionar al paciente
         private void LboxPacientes_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lboxNombresPacientesPagosAbonos.SelectedItem == null) return;
@@ -164,6 +159,25 @@ namespace Avance_Del_Proyecto
 
             idPedidoSeleccionado = -1;
             CargarPedidosPaciente(idPacienteActual);
+
+            using (MySqlConnection con = new MySqlConnection(SQLConection))
+            {
+                con.Open();
+                string q = "SELECT foto_paciente FROM pacientes WHERE Id_Paciente = @id";
+                using (MySqlCommand cmd = new MySqlCommand(q, con))
+                {
+                    cmd.Parameters.AddWithValue("@id", idPacienteActual);
+                    string ruta = cmd.ExecuteScalar()?.ToString();
+
+                    if (!string.IsNullOrEmpty(ruta) && File.Exists(ruta))
+                    {
+                        using (var stream = new FileStream(ruta, FileMode.Open, FileAccess.Read))
+                            pbPacientePedido.Image = Image.FromStream(stream);
+                    }
+                    else
+                        pbPacientePedido.Image = null;
+                }
+            }
         }
 
         private void CargarPedidosPaciente(int idPaciente)
@@ -204,7 +218,7 @@ namespace Avance_Del_Proyecto
             }
         }
 
-        //  AL SELECCIONAR UN PEDIDO
+        // Al seleccionar un pedido, el programa lo mantiene con el pedido que debe de pagarse o abonarse para no hacer pagos o abonos a otros pedidos
         private void LboxPedidos_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lboxPedidosPacientes.SelectedItem is PedidoItem item)
@@ -215,7 +229,7 @@ namespace Avance_Del_Proyecto
             }
         }
 
-        //  RECIBIR PAGO COMPLETO
+        // Se recibe el pago, si está completo, se salda la deuda, si es menos, se pregunta si quieres abonar
         private void BtnRecibirPago_Click(object sender, EventArgs e)
         {
             if (!ValidarSeleccion()) return;
@@ -260,7 +274,7 @@ namespace Avance_Del_Proyecto
             RefrescarPedidos();
         }
 
-        //  RECIBIR ABONO
+        // Se recibe el abono, se resta X cantidad de dinero de la deuda O te avisa si ya está pagado el pedido
         private void BtnRecibirAbono_Click(object sender, EventArgs e)
         {
             if (!ValidarSeleccion()) return;
@@ -305,8 +319,8 @@ namespace Avance_Del_Proyecto
             RefrescarPedidos();
         }
 
-        //  Cancelar/reiniciar la ventana
-        //funciona para volver a elegir al paciene
+        // Cancelar/reiniciar la ventana
+        // Funciona para volver a elegir al paciene
         private void BtnCancelarOperacion_Click(object sender, EventArgs e)
         {
             idPacienteActual = -1;
@@ -321,7 +335,7 @@ namespace Avance_Del_Proyecto
             lblNombrePaciente.Text = "Nombre del paciente:";
         }
 
-        //  actualizar en la base de datos Dios mio no muevan NADA POR FAVOR
+        // Actualizar en la base de datos Dios mio no muevan NADA POR FAVOR
         private void ActualizarPedidoBD(int idPedido, decimal nuevoAbonado, string estado, string tipoPago)
         {
             using (MySqlConnection con = new MySqlConnection(SQLConection))
@@ -337,7 +351,7 @@ namespace Avance_Del_Proyecto
             }
         }
 
-        //  generar .txt
+        // generar .txt
         private void GenerarTicketTxt(PedidoItem item, string tipoOperacion, string tipoPago, decimal montoPagado, decimal saldo)
         {
             string carpeta = Path.Combine(
@@ -362,6 +376,7 @@ namespace Avance_Del_Proyecto
                 da.Fill(productos);
             }
 
+            // El ticket se genera de esta forma, de preferencia no tocar nada... Por ahora al menos
             using (StreamWriter sw = new StreamWriter(archivo, false, System.Text.Encoding.UTF8))
             {
                 sw.WriteLine("========================================");
@@ -398,7 +413,7 @@ namespace Avance_Del_Proyecto
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        //  HELPERS
+        // Algunas cosas necesarias
         private bool ValidarSeleccion()
         {
             if (idPacienteActual < 0)
@@ -439,6 +454,11 @@ namespace Avance_Del_Proyecto
             Menu_Interfaz VentanaManu = new Menu_Interfaz();
             VentanaManu.Show();
             this.Hide();
+        }
+
+        private void labelRedondeado1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

@@ -22,7 +22,7 @@ namespace Avance_Del_Proyecto
         }
         DataTable tablaDatos;
 
-        string SQLConection = "Server=localhost; Port=3306; Database=Ortopedia; Uid=root; Pwd=4444";
+        string SQLConection = "Server=localhost; Port=3306; Database=Ortopedia; Uid=root; Pwd=root";
         public void ActualizaGrid()
         {
             using (MySqlConnection conectar = new MySqlConnection(SQLConection)) 

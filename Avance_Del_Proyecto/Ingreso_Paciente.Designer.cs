@@ -49,6 +49,13 @@
             this.label9 = new System.Windows.Forms.Label();
             this.TxbNombreP = new Avance_Del_Proyecto.textboxRedondeado();
             this.label8 = new System.Windows.Forms.Label();
+            this.panelRedondeado3 = new Avance_Del_Proyecto.panelRedondeado();
+            this.labelRedondeado2 = new Avance_Del_Proyecto.labelRedondeado();
+            this.btnFotoFamiliar = new Avance_Del_Proyecto.botonRedondeado();
+            this.btnFotoPaciente = new Avance_Del_Proyecto.botonRedondeado();
+            this.pbVistaPrevia = new System.Windows.Forms.PictureBox();
+            this.pbFamiliar = new System.Windows.Forms.PictureBox();
+            this.pbPaciente = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -62,6 +69,10 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.panelRedondeado5.SuspendLayout();
             this.panelRedondeado2.SuspendLayout();
+            this.panelRedondeado3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbVistaPrevia)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFamiliar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPaciente)).BeginInit();
             this.panelRedondeado1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,9 +83,10 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.panelRedondeado5, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.panelRedondeado2, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panelRedondeado3, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 81);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 53.46939F));
@@ -91,7 +103,7 @@
             this.panelRedondeado5.Controls.Add(this.BtnBorrarInf);
             this.panelRedondeado5.Controls.Add(this.BtnGuardarInf);
             this.panelRedondeado5.Location = new System.Drawing.Point(402, 226);
-            this.panelRedondeado5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelRedondeado5.Margin = new System.Windows.Forms.Padding(2);
             this.panelRedondeado5.Name = "panelRedondeado5";
             this.panelRedondeado5.Size = new System.Drawing.Size(389, 180);
             this.panelRedondeado5.TabIndex = 5;
@@ -101,7 +113,7 @@
             this.BtnRetornarMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(236)))), ((int)(((byte)(157)))));
             this.BtnRetornarMenu.BorderRadius = 20;
             this.BtnRetornarMenu.Location = new System.Drawing.Point(20, 119);
-            this.BtnRetornarMenu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BtnRetornarMenu.Margin = new System.Windows.Forms.Padding(2);
             this.BtnRetornarMenu.Name = "BtnRetornarMenu";
             this.BtnRetornarMenu.Size = new System.Drawing.Size(348, 47);
             this.BtnRetornarMenu.TabIndex = 2;
@@ -114,7 +126,7 @@
             this.BtnBorrarInf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(105)))), ((int)(((byte)(78)))));
             this.BtnBorrarInf.BorderRadius = 20;
             this.BtnBorrarInf.Location = new System.Drawing.Point(20, 67);
-            this.BtnBorrarInf.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BtnBorrarInf.Margin = new System.Windows.Forms.Padding(2);
             this.BtnBorrarInf.Name = "BtnBorrarInf";
             this.BtnBorrarInf.Size = new System.Drawing.Size(348, 47);
             this.BtnBorrarInf.TabIndex = 1;
@@ -127,7 +139,7 @@
             this.BtnGuardarInf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(190)))), ((int)(((byte)(137)))));
             this.BtnGuardarInf.BorderRadius = 20;
             this.BtnGuardarInf.Location = new System.Drawing.Point(20, 13);
-            this.BtnGuardarInf.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BtnGuardarInf.Margin = new System.Windows.Forms.Padding(2);
             this.BtnGuardarInf.Name = "BtnGuardarInf";
             this.BtnGuardarInf.Size = new System.Drawing.Size(348, 47);
             this.BtnGuardarInf.TabIndex = 0;
@@ -156,7 +168,7 @@
             this.panelRedondeado2.Controls.Add(this.TxbNombreP);
             this.panelRedondeado2.Controls.Add(this.label8);
             this.panelRedondeado2.Location = new System.Drawing.Point(13, 2);
-            this.panelRedondeado2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelRedondeado2.Margin = new System.Windows.Forms.Padding(2);
             this.panelRedondeado2.Name = "panelRedondeado2";
             this.tableLayoutPanel1.SetRowSpan(this.panelRedondeado2, 2);
             this.panelRedondeado2.Size = new System.Drawing.Size(374, 415);
@@ -179,7 +191,7 @@
             this.TxbCorreoF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(207)))), ((int)(((byte)(176)))));
             this.TxbCorreoF.BorderRadius = 20;
             this.TxbCorreoF.Location = new System.Drawing.Point(19, 379);
-            this.TxbCorreoF.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxbCorreoF.Margin = new System.Windows.Forms.Padding(2);
             this.TxbCorreoF.Name = "TxbCorreoF";
             this.TxbCorreoF.Padding = new System.Windows.Forms.Padding(8, 6, 8, 6);
             this.TxbCorreoF.Size = new System.Drawing.Size(339, 30);
@@ -203,7 +215,7 @@
             this.TxbNumF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(207)))), ((int)(((byte)(176)))));
             this.TxbNumF.BorderRadius = 20;
             this.TxbNumF.Location = new System.Drawing.Point(19, 322);
-            this.TxbNumF.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxbNumF.Margin = new System.Windows.Forms.Padding(2);
             this.TxbNumF.Name = "TxbNumF";
             this.TxbNumF.Padding = new System.Windows.Forms.Padding(8, 6, 8, 6);
             this.TxbNumF.Size = new System.Drawing.Size(339, 30);
@@ -226,7 +238,7 @@
             this.TxbNombreF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(207)))), ((int)(((byte)(176)))));
             this.TxbNombreF.BorderRadius = 20;
             this.TxbNombreF.Location = new System.Drawing.Point(19, 264);
-            this.TxbNombreF.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxbNombreF.Margin = new System.Windows.Forms.Padding(2);
             this.TxbNombreF.Name = "TxbNombreF";
             this.TxbNombreF.Padding = new System.Windows.Forms.Padding(8, 6, 8, 6);
             this.TxbNombreF.Size = new System.Drawing.Size(339, 30);
@@ -250,7 +262,7 @@
             this.TxbCorreoP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(207)))), ((int)(((byte)(176)))));
             this.TxbCorreoP.BorderRadius = 20;
             this.TxbCorreoP.Location = new System.Drawing.Point(19, 206);
-            this.TxbCorreoP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxbCorreoP.Margin = new System.Windows.Forms.Padding(2);
             this.TxbCorreoP.Name = "TxbCorreoP";
             this.TxbCorreoP.Padding = new System.Windows.Forms.Padding(8, 6, 8, 6);
             this.TxbCorreoP.Size = new System.Drawing.Size(339, 30);
@@ -274,7 +286,7 @@
             this.TxbNumP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(207)))), ((int)(((byte)(176)))));
             this.TxbNumP.BorderRadius = 20;
             this.TxbNumP.Location = new System.Drawing.Point(19, 149);
-            this.TxbNumP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxbNumP.Margin = new System.Windows.Forms.Padding(2);
             this.TxbNumP.Name = "TxbNumP";
             this.TxbNumP.Padding = new System.Windows.Forms.Padding(8, 6, 8, 6);
             this.TxbNumP.Size = new System.Drawing.Size(339, 30);
@@ -298,7 +310,7 @@
             this.TxbFechaNac.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(207)))), ((int)(((byte)(176)))));
             this.TxbFechaNac.BorderRadius = 20;
             this.TxbFechaNac.Location = new System.Drawing.Point(19, 91);
-            this.TxbFechaNac.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxbFechaNac.Margin = new System.Windows.Forms.Padding(2);
             this.TxbFechaNac.Name = "TxbFechaNac";
             this.TxbFechaNac.Padding = new System.Windows.Forms.Padding(8, 6, 8, 6);
             this.TxbFechaNac.Size = new System.Drawing.Size(339, 30);
@@ -322,7 +334,7 @@
             this.TxbNombreP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(207)))), ((int)(((byte)(176)))));
             this.TxbNombreP.BorderRadius = 20;
             this.TxbNombreP.Location = new System.Drawing.Point(19, 33);
-            this.TxbNombreP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxbNombreP.Margin = new System.Windows.Forms.Padding(2);
             this.TxbNombreP.Name = "TxbNombreP";
             this.TxbNombreP.Padding = new System.Windows.Forms.Padding(8, 6, 8, 6);
             this.TxbNombreP.Size = new System.Drawing.Size(336, 31);
@@ -340,6 +352,99 @@
             this.label8.Size = new System.Drawing.Size(192, 26);
             this.label8.TabIndex = 0;
             this.label8.Text = "Nombre del Paciente";
+            // 
+            // panelRedondeado3
+            // 
+            this.panelRedondeado3.BorderRadius = 20;
+            this.panelRedondeado3.Controls.Add(this.pbVistaPrevia);
+            this.panelRedondeado3.Controls.Add(this.pbFamiliar);
+            this.panelRedondeado3.Controls.Add(this.pbPaciente);
+            this.panelRedondeado3.Controls.Add(this.labelRedondeado2);
+            this.panelRedondeado3.Controls.Add(this.btnFotoFamiliar);
+            this.panelRedondeado3.Controls.Add(this.btnFotoPaciente);
+            this.panelRedondeado3.Location = new System.Drawing.Point(403, 3);
+            this.panelRedondeado3.Name = "panelRedondeado3";
+            this.panelRedondeado3.Size = new System.Drawing.Size(395, 218);
+            this.panelRedondeado3.TabIndex = 6;
+            // 
+            // labelRedondeado2
+            // 
+            this.labelRedondeado2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(103)))), ((int)(((byte)(90)))));
+            this.labelRedondeado2.BorderRadius = 20;
+            this.labelRedondeado2.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRedondeado2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(207)))), ((int)(((byte)(176)))));
+            this.labelRedondeado2.Location = new System.Drawing.Point(283, 114);
+            this.labelRedondeado2.Name = "labelRedondeado2";
+            this.labelRedondeado2.Size = new System.Drawing.Size(103, 35);
+            this.labelRedondeado2.TabIndex = 5;
+            this.labelRedondeado2.Text = "Vista Previa, sonría\r\npor favor :)";
+            // 
+            // btnFotoFamiliar
+            // 
+            this.btnFotoFamiliar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(190)))), ((int)(((byte)(137)))));
+            this.btnFotoFamiliar.BorderRadius = 20;
+            this.btnFotoFamiliar.Location = new System.Drawing.Point(148, 114);
+            this.btnFotoFamiliar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnFotoFamiliar.Name = "btnFotoFamiliar";
+            this.btnFotoFamiliar.Size = new System.Drawing.Size(100, 47);
+            this.btnFotoFamiliar.TabIndex = 4;
+            this.btnFotoFamiliar.Text = "Tomar foto al familiar";
+            this.btnFotoFamiliar.UseVisualStyleBackColor = false;
+            // 
+            // btnFotoPaciente
+            // 
+            this.btnFotoPaciente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(190)))), ((int)(((byte)(137)))));
+            this.btnFotoPaciente.BorderRadius = 20;
+            this.btnFotoPaciente.Location = new System.Drawing.Point(10, 114);
+            this.btnFotoPaciente.Margin = new System.Windows.Forms.Padding(2);
+            this.btnFotoPaciente.Name = "btnFotoPaciente";
+            this.btnFotoPaciente.Size = new System.Drawing.Size(100, 47);
+            this.btnFotoPaciente.TabIndex = 3;
+            this.btnFotoPaciente.Text = "Tomar foto al paciente";
+            this.btnFotoPaciente.UseVisualStyleBackColor = false;
+            // 
+            // pbVistaPrevia
+            // 
+            this.pbVistaPrevia.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbVistaPrevia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pbVistaPrevia.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbVistaPrevia.Location = new System.Drawing.Point(272, 7);
+            this.pbVistaPrevia.Name = "pbVistaPrevia";
+            this.pbVistaPrevia.Size = new System.Drawing.Size(120, 100);
+            this.pbVistaPrevia.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbVistaPrevia.TabIndex = 2;
+            this.pbVistaPrevia.TabStop = false;
+            // 
+            // pbFamiliar
+            // 
+            this.pbFamiliar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbFamiliar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pbFamiliar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbFamiliar.Location = new System.Drawing.Point(138, 7);
+            this.pbFamiliar.Name = "pbFamiliar";
+            this.pbFamiliar.Size = new System.Drawing.Size(120, 100);
+            this.pbFamiliar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbFamiliar.TabIndex = 1;
+            this.pbFamiliar.TabStop = false;
+            this.pbFamiliar.Click += new System.EventHandler(this.pbFamiliar_Click);
+            // 
+            // pbPaciente
+            // 
+            this.pbPaciente.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbPaciente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pbPaciente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbPaciente.Location = new System.Drawing.Point(0, 7);
+            this.pbPaciente.Name = "pbPaciente";
+            this.pbPaciente.Size = new System.Drawing.Size(120, 100);
+            this.pbPaciente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbPaciente.TabIndex = 0;
+            this.pbPaciente.TabStop = false;
             // 
             // label7
             // 
@@ -418,7 +523,7 @@
             this.panelRedondeado1.Controls.Add(this.LabelTitulo);
             this.panelRedondeado1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelRedondeado1.Location = new System.Drawing.Point(0, 0);
-            this.panelRedondeado1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelRedondeado1.Margin = new System.Windows.Forms.Padding(2);
             this.panelRedondeado1.Name = "panelRedondeado1";
             this.panelRedondeado1.Size = new System.Drawing.Size(801, 81);
             this.panelRedondeado1.TabIndex = 0;
@@ -461,6 +566,10 @@
             this.panelRedondeado5.ResumeLayout(false);
             this.panelRedondeado2.ResumeLayout(false);
             this.panelRedondeado2.PerformLayout();
+            this.panelRedondeado3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbVistaPrevia)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFamiliar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPaciente)).EndInit();
             this.panelRedondeado1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -498,5 +607,12 @@
         private botonRedondeado BtnRetornarMenu;
         private botonRedondeado BtnBorrarInf;
         private labelRedondeado LabelTitulo;
+        private panelRedondeado panelRedondeado3;
+        private labelRedondeado labelRedondeado2;
+        private botonRedondeado btnFotoFamiliar;
+        private botonRedondeado btnFotoPaciente;
+        private System.Windows.Forms.PictureBox pbVistaPrevia;
+        private System.Windows.Forms.PictureBox pbFamiliar;
+        private System.Windows.Forms.PictureBox pbPaciente;
     }
 }

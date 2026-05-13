@@ -17,7 +17,7 @@ namespace Avance_Del_Proyecto
         {
             InitializeComponent();
         }
-        string conexionString = "server=localhost;port=3306;database=Ortopedia;uid=root;pwd=4444;";
+        string conexionString = "server=localhost;port=3306;database=Ortopedia;uid=root;pwd=root;";
 
         private void BtnRetornarMenu_Click(object sender, EventArgs e)
         {

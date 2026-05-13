@@ -275,6 +275,7 @@ namespace Avance_Del_Proyecto
             this.Controls.Add(this.panelRedondeado1);
             this.Controls.Add(this.lblListaDeProductos);
             this.Controls.Add(this.lboxProductos);
+            this.MinimizeBox = false;
             this.Name = "Pedido_Producto";
             this.Text = "Pedido de Producto";
             this.Load += new System.EventHandler(this.Pedido_Producto_Load);

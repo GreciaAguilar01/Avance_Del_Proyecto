@@ -256,6 +256,7 @@ namespace Avance_Del_Proyecto
             this.Controls.Add(this.lboxPedidosPacientes);
             this.Controls.Add(this.panelRedondeado1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimizeBox = false;
             this.Name = "Pagos_Abonos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pagos y abonos";

@@ -50,12 +50,12 @@
             this.TxbNombreP = new Avance_Del_Proyecto.textboxRedondeado();
             this.label8 = new System.Windows.Forms.Label();
             this.panelRedondeado3 = new Avance_Del_Proyecto.panelRedondeado();
-            this.labelRedondeado2 = new Avance_Del_Proyecto.labelRedondeado();
-            this.btnFotoFamiliar = new Avance_Del_Proyecto.botonRedondeado();
-            this.btnFotoPaciente = new Avance_Del_Proyecto.botonRedondeado();
             this.pbVistaPrevia = new System.Windows.Forms.PictureBox();
             this.pbFamiliar = new System.Windows.Forms.PictureBox();
             this.pbPaciente = new System.Windows.Forms.PictureBox();
+            this.labelRedondeado2 = new Avance_Del_Proyecto.labelRedondeado();
+            this.btnFotoFamiliar = new Avance_Del_Proyecto.botonRedondeado();
+            this.btnFotoPaciente = new Avance_Del_Proyecto.botonRedondeado();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -367,42 +367,6 @@
             this.panelRedondeado3.Size = new System.Drawing.Size(395, 218);
             this.panelRedondeado3.TabIndex = 6;
             // 
-            // labelRedondeado2
-            // 
-            this.labelRedondeado2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(103)))), ((int)(((byte)(90)))));
-            this.labelRedondeado2.BorderRadius = 20;
-            this.labelRedondeado2.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRedondeado2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(207)))), ((int)(((byte)(176)))));
-            this.labelRedondeado2.Location = new System.Drawing.Point(283, 114);
-            this.labelRedondeado2.Name = "labelRedondeado2";
-            this.labelRedondeado2.Size = new System.Drawing.Size(103, 35);
-            this.labelRedondeado2.TabIndex = 5;
-            this.labelRedondeado2.Text = "Vista Previa, sonría\r\npor favor :)";
-            // 
-            // btnFotoFamiliar
-            // 
-            this.btnFotoFamiliar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(190)))), ((int)(((byte)(137)))));
-            this.btnFotoFamiliar.BorderRadius = 20;
-            this.btnFotoFamiliar.Location = new System.Drawing.Point(148, 114);
-            this.btnFotoFamiliar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnFotoFamiliar.Name = "btnFotoFamiliar";
-            this.btnFotoFamiliar.Size = new System.Drawing.Size(100, 47);
-            this.btnFotoFamiliar.TabIndex = 4;
-            this.btnFotoFamiliar.Text = "Tomar foto al familiar";
-            this.btnFotoFamiliar.UseVisualStyleBackColor = false;
-            // 
-            // btnFotoPaciente
-            // 
-            this.btnFotoPaciente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(190)))), ((int)(((byte)(137)))));
-            this.btnFotoPaciente.BorderRadius = 20;
-            this.btnFotoPaciente.Location = new System.Drawing.Point(10, 114);
-            this.btnFotoPaciente.Margin = new System.Windows.Forms.Padding(2);
-            this.btnFotoPaciente.Name = "btnFotoPaciente";
-            this.btnFotoPaciente.Size = new System.Drawing.Size(100, 47);
-            this.btnFotoPaciente.TabIndex = 3;
-            this.btnFotoPaciente.Text = "Tomar foto al paciente";
-            this.btnFotoPaciente.UseVisualStyleBackColor = false;
-            // 
             // pbVistaPrevia
             // 
             this.pbVistaPrevia.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -445,6 +409,42 @@
             this.pbPaciente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbPaciente.TabIndex = 0;
             this.pbPaciente.TabStop = false;
+            // 
+            // labelRedondeado2
+            // 
+            this.labelRedondeado2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(103)))), ((int)(((byte)(90)))));
+            this.labelRedondeado2.BorderRadius = 20;
+            this.labelRedondeado2.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRedondeado2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(207)))), ((int)(((byte)(176)))));
+            this.labelRedondeado2.Location = new System.Drawing.Point(283, 114);
+            this.labelRedondeado2.Name = "labelRedondeado2";
+            this.labelRedondeado2.Size = new System.Drawing.Size(103, 35);
+            this.labelRedondeado2.TabIndex = 5;
+            this.labelRedondeado2.Text = "Vista Previa, sonría\r\npor favor :)";
+            // 
+            // btnFotoFamiliar
+            // 
+            this.btnFotoFamiliar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(190)))), ((int)(((byte)(137)))));
+            this.btnFotoFamiliar.BorderRadius = 20;
+            this.btnFotoFamiliar.Location = new System.Drawing.Point(148, 114);
+            this.btnFotoFamiliar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnFotoFamiliar.Name = "btnFotoFamiliar";
+            this.btnFotoFamiliar.Size = new System.Drawing.Size(100, 47);
+            this.btnFotoFamiliar.TabIndex = 4;
+            this.btnFotoFamiliar.Text = "Tomar foto al familiar";
+            this.btnFotoFamiliar.UseVisualStyleBackColor = false;
+            // 
+            // btnFotoPaciente
+            // 
+            this.btnFotoPaciente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(190)))), ((int)(((byte)(137)))));
+            this.btnFotoPaciente.BorderRadius = 20;
+            this.btnFotoPaciente.Location = new System.Drawing.Point(10, 114);
+            this.btnFotoPaciente.Margin = new System.Windows.Forms.Padding(2);
+            this.btnFotoPaciente.Name = "btnFotoPaciente";
+            this.btnFotoPaciente.Size = new System.Drawing.Size(100, 47);
+            this.btnFotoPaciente.TabIndex = 3;
+            this.btnFotoPaciente.Text = "Tomar foto al paciente";
+            this.btnFotoPaciente.UseVisualStyleBackColor = false;
             // 
             // label7
             // 
@@ -560,6 +560,7 @@
             this.ClientSize = new System.Drawing.Size(801, 500);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.panelRedondeado1);
+            this.MinimizeBox = false;
             this.Name = "Ingreso_Paciente";
             this.Text = "Ingreso_Paciente";
             this.tableLayoutPanel1.ResumeLayout(false);

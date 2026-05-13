@@ -435,6 +435,7 @@
             this.ClientSize = new System.Drawing.Size(800, 508);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.panelRedondeado1);
+            this.MinimizeBox = false;
             this.Name = "Editar_InfPaciente";
             this.Text = "Editar_InfPaciente";
             this.panelRedondeado1.ResumeLayout(false);
